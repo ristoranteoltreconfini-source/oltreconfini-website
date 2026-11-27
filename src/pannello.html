@@ -1,0 +1,1067 @@
+<!DOCTYPE html><html lang="it"><head><meta charset="utf-8"><base target="_top">
+<style>.sfn{position:absolute;inset:0;background:radial-gradient(120% 80% at 50% 0%,rgba(201,174,124,.35),transparent 60%),#0b121c;box-shadow:inset 0 0 0 4px #0b121c,inset 0 0 0 5px #c9ae7c}.mo-prev{background:#0b121c;color:#f3ead3;border-radius:10px;padding:14px;text-align:center;font:16px/1.35 Georgia,serif;margin:6px 0 10px}.mo-prev b{display:block;color:#c9ae7c;font:600 11px sans-serif;letter-spacing:.25em;text-transform:uppercase;margin:12px 0 4px}.mo-prev b:first-child{margin-top:0}.sf{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.sfo{position:relative;display:block;aspect-ratio:4/3;border:2px solid transparent;border-radius:10px;overflow:hidden;padding:0;background:#e9e2d6;cursor:pointer;font:inherit}.sfo img{width:100%;height:100%;object-fit:cover;display:block}.sfo span{position:absolute;left:0;right:0;bottom:0;padding:4px 6px;background:rgba(0,0,0,.55);color:#fff;font-size:12px;line-height:1.25;text-align:left}.sfo.on{border-color:#b08d4c;box-shadow:0 0 0 2px #b08d4c}.sfu{display:grid;place-items:center}.sfu span{position:static;background:none;color:inherit;text-align:center;font-size:13px}.sfu img+span{position:absolute;background:rgba(0,0,0,.55);color:#fff}
+input[type=time]{font:inherit;font-size:16px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;min-height:44px;box-sizing:border-box;min-width:0;flex:1}
+input[type=email],input[type=url]{width:100%;font:inherit;font-size:16px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:#fff;box-sizing:border-box;margin:4px 0 10px}.tg{position:relative;width:46px;height:26px;border-radius:13px;border:0;background:#d6cfbf;flex:none;cursor:pointer;margin-left:6px}.tg span{position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:left .15s}.tg.on{background:#2f7a4a}.tg.on span{left:23px}.sw.big{display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:0 0 14px;cursor:pointer;position:relative}.sw.big input{position:absolute;opacity:0;width:1px;height:1px}.sw.big .tr{position:relative;width:46px;height:26px;border-radius:13px;background:#d6cfbf;flex:none}.sw.big .tr::after{content:'';position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:left .15s}.sw.big input:checked+.tr{background:#2f7a4a}.sw.big input:checked+.tr::after{left:23px}.sw.big small{display:block;font-weight:400;color:var(--mist);font-size:13px;margin-top:2px}.sync{display:none;align-items:center;gap:10px;background:#0b121c;color:#f3ead3;border-radius:999px;padding:9px 16px;font-size:14px;box-shadow:0 8px 24px rgba(0,0,0,.25);max-width:calc(100% - 24px)}.sync.ok{background:#2f7a4a}.sync.err{background:#b23a2e;border-radius:12px}.sync small{opacity:.8}.sync button{background:#fff;color:#0b121c;border:0;border-radius:999px;padding:5px 10px;font-weight:600}.spin{width:14px;height:14px;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:sp 1s linear infinite}@keyframes sp{to{transform:rotate(360deg)}}.orr{border-bottom:1px solid var(--line);padding:10px 0}.orr b{display:block;margin-bottom:6px}.orc{display:flex;align-items:center;gap:6px;margin:4px 0;flex-wrap:wrap}.orc span{min-width:52px;font-size:14px}.orc input{width:auto;flex:1;min-width:92px}.orc .x{padding:6px 10px;font-size:13px}.cm .orig{font-size:12.5px;color:#7a705a;font-style:italic;margin-top:4px}.ck{border:1px solid #e0b25b;background:#fff8e8;border-radius:10px;padding:12px 14px;margin-bottom:14px}.ck ul{margin:8px 0 4px 18px;padding:0}.ck li{margin:4px 0}.ck li.e{color:#b23a2e;font-weight:600}.sugg{margin:2px 0 8px}.sugg a{color:#8a6a2a}.fprev img{max-width:100%;max-height:220px;border-radius:6px;display:block;margin:6px 0 10px}.foto .btn{margin:4px 6px 4px 0}
+:root{--ink:#0b121c;--gold:#a8874e;--bg:#f6f2e9;--card:#fff;--line:#e3dccd;--mist:#6d6a63;--ok:#2f7a4a;--bad:#a8402f}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+header{background:var(--ink);color:#f3ead3;padding:14px 16px 0;position:sticky;top:0;z-index:5}
+header h1{font:500 22px Georgia,serif;margin:0 0 10px;letter-spacing:.02em}header h1 small{color:#c9ae7c;font:13px sans-serif;letter-spacing:.12em;text-transform:uppercase;margin-left:8px}
+nav{display:flex;gap:6px;overflow-x:auto;padding-bottom:10px;scrollbar-width:none}
+nav button{flex:none;border:1px solid #c9ae7c55;background:none;color:#f3ead3;padding:9px 14px;border-radius:20px;font:15px sans-serif}
+nav button.on{background:#c9ae7c;color:var(--ink);border-color:#c9ae7c}
+main{padding:16px;max-width:760px;margin:0 auto 90px}
+h2{font:500 21px Georgia,serif;margin:6px 0 12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:12px}
+.hint{color:var(--mist);font-size:14.5px;margin:4px 0 12px}
+label{display:block;font-weight:600;font-size:14.5px;margin:12px 0 5px}
+input[type=text],input[type=date],input[type=number],textarea,select{width:100%;font:17px sans-serif;padding:11px 12px;border:1px solid #cfc6b4;border-radius:8px;background:#fff;color:var(--ink)}
+textarea{min-height:96px;resize:vertical}
+.btn{display:inline-block;border:0;border-radius:8px;padding:13px 18px;font:600 16px sans-serif;background:var(--ink);color:#f3ead3;cursor:pointer}
+.pnav{display:flex;align-items:center;gap:10px;margin:0 0 12px}.pnav .btn{min-width:44px;min-height:44px;padding:0 14px;font-size:20px}.sw-t{flex:1;text-align:center;line-height:1.3}.sw-t b{display:block;font-size:17px}.sw-t span{font-size:13px;color:#6b6b6b}
+.sw-g .sw-h{display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap}.sw-g .sw-h b{font-size:17px;flex:1}.sw-g .sw-h .btn.mini{float:none;margin:0}.sw-g textarea{min-height:64px}
+.sw-g.pass{opacity:.6}.sw-g.oggiq{border:2px solid #c9ae7c}.sw-h .tag{background:#c9ae7c;color:var(--ink);margin:0}.sw-h .tag.grey{background:#e4e0d8;color:#555}
+.sw-bar{position:sticky;bottom:10px;z-index:5;background:rgba(246,242,235,.95);padding:10px;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.12)}
+.btn.gold{background:#c9ae7c;color:var(--ink)}.btn.danger{background:var(--bad);color:#fff}
+.dlg{position:fixed;inset:0;z-index:40;background:rgba(11,18,28,.55);display:flex;align-items:flex-end;justify-content:center;padding:16px}
+.dlg-b{background:#fff;color:var(--ink);width:100%;max-width:440px;border-radius:16px;padding:20px 18px 16px;box-shadow:0 10px 40px rgba(0,0,0,.3)}
+.dlg-b>b{display:block;font-size:19px;margin-bottom:6px}.dlg-b p{margin:0 0 14px;line-height:1.45;white-space:pre-line}
+.dlg-b input,.dlg-b textarea{width:100%;box-sizing:border-box;margin:0 0 14px;font-size:18px}
+.dlg-r{display:flex;flex-direction:column-reverse;gap:8px}.dlg-r .btn{width:100%;min-height:48px}
+@media(min-width:600px){.dlg{align-items:center}.dlg-r{flex-direction:row;justify-content:flex-end}.dlg-r .btn{width:auto}}.btn.light{background:#ece5d6;color:var(--ink)}.btn.bad{background:none;color:var(--bad);border:1px solid var(--bad)}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.row .btn{flex:1}
+.item{display:flex;align-items:center;gap:10px;padding:12px 10px;border-bottom:1px solid var(--line);cursor:pointer}
+.item:last-child{border-bottom:0}.item .t{flex:1;min-width:0}.item b{display:block;font-weight:600}.item span{color:var(--mist);font-size:14px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.item .mv{border:1px solid var(--line);background:#fff;border-radius:6px;width:34px;height:34px;font-size:16px}
+.grp{font:600 12.5px sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:16px 4px 6px}
+.badge{font:600 11px sans-serif;letter-spacing:.06em;padding:3px 7px;border-radius:10px;background:#ece5d6;color:var(--mist)}.badge.on{background:#dcefe2;color:var(--ok)}
+.al{display:grid;grid-template-columns:1fr 1fr;gap:6px}.al label{font-weight:400;margin:0;display:flex;gap:8px;align-items:center;padding:8px;border:1px solid var(--line);border-radius:8px;font-size:14.5px}
+.sw{display:flex;align-items:center;gap:10px;font-weight:600;margin-top:14px}.sw input{width:24px;height:24px}
+.search{margin-bottom:10px}
+#msgs{position:fixed;left:0;right:0;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:80;display:flex;flex-direction:column;align-items:center;gap:8px;padding:0 12px;pointer-events:none;transition:bottom .2s}#msgs.alto{bottom:calc(96px + env(safe-area-inset-bottom,0px))}#msgs>*{pointer-events:auto}#toast{background:var(--ink);color:#f3ead3;padding:12px 18px;border-radius:24px;font-size:15px;display:none;max-width:100%;text-align:center;box-shadow:0 8px 24px rgba(0,0,0,.25);animation:tin .18s ease-out}#toast.err{background:#b23a2e;border-radius:12px}@keyframes tin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}input[type=date],input[type=time],select{-webkit-appearance:none;appearance:none;display:block;min-width:0;max-width:100%;min-height:46px}input[type=date]::-webkit-date-and-time-value,input[type=time]::-webkit-date-and-time-value{text-align:left}select{background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%230b121c' stroke-width='2'/%3E%3C/svg%3E") no-repeat right 12px center;padding-right:34px}input,select,textarea{max-width:100%}.card{min-width:0;overflow-wrap:anywhere}html,body{overflow-x:hidden}a.btn.tel{text-decoration:none;text-align:center}
+#busy{position:fixed;inset:0;background:transparent;color:transparent;display:none;align-items:center;justify-content:center;z-index:15;font:600 16px sans-serif;transition:background .15s,color .15s}#busy.vis{background:#f6f2e9aa;color:var(--ink)}
+.state{padding:10px 12px;border-radius:8px;font-size:15px;margin-bottom:10px}.state.ok{background:#dcefe2;color:var(--ok)}.state.no{background:#f7e3dc;color:var(--bad)}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 10px;text-align:center}
+.kpi b{display:block;font:500 28px Georgia,serif}.kpi span{font-size:12.5px;color:var(--mist)}.kpi i{display:block;font-style:normal;font-size:12px;margin-top:2px;color:var(--mist)}
+.seg{display:flex;gap:6px;margin:0 0 12px;flex-wrap:wrap}.seg button{border:1px solid #cfc6b4;background:#fff;border-radius:18px;padding:7px 12px;font:14px sans-serif}.seg button.on{background:var(--ink);color:#f3ead3;border-color:var(--ink)}
+.hb{display:grid;grid-template-columns:118px 1fr 58px;align-items:center;gap:8px;margin:7px 0;font-size:14.5px}
+.hb .tr{height:12px;background:#efe9dc;border-radius:2px;position:relative}.hb .fl{position:absolute;left:0;top:0;bottom:0;background:var(--ink);border-radius:0 4px 4px 0}
+.hb em{font-style:normal;text-align:right;font-variant-numeric:tabular-nums}.hb small{color:var(--mist)}
+.chart svg{width:100%;height:auto;display:block}.chart text{font:11px sans-serif;fill:#6d6a63}
+.cm{border-bottom:1px solid var(--line);padding:10px 2px;font-size:15px}.cm:last-child{border-bottom:0}.cm .h{font-size:12.5px;color:var(--mist);margin-bottom:4px}.cm p{margin:3px 0}.cm b{font-weight:600}
+table.tt{width:100%;border-collapse:collapse;font-size:14.5px}table.tt td,table.tt th{padding:7px 4px;border-bottom:1px solid var(--line);text-align:left}table.tt td+td,table.tt th+th{text-align:right;font-variant-numeric:tabular-nums}
+.kpis.k4{grid-template-columns:repeat(2,1fr)}@media(min-width:600px){.kpis.k4{grid-template-columns:repeat(4,1fr)}}
+.kpi.neg{border-color:#e5b8b0;background:#fdf3f1;cursor:pointer}.kpi.neg b,.kpi.neg span{color:#b23a2e}
+.am{width:100%;height:260px}
+.flt{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}.flt select{font-size:15px;padding:9px}
+.cmbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:12px 0 4px;font-size:14.5px}.cmbar .btn{padding:9px 12px;font-size:14px}
+.cm{border-left:4px solid #d9d2c3;padding:10px 10px 10px 12px;margin:10px 0;background:#fffdf9;border-radius:0 8px 8px 0}
+.cm.s-neg{border-left-color:#b23a2e;background:#fdf3f1}.cm.s-mid{border-left-color:#c08a1e}.cm.s-pos{border-left-color:#2f7a4a}
+.tag{display:inline-block;font:600 11px sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:3px 7px;border-radius:10px;margin-right:4px}
+.t-neg{background:#b23a2e;color:#fff}.t-mid{background:#f4e6c6;color:#7a5510}.t-pos{background:#dcefe2;color:#2f7a4a}
+.cmlist{max-height:min(68vh,620px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:10px;padding:0 10px;margin-top:8px;background:#fbf8f2}
+.cmlist .cm:first-child{margin-top:10px}
+.cm .low{font-size:13.5px;color:#b23a2e;margin:4px 0}.cm mark{background:#f7d9d3;color:inherit;padding:0 2px;border-radius:2px}
+.temi{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}.temi span{font-size:12px;border:1px solid #e5b8b0;color:#8c2f25;border-radius:10px;padding:2px 8px}
+.act{display:flex;gap:8px;margin-top:8px}.act select{flex:1;font-size:14px;padding:8px}.act .btn{padding:8px 12px;font-size:14px}
+.nota{font-size:14px;margin-top:6px;padding:6px 8px;background:#efe9dc;border-radius:6px}
+.prnav{display:flex;gap:8px;align-items:center;margin-bottom:6px}.prnav input{flex:1}.prnav .btn{padding:11px 14px}
+.prday{font:500 19px Georgia,serif;margin:4px 0 12px}.kpis.k2{grid-template-columns:1fr 1fr}.kpi b small{font:15px sans-serif;color:var(--mist)}
+.prx .t span{white-space:normal}.prx .tag{margin-top:5px;display:inline-block}.prx.spenta{opacity:.55}.prx.spenta b{text-decoration:line-through}
+.arrbtn{flex:none;min-width:96px;min-height:44px;border:1px solid var(--ok);color:var(--ok);background:#fff;border-radius:8px;font:600 14px sans-serif;cursor:pointer}.arrbtn.on{background:var(--ok);color:#fff}
+.t-ok{background:#e8eef7;color:#2a4a7a}.t-off{background:#ece5d6;color:var(--mist)}
+.sw2{display:flex;align-items:center;justify-content:space-between;gap:12px;font-weight:600;margin-top:4px}.tg.big{width:52px;height:30px;border-radius:15px}.tg.big span{width:24px;height:24px}.tg.big.on span{left:25px}
+.item span.tag.t-neg{color:#fff}.item span.tag.t-mid{color:#7a5510}.item span.tag.t-pos{color:#2f7a4a}.item span.tag.t-ok{color:#2a4a7a}
+.adesso{border-color:#e0b25b}.adx{padding:10px 0;border-bottom:1px solid var(--line)}.adx:last-of-type{border-bottom:0}.adx b{display:block;font-weight:600}.adx .tag{margin-top:4px}
+.adx.dac{background:#fdf0ee;margin:0 -14px;padding:10px 14px;border-left:5px solid var(--bad)}.adb{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}.adb .btn{padding:11px 8px;font-size:15px;text-decoration:none;text-align:center;min-height:46px;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;justify-content:center}
+.storia{margin-top:16px;border-top:1px solid var(--line);padding-top:12px}.storia ol{list-style:none;margin:8px 0 0;padding:0}.storia li{padding:7px 0;border-bottom:1px dashed var(--line);font-size:14px;line-height:1.4}.storia li span{color:var(--mist);margin-right:6px;font-variant-numeric:tabular-nums}.storia li small{display:block;color:#666}
+.prx.dac{background:#fdf0ee;border-left:5px solid var(--bad)}.nbad{display:inline-grid;place-items:center;min-width:20px;height:20px;border-radius:10px;background:#c0392b;color:#fff;font:700 12px sans-serif;margin-left:4px;padding:0 5px}
+.reglist{max-height:60vh;overflow:auto;border:1px solid var(--line);border-radius:8px;margin-top:10px;background:#fbf8f2}.rg{padding:8px 10px;border-bottom:1px solid var(--line);font-size:14px}.rg .h{font-size:12.5px;color:var(--mist)}.rg.neg{background:#fdf0ee}
+details.cfg{margin:10px 0}details.cfg>summary{font:500 19px Georgia,serif;padding:14px 4px;cursor:pointer;list-style:none;border-bottom:1px solid var(--line)}details.cfg>summary::after{content:'›';float:right;transform:rotate(90deg);transition:.2s}details.cfg[open]>summary::after{transform:rotate(-90deg)}details.cfg>.card,details.cfg>h2+.card{margin-top:10px}details.cfg>h2{display:none}
+.stx{padding:8px 0;border-bottom:1px solid var(--line)}.stx b{color:var(--ok)}.stx.no b{color:var(--bad)}.stx small{display:block;color:var(--mist);margin-top:3px}
+.vbar{display:flex;background:#ece5d6;border-radius:10px;padding:3px;margin:0 0 12px}.vbar button{flex:1;border:0;background:none;padding:10px;border-radius:8px;font:600 14px sans-serif;color:var(--mist);cursor:pointer}.vbar button.on{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.btn.mini{padding:6px 12px;font-size:13px;float:right;margin-top:-2px}.pvt{flex:1;text-align:center;font:500 17px Georgia,serif;text-transform:capitalize}
+.cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;max-width:760px}.cal i{font:600 11px sans-serif;text-align:center;color:var(--mist);font-style:normal;text-transform:uppercase;padding:2px 0}
+.cd{min-height:64px;border:1px solid var(--line);background:#fff;border-radius:10px;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:1px;cursor:pointer;position:relative;padding:6px 6px 8px;text-align:left;color:var(--ink);overflow:hidden}
+.cd b{font:600 13px sans-serif;color:#555}.cd .cn{font:700 19px/1 sans-serif;color:var(--ink);margin-top:5px;white-space:nowrap}.cd .cn small{display:block;font:600 11px sans-serif;color:var(--ink);margin-top:1px}.cd small{font:11px/1.1 sans-serif;color:#555}.cd .cp{margin-top:2px}.cd .cz{margin-top:6px;font-style:italic}
+.cd .cbar{position:absolute;left:6px;right:6px;bottom:5px;height:4px;border-radius:2px;background:#eee6d6}.cd .cbar i{display:block;height:100%;border-radius:2px;background:#3c8d5a}.cd .cbar i.a{background:#d68a1e}.cd .cbar i.r{background:#c0392b}
+.leg b{font:700 12px sans-serif;color:var(--ink)}.leg .l-v,.leg .l-a,.leg .l-r{display:inline-block;width:14px;height:5px;border-radius:2px;margin-right:4px;vertical-align:middle}.leg .l-v{background:#3c8d5a}.leg .l-a{background:#d68a1e}.leg .l-r{background:#c0392b}
+.cd em{position:absolute;top:4px;right:4px;background:#c0392b;color:#fff;border-radius:8px;font:700 10px sans-serif;padding:1px 5px;font-style:normal}
+.cd.con{background:#fbf6ea;border-color:#d9c49a}.cd.oggi{border:2px solid var(--ink)}.cd.oggi b{color:var(--ink)}
+.cd.chiuso{background:repeating-linear-gradient(135deg,#f6f3ec 0 6px,#efe9dd 6px 12px);color:var(--mist)}.cd.pass{opacity:.45}
+.leg{display:flex;flex-wrap:wrap;gap:6px 14px;margin:10px 0 4px;font:12px sans-serif;color:#555}.leg span{display:flex;align-items:center;gap:5px}.leg i{width:14px;height:14px;border-radius:4px;border:1px solid var(--line);display:inline-block}
+.leg .l-con{background:#fbf6ea;border-color:#d9c49a}.leg .l-q{background:#c0392b;border:0;height:4px;border-radius:2px}.leg .l-oggi{border:2px solid var(--ink)}.leg .l-ch{background:repeating-linear-gradient(135deg,#f6f3ec 0 3px,#efe9dd 3px 6px)}
+h3.sub{font:600 15px sans-serif;margin:16px 0 8px}
+@media(max-width:560px){.cd{min-height:78px;padding:5px 4px 10px}.cd .cn{font-size:16px}.cd .cn small{font-size:10px}.cd .cp{font-size:10px}.cd .cz{font-size:10px}}
+.wd{display:block;width:100%;text-align:left;border:0;border-bottom:1px solid var(--line);background:none;padding:12px 2px;cursor:pointer;font:inherit}.wd:last-child{border-bottom:0}.wd b{display:block;font-weight:600}.wd span{color:var(--mist);font-size:14px}.wd em{color:#c0392b;font-style:normal;font-weight:600}.wd.oggi b{color:var(--gold)}
+.prg{border-top:1px solid var(--line);margin-top:12px;padding-top:4px}.prg summary{font-weight:600;padding:10px 0;cursor:pointer;color:var(--ink)}
+.pager{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;font-size:14px}.pager .btn{padding:9px 12px;font-size:14px}.pager .btn[disabled]{opacity:.4}
+</style></head><body>
+<header><h1>Oltreconfini<small>Pannello</small></h1><nav id="tabs"></nav></header>
+<main id="main"></main><div id="toast"></div><div id="busy">Un attimo…</div>
+<script>
+var PREN0=__PREN0__,PERM=__PERM__,RUOLO='__RUOLO__',SITO='__SITO__',CHIAVE='__CHIAVE__',IA='__IA__',TAB='__TAB__',PRR=__PRRIGHE__;
+var AL=['Glutine','Crostacei','Uova','Pesce','Arachidi','Soia','Latte','Frutta a guscio','Sedano','Senape','Sesamo','Solfiti','Lupini','Molluschi'];
+var CAT=['Antipasti','Primi','Secondi','Contorni','Dolci','Menù bimbi','Pizze','Pizze speciali'];
+document.addEventListener('click',function(ev){var a=ev.target.closest('a[data-vai]');if(!a)return;ev.preventDefault();cur=a.dataset.vai;cerca='';tabs();apri()});
+var SEZ={
+ pren:{nome:'Prenotazioni'},
+ oggi:{nome:'Menù settimana'},
+ orari:{nome:'Orari'},
+ piatti:{nome:'Piatti e pizze',titolo:'piatto',sotto:'ingredienti',gruppo:'categoria',ordina:true,unico:['piatto'],
+  aiuto:'Tocca un piatto per cambiarlo. Le frecce cambiano l’ordine sul sito. Si scrive solo in italiano: le traduzioni si fanno da sole. <a href="#" data-vai="categorie">Categorie del menù (es. Dolci): traduzioni e prezzi →</a>',
+  campi:[{h:'categoria',l:'Categoria',t:'scelta',o:CAT,aiutoCampo:'Per una categoria nuova (es. Dolci) scegli «＋ Nuova categoria…»: sul sito diventa una nuova scheda del menù, tradotta in automatico.'},{h:'piatto',l:'Nome del piatto',t:'text'},{h:'ingredienti',l:'Ingredienti',t:'textarea'},
+   {h:'allergeni',l:'Allergeni',t:'allergeni'},{h:'prezzo',l:'Prezzo (sul sito si vede solo per le pizze; nel menù del QR si vedono tutti)',t:'number'},
+   {h:'firma',l:'Piatto dello chef',t:'check',si:'sì',no:''},{h:'cos',l:'Cos’è? Spiegazione semplice (facoltativa)',t:'textarea'},{h:'foto',l:'Foto del piatto (facoltativa)',t:'foto'}]},
+ eventi:{nome:'Eventi',titolo:'evento',sotto:'dal',ordina:false,unico:['evento'],
+  aiuto:'Un evento compare in cima al menù del sito solo se è attivo e solo tra le due date.',
+  campi:[{h:'attivo',l:'Attivo (si vede sul sito)',t:'check',si:'SÌ',no:'NO'},{h:'evento',l:'Nome dell’evento',t:'text'},
+   {h:'dal',l:'Si vede dal',t:'date'},{h:'al',l:'Fino al (giorno dell’evento)',t:'date'},{h:'prezzo',l:'Prezzo a persona (vuoto se non c’è)',t:'number'},
+   {h:'men',l:'Menù',t:'textarea',aiutoCampo:'Scrivi il titolo della portata con i due punti (es. <b>Antipasti:</b>) e sotto un piatto per riga. Se scrivi tutto di seguito, tocca «Metti in ordine»: il pannello va a capo da solo, tu controlla.'},{h:'note',l:'Note (facoltative)',t:'text'},
+   {h:'sfondo',l:'Foto di sfondo del menù (facoltativa)',t:'sfondo',o:['Nessuna','Calici','Sala','Sala con archi','Seconda sala','Pizze nel forno','Parete dei vini','Bar','Ingresso'],aiutoCampo:'«Nessuna» = fondo blu elegante con cornice dorata. Con una foto il sito la scurisce da solo, così il menù resta leggibile. Puoi anche caricare una tua foto.'}]},
+ avvisi:{nome:'Eventi in arrivo e avvisi',titolo:'testo',sotto:'tipo',ordina:false,
+  aiuto:'Le feste e i temi dei prossimi mesi sono già pronti, con le date giuste: <b>accendi l’interruttore</b> di quelli che vuoi sul sito (spenti non si vedono). Puoi aggiungere promozioni, chiusure e ferie (annunciate due settimane prima), avvisi in alto sul sito e la pizza della settimana.',
+  campi:[{h:'attivo',l:'Attivo (si vede sul sito)',t:'check',si:'SÌ',no:'NO'},{h:'tipo',l:'Cosa vuoi pubblicare?',t:'select',o:['Promozione','Chiusura','Orario speciale','Avviso','Pizza della settimana','Tema del sito']},
+   {h:'dal',l:'Dal (da quando si vede)',t:'date'},{h:'al',l:'Al (compreso)',t:'date',vuoto:'Promozione: di solito il giorno prima dell\u2019evento. Pizza: lascia vuoto e resta 7 giorni.'},
+   {h:'quando',l:'Quando siete chiusi?',t:'select',o:['Tutto il giorno','Chiuso a pranzo','Chiuso a cena'],se:{tipo:'Chiusura'}},
+   {h:'pizza',l:'Quale pizza?',t:'pizza',se:{tipo:'Pizza della settimana'}},
+   {h:'pranzo dal',l:'Pranzo dalle (vuoto = chiuso a pranzo)',t:'ora',se:{tipo:'Orario speciale'}},{h:'pranzo al',l:'Pranzo fino alle',t:'ora',se:{tipo:'Orario speciale'}},
+   {h:'cena dal',l:'Cena dalle (vuoto = chiuso a cena)',t:'ora',se:{tipo:'Orario speciale'},aiutoCampo:'Per i giorni con un orario diverso dal solito (es. Vigilia: solo cena fino all’1). Il sito lo annuncia due settimane prima e il modulo di prenotazione lo rispetta.'},{h:'cena al',l:'Cena fino alle',t:'ora',se:{tipo:'Orario speciale'}},
+   {h:'tema',l:'Quale tema?',t:'select',o:['Natale','Capodanno','San Valentino','Pasqua','Nessun tema'],se:{tipo:'Tema del sito'},aiutoCampo:'Logo con il cappello, bordi decorati e auguri in alto. Fuori dalle date scelte qui il sito usa le date automatiche (Natale 8–26 dicembre, Capodanno 27 dicembre–6 gennaio, San Valentino 7–14 febbraio, settimana di Pasqua) solo se in Configurazione → Sito i «Temi automatici» sono accesi. «Nessun tema» lo spegne per il periodo scelto.'},
+   {h:'testo',l:'Titolo / testo',t:'text',max:60,ideale:32,aiutoCampo:'Promozione: il titolo grande, es. Cene di Natale. Chiusura: il motivo, es. Ferie invernali (facoltativo). Avviso: il testo da mostrare. Pizza: una frase che la racconta (facoltativa).'},
+   {h:'sottotitolo',l:'Sottotitolo',t:'text',max:90,ideale:70,se:{tipo:'Promozione'},aiutoCampo:'Es.: La sala perfetta per il tuo team'},
+   {h:'punti',l:'Punti forti, separati da ·',t:'text',max:80,ideale:65,se:{tipo:'Promozione'},aiutoCampo:'Es.: Sala privata · Menù personalizzati · Cucina & Pizzeria'},
+   {h:'grafica',l:'Grafica sul sito (colori e decorazioni)',t:'select',o:['Automatica (dal titolo)','Natale','Capodanno','San Valentino','Pasqua','Festa della donna','Festa della mamma / del papà','Festa nazionale (tricolore)','Primavera','Estate','Halloween','Elegante (senza decorazioni)'],se:{tipo:'Promozione'},aiutoCampo:'«Automatica» sceglie da sola guardando il titolo (es. «Festa della mamma» → cuori, «Halloween» → zucche e pipistrelli). Se le promozioni attive sono più di una, il sito le mostra tutte: la più vicina in grande, le altre sotto, e nella barra in alto si alternano.'},
+   {h:'foto',l:'Foto di sfondo',t:'sfondo',o:['Calici','Sala','Sala con archi','Seconda sala','Pizze nel forno','Parete dei vini','Bar','Ingresso'],se:{tipo:'Promozione'},aiutoCampo:'Tocca una delle foto del locale oppure «La tua foto» per caricarne una dal telefono (meglio orizzontale e luminosa: il testo ci va sopra).'}]},
+ vini:{nome:'Vini',titolo:'vino',sotto:'produttore',gruppo:'categoria',ordina:true,unico:['vino','produttore'],
+  aiuto:'La carta dei vini del menù del QR, con i prezzi: sul sito è divisa per regione, da nord a sud. Scegli sempre la regione.',
+  campi:[{h:'categoria',l:'Categoria',t:'scelta',o:['Bollicine','Vini bianchi','Vini rosati','Vini rossi']},{h:'regione',l:'Regione',t:'scelta'},{h:'vino',l:'Vino',t:'text'},{h:'produttore',l:'Produttore',t:'text'},
+   {h:'prezzo bott',l:'Prezzo della bottiglia € (75 cl)',t:'number'},
+   {h:'prezzo mezza',l:'Prezzo della mezza bottiglia € (37,5 cl) — vuoto se non c’è',t:'number'},
+   {h:'prezzo cal',l:'Prezzo al calice € (vuoto se non si serve al calice)',t:'number'},{h:'descrizione',l:'Descrizione (solo italiano)',t:'textarea'}]},
+ bevande:{nome:'Bevande',titolo:'bevanda',sotto:'prezzo',gruppo:'gruppo',ordina:true,unico:['bevanda'],
+  aiuto:'Acqua, bibite, birre, caffetteria, cocktail e distillati, con i prezzi: si vedono nel menù del QR.',
+  campi:[{h:'gruppo',l:'Gruppo',t:'scelta'},{h:'bevanda',l:'Bevanda (con il formato, es. 0,4 l)',t:'text'},{h:'prezzo',l:'Prezzo €',t:'text',aiutoCampo:'Es.: 3,50 — se ci sono due misure: 7 / 9'}]},
+ opinioni:{nome:'Opinioni'},
+ impost:{nome:'Configurazione'},
+ categorie:{nome:'Categorie del menù',nascosta:true,titolo:'categoria',sotto:'en',ordina:true,unico:['categoria'],
+  aiuto:'Le categorie aggiunte (es. Dolci): compaiono sul sito dopo le pizze, nell’ordine di questa lista. Le traduzioni si correggono qui. Una categoria senza piatti non si vede. <a href="#" data-vai="piatti">← Torna ai piatti</a>',
+  campi:[{h:'categoria',l:'Nome (italiano)',t:'text'},{h:'en',l:'In inglese',t:'text'},{h:'de',l:'In tedesco',t:'text'},{h:'fr',l:'In francese',t:'text'},{h:'prezzi',l:'Prezzi visibili anche sul sito (nel menù del QR si vedono sempre)',t:'check',si:'sì',no:'no'}]},
+ faq:{nome:'Domande',titolo:'domanda',sotto:'risposta',ordina:true,unico:['domanda'],aiuto:'Le domande frequenti del sito.',
+  campi:[{h:'domanda',l:'Domanda',t:'text'},{h:'risposta',l:'Risposta',t:'textarea'}]}
+};
+var cur=TAB==='oggi'?'oggi':'pren',DATA={},PIZZE=[],cerca='';
+function $(s){return document.querySelector(s)}
+function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+// conferme e domande dentro il pannello (niente finestre del browser con indirizzi strani)
+// o: {t:titolo, d:testo, ok:'testo del pulsante', alt:'seconda scelta', no:'Annulla' (false = nessuno), pericolo:true, campo:{tipo:'number'|'text'|'textarea', v:'valore'}}
+function chiedi(o,cb){var w=document.createElement('div');w.className='dlg';w.setAttribute('role','dialog');w.setAttribute('aria-modal','true');
+  var c=o.campo,campo=!c?'':c.tipo==='textarea'?'<textarea id="dlg-in" rows="4">'+e(c.v||'')+'</textarea>':'<input id="dlg-in" type="'+(c.tipo==='number'?'number':'text')+'"'+(c.tipo==='number'?' inputmode="numeric" min="1" max="180"':'')+' value="'+e(c.v||'')+'">';
+  w.innerHTML='<div class="dlg-b"><b>'+e(o.t)+'</b>'+(o.d?'<p>'+e(o.d)+'</p>':'')+campo+'<div class="dlg-r">'+(o.no===false?'':'<button class="btn light" data-v="no">'+e(o.no||'Annulla')+'</button>')+(o.alt?'<button class="btn light" data-v="alt">'+e(o.alt)+'</button>':'')+'<button class="btn '+(o.pericolo?'danger':'gold')+'" data-v="ok">'+e(o.ok||'OK')+'</button></div></div>';
+  document.body.appendChild(w);var inp=w.querySelector('#dlg-in');try{(inp||w.querySelector('[data-v=ok]')).focus();if(inp&&inp.select)inp.select()}catch(x){}
+  var fine=function(v){if(!w.parentNode)return;w.remove();document.removeEventListener('keydown',k);if(cb)cb(v,inp?inp.value:null)};
+  var k=function(ev){if(ev.key==='Escape')fine('no');else if(ev.key==='Enter'&&inp&&inp.tagName==='INPUT'){ev.preventDefault();fine('ok')}};document.addEventListener('keydown',k);
+  w.onclick=function(ev){if(ev.target===w)return fine('no');var b=ev.target.closest('button[data-v]');if(b)fine(b.dataset.v)}}
+function msgs(){var c=$('#msgs');if(!c){c=document.createElement('div');c.id='msgs';document.body.appendChild(c)}var t=$('#toast');if(t&&t.parentNode!==c)c.appendChild(t);var y=$('#sync');if(y&&y.parentNode!==c)c.insertBefore(y,c.firstChild);c.classList.toggle('alto',!!document.querySelector('.sw-bar,.adb-fissa'));return c}
+// un solo messaggio alla volta: il nuovo sostituisce il vecchio, mai sovrapposti
+function toast(m,err){var c=msgs(),t=$('#toast');if(!t){t=document.createElement('div');t.id='toast';c.appendChild(t)}m=String(m==null?'':m);clearTimeout(t._t);if(t.style.display!=='block'||t.textContent!==m){t.textContent=m;t.style.animation='none';void t.offsetWidth;t.style.animation=''}t.className=(err||/^(errore|non |impossibile|attenzione)/i.test(m))?'err':'';t.style.display='block';t.onclick=function(){clearTimeout(t._t);t.style.display='none'};t._t=setTimeout(function(){t.style.display='none'},Math.min(7000,Math.max(3000,m.length*55)))}
+// menù di un evento: dal testo libero alle portate {h: titolo, items: [piatti]} — funziona anche se è scritto tutto su una riga
+function menuSezioni(txt, lang){
+  var HEAD=/^(benvenut|antipast|prim[oi]$|second[oi]$|dolc[ei]|dessert|contorn|formagg|frutta|brindisi|caff[eè]|vin[oi]$|bevand|abbinament|amuse|aperitiv|portat|zupp|welcome|appetizer|starter|first$|second$|main$|sides?$|pairing|midnight|wines?$|drinks?$|cheeses?$|begrüßung|vorspeise|erster|zweiter|haupt|nachspeise|nachtisch|empfehlung|mitternacht|getränk|beilage|käse|message|mot$|entrées?$|plats?$|fromages?$|accord|minuit|mezzanott|boissons?$)/i;
+  var FUNC=/^(e|ed|di|del|dello|della|dei|degli|delle|al|allo|alla|ai|agli|alle|con|in|su|sul|sulla|a|da|dal|dallo|dalla|per|il|lo|la|i|gli|le|un|una|uno|o|and|with|of|on|in|the|a|an|or|et|de|du|des|au|aux|à|avec|sur|le|la|les|en|ou)$/i;
+  var EXC=/^(smith|golden|granny|delicious|parmigiano|reggiano|grana|padano|pecorino|romano|sardo|bra|bronte|pachino|chianina|fassona|piemontese|wagyu|angus|cinta|senese|mora|romagnola|dop|igp|doc|docg|carnaroli|vialone|nano|castelmagno|gorgonzola|taleggio|asiago|montasio|valtellina|casera|bitto|norcia|colonnata|arnad|san|daniele|parma|tropea|duchessa|duchess|bufala|campana|sorrento|amalfi|cetara|mazara|sicilia|piemonte|ligure|genovese|milanese|romana|napoletana|bolognese|catalana|magliocco|champagne|franciacorta|prosecco|barolo|chianti|amarone|nebbiolo|barbera|lambrusco|moscato|brut|bellavista|chef|bernese|hollandaise|perigord|périgord|alba|cervia|trapani|lessinia|monte|veronese|sbrinz|emmental|brie|camembert|roquefort|stilton|cheddar|feta|philadelphia|nutella|grand|marnier|cointreau|baileys|marsala|porto|madeira|sherry|cognac|armagnac|calvados|aperol|campari|martini|spritz|negroni|bellini|rossini|wellington|stroganoff|tatin|mont|blanc|suzette|melba|sacher|linzer|foresta|nera|black|forest|new|york|sant|santo|santa)$/i;
+  var cap=function(s){s=String(s||'').replace(/^[\s•·\-–—*,.;:]+|[\s,;]+$/g,'').replace(/\.$/,'');return s?s.charAt(0).toUpperCase()+s.slice(1):''};
+  // 1) un piatto per pezzo
+  var piatti=function(body){var out=[];
+    String(body||'').split(/\s*(?:\n|;|•|·|\|)\s*|\s+[-–—]\s+/).forEach(function(p){
+      p.replace(/([a-zà-ÿ)\]])\.\s+(?=[A-ZÀ-Ý])/g,'$1.\u0001').split('\u0001').forEach(function(q){
+        q=q.trim();if(!q)return;
+        if(lang==='de'){out.push(q);return}
+        var w=q.split(/\s+/),seg=[w[0]];
+        for(var i=1;i<w.length;i++){var a=w[i],b=w[i-1];
+          if(/^[A-ZÀ-Ý][a-zà-ÿ'’]/.test(a)&&/^[a-zà-ÿ][a-zà-ÿ'’]*[a-zà-ÿ]$/.test(b)&&!FUNC.test(b)&&!EXC.test(a.replace(/[^A-Za-zÀ-ÿ]/g,''))&&seg.length>=2){out.push(seg.join(' '));seg=[a]}
+          else seg.push(a)}
+        out.push(seg.join(' '))})});
+    return out.map(cap).filter(Boolean)};
+  // 2) titoli delle portate: «Antipasti:», «Benvenuto dallo chef:», «In abbinamento:»
+  var pezzi=function(line){var res=[],re=/([A-Za-zÀ-ÿ'’)])\s*:(?=\s|$)/g,m,from=0,cur={h:null,start:0};
+    while((m=re.exec(line))){var end=m.index+1,pre=line.slice(from,end),w=pre.split(/\s+/).filter(Boolean),n=w.length,k=-1;
+      for(var j=n-1;j>=Math.max(0,n-4);j--){if(HEAD.test(w[j].replace(/[^A-Za-zÀ-ÿ]/g,''))){k=j;break}}
+      if(k>=0)while(k>0&&n-k<5&&/^(in|a|al|alla|il|la|our|the|nostro|nostra|le|du)$/i.test(w[k-1])&&/^[A-ZÀ-Ý]/.test(w[k-1]))k--;
+      if(k<0&&from===0&&n<=4&&/^[A-ZÀ-Ý]/.test(w[0]))k=0;
+      if(k<0&&n&&/^[A-ZÀ-Ý]/.test(w[n-1])&&(n===1||!/^[A-ZÀ-Ý]/.test(w[n-2])))k=n-1;
+      if(k<0)continue;
+      var lab=w.slice(k).join(' '),bodyPrev=w.slice(0,k).join(' ');
+      res.push({h:cur.h,body:(cur.pre||'')+(cur.pre&&bodyPrev?' ':'')+bodyPrev});
+      cur={h:lab.replace(/\s*$/,'')};from=re.lastIndex;cur.pre=''}
+    res.push({h:cur.h,body:(cur.pre||'')+line.slice(from)});
+    return res.filter(function(p){return p.h!==null||p.body.trim()})};
+  var out=[],sez=null,inl=false;
+  String(txt||'').slice(0,4000).split(/\r?\n/).forEach(function(line){line=line.trim();if(!line)return;
+    pezzi(line).forEach(function(p){
+      if(p.h!==null){sez={h:cap(p.h),items:[]};out.push(sez);inl=!!p.body.trim()}
+      else if(!sez||inl){sez={h:'',items:[]};out.push(sez);inl=false}
+      sez.items=sez.items.concat(piatti(p.body))})});
+  return out.filter(function(s){return s.h||s.items.length}).slice(0,16).map(function(s){s.items=s.items.slice(0,20);return s});
+}
+// lo stesso menù riscritto bene: titolo con i due punti, poi un piatto per riga
+function menuInOrdine(txt){return menuSezioni(txt,'it').map(function(s){return (s.h?s.h+':\n':'')+s.items.join('\n')}).join('\n\n')}
+function suTop(){try{window.scrollTo(0,0)}catch(e){}try{document.body.scrollIntoView({block:'start'})}catch(e){}}
+// blocca subito i doppi tocchi, ma mostra «Un attimo…» solo se Google ci mette più di mezzo secondo
+function busy(on){var b=$('#busy');clearTimeout(busy.t);if(!on){b.style.display='none';b.classList.remove('vis');return}b.classList.remove('vis');b.style.display='flex';busy.t=setTimeout(function(){b.classList.add('vis')},450)}
+function call(fn,args,ok,ko){busy(true);var fatto=false,sv=setTimeout(function(){if(!fatto){busy(false);toast('Il sistema risponde lentamente: attendi qualche secondo o ricarica la pagina')}},45000);
+  var r=google.script.run.withSuccessHandler(function(x){fatto=true;clearTimeout(sv);busy(false);try{ok(x)}catch(e){erroreUI(e)}}).withFailureHandler(function(err){fatto=true;clearTimeout(sv);busy(false);var m=String(err&&err.message||err||'');if(ko)try{ko(m)}catch(e){}
+    toast(/ricarica/i.test(m)?m:'Non è stato possibile completare: '+m.replace(/^Exception:\s*/,''));
+    if(/ricarica/i.test(m))setTimeout(function(){DATA={};if(cur==='opinioni')OPN=null;tabs();apri()},1800)});r.api(CHIAVE,fn,args||[])}
+// qualsiasi imprevisto nella pagina: niente schermata bloccata, solo un avviso
+function erroreUI(e){busy(false);var b=$('#ok');if(b)b.disabled=false;toast('Qualcosa non è andato: riprova. Se succede ancora, ricarica la pagina (i dati salvati non si perdono).');try{console.error(e)}catch(x){}}
+window.addEventListener('error',function(ev){erroreUI(ev.error||ev.message)});window.addEventListener('unhandledrejection',function(ev){erroreUI(ev.reason)});
+function key(headers,h){for(var i=0;i<headers.length;i++)if(headers[i].toLowerCase().indexOf(h)===0)return headers[i];return null}
+var SFONDI={'Calici':'calici','Sala':'sala-tavoli','Sala con archi':'sala-archi','Seconda sala':'seconda-sala','Pizze nel forno':'pizze-forno','Parete dei vini':'parete-vini','Bar':'bar-aperitivo','Ingresso':'ingresso'};
+function fotoUrl(v){return /^[a-z0-9-]+$/.test(v)&&v.length<40?SITO+'media/foto/'+v+'-480.webp':'https://lh3.googleusercontent.com/d/'+v+'=w400'}
+// rimpicciolisce la foto nel telefono (max 1400 px) e la manda a Drive
+function caricaFoto(inp){var box=inp.closest('.foto,.sf'),file=inp.files[0],url=URL.createObjectURL(file),im=new Image();
+  im.onload=function(){var r=Math.min(1,1400/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*r);c.height=Math.round(im.height*r);
+    c.getContext('2d').drawImage(im,0,0,c.width,c.height);URL.revokeObjectURL(url);var b64=c.toDataURL('image/jpeg',.85).split(',')[1];
+    var nome=(document.querySelector('#frm [data-k^="Piatto"],#frm [data-k^="piatto"],#frm [data-k^="Testo"],#frm [data-k^="testo"]')||{}).value||'foto';
+    if(box.classList.contains('sf')){var u=box.querySelector('.sfu');u.innerHTML='<span>Carico…</span>';toast('Carico la foto…')}
+    call('apiCaricaFoto',[b64,nome],function(id){box.dataset.v=id;
+      if(box.classList.contains('sf')){box.querySelectorAll('.sfo').forEach(function(b){b.classList.remove('on')});var u=box.querySelector('.sfu');u.classList.add('on');u.innerHTML='<img src="'+fotoUrl(id)+'" alt=""><span>📷 La tua foto · cambia</span><input type="file" accept="image/*" hidden>'}
+      else{box.querySelector('.fprev').innerHTML='<img src="'+fotoUrl(id)+'" alt="">';box.querySelector('[data-xf]').style.display=''}
+      toast('Foto caricata ✓ Ora tocca Salva')},function(){if(box.classList.contains('sf'))box.querySelector('.sfu').innerHTML='<span>📷 La tua foto</span><input type="file" accept="image/*" hidden>'})};
+  im.onerror=function(){toast('Questa foto non si apre: provane un\'altra')};im.src=url}
+function toIso(s){var m=String(s||'').match(/(\d{1,2})\D(\d{1,2})\D(\d{4})/);return m?m[3]+'-'+('0'+m[2]).slice(-2)+'-'+('0'+m[1]).slice(-2):''}
+function fromIso(s){var m=String(s||'').match(/(\d{4})-(\d{2})-(\d{2})/);return m?m[3]+'/'+m[2]+'/'+m[1]:''}
+function alNum(s){return String(s||'').split(/[^\d]+/).map(Number).filter(function(n){return n>=1&&n<=14})}
+function alTxt(a){a=a.slice().sort(function(x,y){return x-y});return a.length>1?a.slice(0,-1).join(', ')+' e '+a[a.length-1]:(a[0]?String(a[0]):'')}
+function tabs(){$('#tabs').innerHTML=Object.keys(SEZ).filter(function(k){return !SEZ[k].nascosta||k===cur}).map(function(k){return '<button class="'+(k===cur?'on':'')+'" data-k="'+k+'">'+SEZ[k].nome+'</button>'}).join('')}
+$('#tabs').onclick=function(ev){var b=ev.target.closest('button');if(!b)return;cur=b.dataset.k;cerca='';tabs();apri()};
+/* ---- orari della settimana e regole per prenotazioni/asporto ---- */
+var GIORNI=['Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato','Domenica'];
+function orari(){if(DATA.orari&&DATA.regole){mostraOrari(DATA.orari,DATA.regole);rinfresca('orari');rinfresca('regole');return}call('apiLeggi',['orari'],function(o){DATA.orari=o;memo('orari');call('apiLeggi',['regole'],function(rg){DATA.regole=rg;memo('regole');mostraOrari(o,rg)})})}
+function mostraOrari(o,rg){(function(){var H=o.headers,k=function(h){return key(H,h)};
+  var h='<h2>Orari di apertura</h2><p class="hint">Lascia vuoto per «chiuso». Il sito mostra questi orari, il modulo di prenotazione e l’asporto propongono solo gli orari possibili. Per un giorno diverso dal solito (festività, eventi) usa «Eventi in arrivo e avvisi» → Chiusura o Orario speciale.</p><div class="card" id="orf">';
+  if(!o.rows.length||!k('pranzo dal')){h+='<p class="hint">La scheda «Orari» non c’è ancora: nello script esegui «installa».</p></div>';$('#main').innerHTML=h;return}
+  o.rows.forEach(function(r,i){h+='<div class="orr" data-i="'+i+'"><b>'+e(r[k('giorno')])+'</b><div class="orc"><span>Pranzo</span><input type="time" step="900" data-k="'+e(k('pranzo dal'))+'" value="'+e(r[k('pranzo dal')])+'"><span>–</span><input type="time" step="900" data-k="'+e(k('pranzo al'))+'" value="'+e(r[k('pranzo al')])+'"><button class="btn light x" data-x="p">chiuso</button></div>'+
+    '<div class="orc"><span>Cena</span><input type="time" step="900" data-k="'+e(k('cena dal'))+'" value="'+e(r[k('cena dal')])+'"><span>–</span><input type="time" step="900" data-k="'+e(k('cena al'))+'" value="'+e(r[k('cena al')])+'"><button class="btn light x" data-x="c">chiuso</button></div></div>'});
+  h+='<div class="row"><button class="btn gold" id="orsave">Salva gli orari</button></div></div><p class="hint">Le regole (ultima prenotazione, preavviso, asporto) sono in Configurazione.</p>';$('#main').innerHTML=h;
+  $('#orf').onclick=function(ev){var b=ev.target.closest('button[data-x]');if(!b)return;b.parentNode.querySelectorAll('input').forEach(function(x){x.value=''})};
+  $('#orsave').onclick=function(){var lav=[];
+    document.querySelectorAll('#orf .orr').forEach(function(row){var i=+row.dataset.i,orig=o.rows[i],nv={},cambiato=false,a=row.querySelectorAll('input');
+      for(var j=0;j<a.length;j+=2){if(!!a[j].value!==!!a[j+1].value){toast(orig[k('giorno')]+': indica sia l’apertura sia la chiusura (o lascia vuoti entrambi)');lav=null;return}}
+      a.forEach(function(x){nv[x.dataset.k]=x.value;if(String(orig[x.dataset.k]||'')!==x.value)cambiato=true});if(lav&&cambiato)lav.push(['orari',i,nv,orig])});
+    if(!lav)return;
+    if(!lav.length){toast('Nessuna modifica');return}
+    lav.forEach(function(x){var oc=copia(x[3]);Object.assign(DATA[x[0]].rows[x[1]],x[2]);accoda(x[0],'apiSalva',[x[0],x[1],x[2],null,oc])});mostraOrari(DATA.orari,DATA.regole)}})()}
+/* ---- pannello istantaneo: i dati restano sul telefono e le modifiche partono in sottofondo ---- */
+var SEZM=['piatti','categorie','eventi','avvisi','vini','bevande','faq','prezzi','orari','regole'],CODA=[],INVIO=false,AGG={};
+function memo(k){try{localStorage.setItem('pn1-'+k,JSON.stringify({t:Date.now(),d:k==='__oggi'?OGGI:DATA[k]}))}catch(e){}}
+function memoLeggi(){SEZM.concat(['__oggi']).forEach(function(k){try{var o=JSON.parse(localStorage.getItem('pn1-'+k)||'null');if(!o||!o.d)return;if(k==='__oggi')OGGI=o.d;else if(o.d.headers)DATA[k]=o.d}catch(e){}})}
+function inCoda(sez){return CODA.some(function(x){return x.sez===sez})}
+function inLista(sez){return cur===sez&&!$('#frm')&&!$('#orf')}
+function stato(html,cls){var p=$('#sync');if(!p){p=document.createElement('div');p.id='sync';msgs().insertBefore(p,msgs().firstChild)}msgs();p.className='sync '+(cls||'');p.innerHTML=html;p.style.display=html?'flex':'none'}
+// mette in fila una modifica: la lista è già aggiornata sul telefono, Google la riceve dietro le quinte
+function accoda(sez,fn,args,fatto){CODA.push({sez:sez,fn:fn,args:args,fatto:fatto});if(DATA[sez])memo(sez);avanti()}
+function avanti(){
+  if(INVIO)return;
+  if(!CODA.length){stato('Salvato ✓ <small>sul sito tra pochi minuti</small>','ok');clearTimeout(avanti.t);avanti.t=setTimeout(function(){if(!CODA.length&&!INVIO)stato('')},3500);return}
+  INVIO=true;var op=CODA[0];stato('<span class="spin"></span> Salvataggio…'+(CODA.length>1?' ('+CODA.length+')':''),'');
+  google.script.run.withSuccessHandler(function(r){INVIO=false;CODA.shift();
+      if(r&&r.headers&&!inCoda(op.sez)){DATA[op.sez]=r;memo(op.sez);if(inLista(op.sez))lista()}
+      try{if(op.fatto)op.fatto(r)}catch(e){}avanti()})
+    .withFailureHandler(function(err){INVIO=false;var m=String(err&&err.message||err||'').replace(/^Exception:\s*/,'');
+      if(/ricarica/i.test(m)){annulla(op.sez,m);return}
+      stato('⚠ Non salvato: '+e(m||'connessione assente')+' <button id="sy-r">Riprova</button><button id="sy-a">Annulla</button>','err');
+      $('#sy-r').onclick=function(){avanti()};$('#sy-a').onclick=function(){annulla(op.sez,'Modifica annullata')}})
+    .api(CHIAVE,op.fn,op.args)}
+// toglie le modifiche non riuscite di una sezione e ricarica i dati veri da Google
+function annulla(sez,m){CODA=CODA.filter(function(x){return x.sez!==sez});toast(m);stato('');
+  if(SEZM.indexOf(sez)<0){if(sez==='opinioni'){OPN=null;if(cur==='opinioni')opinioni()}if(sez==='oggi'&&cur==='oggi')oggi();avanti();return}
+  call('apiLeggi',[sez],function(d){DATA[sez]=d;memo(sez);if(cur===sez)apri();avanti()})}
+window.addEventListener('beforeunload',function(ev){if(CODA.length||INVIO){ev.preventDefault();ev.returnValue=''}});
+// aggiorna una sezione in sottofondo (senza rotellina) e ridisegna solo se è cambiato qualcosa
+function rinfresca(sez){if(SEZM.indexOf(sez)<0||inCoda(sez)||AGG[sez]&&Date.now()-AGG[sez]<30000)return;AGG[sez]=Date.now();
+  google.script.run.withSuccessHandler(function(d){if(!d||!d.headers||inCoda(sez)||(cur===sez&&($('#frm')||$('#orf'))))return;var nuovo=JSON.stringify(d)!==JSON.stringify(DATA[sez]);DATA[sez]=d;memo(sez);if(nuovo&&inLista(sez))lista()}).withFailureHandler(function(){}).api(CHIAVE,'apiLeggi',[sez])}
+function riga(H,o){var r={};H.forEach(function(h){r[h]=''});Object.keys(o).forEach(function(k){r[k]=o[k]});return r}
+function copia(x){return JSON.parse(JSON.stringify(x))}
+/* ---- impostazioni: persone, promemoria, sito (niente più modifiche al codice) ---- */
+var PESCE=/gamber|scamp|pesce|tonn|salmon|baccal|merluzz|branzin|spigol|orata|spada|cozz|vongol|polp|calamar|seppi|totan|frutti di mare|ricciol|cernia|sogliol|rombo|trota|acciug|alic[ie]\b|sard[ei]|sgombr|capesant|ostric|aragost|astice|mazzancoll|nasello|platessa|persico|lavarello|coregone/,DUBBIE=[];
+function controllaOggi(p,s,wd,opz){opz=opz||{};var w=[],rp=String(p||'').split(/\r?\n/).map(function(x){return x.replace(/^[\s•·\-–*]+/,'').trim()}).filter(Boolean),rs=String(s||'').split(/\r?\n/).map(function(x){return x.replace(/^[\s•·\-–*]+/,'').trim()}).filter(Boolean),V=vocab('piatti');
+  var PRI=/pasta|spaghett|linguin|penne|rigaton|paccher|fusill|bucatin|risott|gnocch|lasagn|raviol|tortell|tagliatell|pappardell|orecchiett|trofie|zupp|minestr|vellutat|crema di|passato di|cannellon|maltagliat|strozzapret/,
+      SEC=/arrost|grigli|filett|tagliata|cotolett|scaloppin|brasat|bollit|spezzatin|polpett|branzin|orata|salmon|baccal|pollo|maiale|manzo|vitell|conigli|agnell|frittura|fritto|trancio|scamon|costat|stinc|salsicc|hamburger|involtin|seppie|polpo|calamar/;
+  
+  if(rp.length>8)w.push('Ci sono '+rp.length+' primi: il sito ne mostra al massimo 8.');if(rs.length>8)w.push('Ci sono '+rs.length+' secondi: il sito ne mostra al massimo 8.');
+  var tutti=rp.concat(rs),visti={};tutti.forEach(function(x){var n=nrm(x);if(visti[n])w.push('«'+x+'» è scritto due volte.');visti[n]=1});
+  tutti.forEach(function(x){if(/\d+([.,]\d+)?\s*(€|euro)/i.test(x))w.push('«'+x+'»: i prezzi non vanno nei piatti, si impostano in «Prezzi delle formule».');
+    else if(x.replace(/[^A-Za-zÀ-ÿ]/g,'').length<4)w.push('«'+x+'» sembra incompleto.')});
+  rp.forEach(function(x){var n=nrm(x);if(SEC.test(n)&&!PRI.test(n))w.push('«'+x+'» sembra un secondo: è giusto tra i primi?')});
+  rs.forEach(function(x){var n=nrm(x);if(PRI.test(n)&&!SEC.test(n))w.push('«'+x+'» sembra un primo: è giusto tra i secondi?')});
+  if(!opz.noPesce)tutti.forEach(function(x){if(PESCE.test(nrm(x))&&!/\*/.test(x))w.push('«'+x+'»: se pesce o frutti di mare sono surgelati, per legge va indicato con * (es. Linguine allo scoglio*).')});
+  if(!opz.noRefusi)refusi(tutti.join(' '),V).forEach(function(x){DUBBIE.push(x[0]);w.push((x[1]?'«'+x[0]+'» è scritto bene? Forse intendevi «'+x[1]+'».':'«'+x[0]+'»: parola che non conosco, controlla che sia scritta bene.'))});
+  try{var O=DATA.orari,gg=['lun','mar','mer','gio','ven','sab','dom'][wd!=null?wd:(new Date().getDay()+6)%7];if(O&&tutti.length){var kg=key(O.headers,'giorno'),kp=key(O.headers,'pranzo dal'),r=O.rows.filter(function(x){return nrm(x[kg]).slice(0,3)===gg})[0];if(r&&!r[kp])w.push('secondo la scheda Orari quel giorno a pranzo siete chiusi: il menù si vedrà lo stesso.')}}catch(x){}
+  return w.slice(0,8)}
+function impVal(k){var R=DATA.regole;if(!R)return '';var kC=key(R.headers,'chiave'),kV=key(R.headers,'valore'),r=R.rows.filter(function(x){return String(x[kC]||'').toLowerCase()===k.toLowerCase()})[0];return r?String(r[kV]||''):''}
+function impSet(k,v){var R=DATA.regole;if(R){var kC=key(R.headers,'chiave'),kV=key(R.headers,'valore'),r=R.rows.filter(function(x){return String(x[kC]||'').toLowerCase()===k.toLowerCase()})[0];if(r)r[kV]=v;else{var n={};n[kC]=k;n[kV]=v;R.rows.push(n)}}accoda('regole','apiImpostazione',[k,v])}
+var RUOLI={editor:'Pannello completo',lettore:'Solo opinioni'};
+// CONFIGURAZIONE: tutte le impostazioni in un posto solo (solo titolare e vice)
+function impost(){if(!DATA.regole){call('apiLeggi',['regole'],function(d){DATA.regole=d;memo('regole');impost()});return}
+  var GG=['lun','mar','mer','gio','ven','sab','dom'],gg=(impVal('Promemoria giorni')||'sab,dom,lun').toLowerCase(),rg=DATA.regole,kC=key(rg.headers,'chiave'),kV=key(rg.headers,'valore');
+  var sez=function(id,titolo,corpo,aperto){return '<details class="cfg"'+(aperto?' open':'')+' id="'+id+'"><summary>'+titolo+'</summary><div class="card">'+corpo+'</div></details>'};
+  var temiAuto=/^s/i.test(impVal('Temi automatici')||'no');
+  var h='<h2>Configurazione</h2><p class="hint">Tutte le impostazioni del sito e del pannello. Tocca un titolo per aprirlo.</p>'+
+   sez('c-st','Controllo del sistema','<p class="hint">Versione del pannello: <b>13 novembre 2026 · 18</b>. Verifica che sito, prenotazioni ed email funzionino.</p>'+
+     '<div class="card" style="padding:14px;margin:0 0 14px"><b>Indirizzo del sistema (App web)</b><p class="hint" style="margin:6px 0 10px">È l’indirizzo a cui il sito manda prenotazioni e opinioni. In Apps Script: <b>Esegui il deployment → Gestisci deployment</b> → copia l’<b>URL</b> dell’App web (finisce con <b>/exec</b>) e incollalo qui. Si salva solo se la prova riesce.</p>'+
+     '<input type="url" id="st-url" placeholder="https://script.google.com/macros/s/…/exec" autocomplete="off" spellcheck="false"><div class="row"><button class="btn gold" id="st-url-ok">Prova e salva</button></div><p class="hint" id="st-url-m" style="margin-top:8px"></p></div>'+
+     '<div id="st-box"></div><div class="row"><button class="btn gold" id="st-ok">Controlla ora</button></div>',true)+
+   sez('c-sito','Sito','<label>Indirizzo del sito</label><input type="url" id="im-sito" placeholder="https://oltreconfini.it" value="'+e(impVal('Indirizzo del sito'))+'"><p class="hint">I link nelle email ai clienti («La tua prenotazione») portano qui. Quando il sito cambia indirizzo, scrivi quello nuovo.</p>'+
+     '<label>Link per lasciare una recensione su Google</label><input type="url" id="im-rec" placeholder="https://g.page/r/…/review" value="'+e(impVal('Link recensioni Google'))+'"><p class="hint">Dalla scheda Google dell’attività: «Chiedi recensioni» → copia il link.</p>'+
+     '<div class="row"><button class="btn gold" id="im-ok">Salva</button></div>'+
+     '<div class="sw2" style="margin-top:16px"><span>Temi automatici nelle date classiche</span><button class="tg big'+(temiAuto?' on':'')+'" id="im-temi" aria-label="Temi automatici"><span></span></button></div><p class="hint">Spento (consigliato): il sito usa solo i temi accesi in «Eventi in arrivo e avvisi», dove li trovi già pronti con le date.</p>')+
+   sez('c-prom','Promemoria del menù della settimana','<p class="hint">Un’email a chi ha il promemoria acceso, nei giorni scelti, solo se il menù della settimana non è ancora scritto. Si accende e si spegne anche dalla scheda «Menù settimana».</p>'+
+     '<div class="orc"><span>Dalle</span><input type="time" step="1800" id="pr-da" value="'+e(impVal('Promemoria dalle')||'09:30')+'"><span>alle</span><input type="time" step="1800" id="pr-a" value="'+e(impVal('Promemoria alle')||'12:00')+'"></div>'+
+     '<div class="al" id="pr-gg">'+GG.map(function(g){return '<label><input type="checkbox" value="'+g+'" '+(gg.indexOf(g)>=0?'checked':'')+'> '+g+'</label>'}).join('')+'</div>'+
+     '<div class="row"><button class="btn gold" id="pr-ok">Salva promemoria</button></div>')+
+   '<details class="cfg" id="c-pren"><summary>Prenotazioni</summary>'+impPrenHTML()+'</details>'+
+   sez('c-reg','Regole di prenotazione e asporto','<p class="hint">In minuti. Esempio: chiusura alle 23:00 e «ultima prenotazione» 45 → l’ultimo orario prenotabile è 22:15.</p><div id="rgf">'+
+     rg.rows.map(function(r,i){return /\((minuti|giorni)/i.test(r[kC]||'')?'<label>'+e(r[kC])+'</label><input type="text" inputmode="numeric" data-i="'+i+'" value="'+e(r[kV])+'">':''}).join('')+
+     '</div><div class="row"><button class="btn gold" id="rg-ok">Salva le regole</button></div>')+
+   sez('c-pers','Persone e permessi','<div id="pers"><p class="hint">Carico…</p></div>')+
+   sez('c-rg','Registro: chi ha fatto cosa sulle prenotazioni','<div id="reg"><p class="hint">Si apre qui: ogni prenotazione creata, modificata, segnata come arrivata, liberata o annullata, con l’ora e la persona.</p></div>');
+  $('#main').innerHTML=h;impPrenAttiva();
+  var crg=$('#c-rg');if(crg)crg.addEventListener('toggle',function(){if(crg.open&&!crg.dataset.ok){crg.dataset.ok='1';mostraRegistro({})}});
+  // il controllo completo dura qualche secondo: si rifà da solo al massimo ogni 10 minuti (o con «Controlla ora»)
+  var mostraSt=function(L){if(!$('#st-box'))return;var U=L.filter(function(x){return x.campo})[0]||{};if(U.url&&!$('#st-url').value)$('#st-url').value=U.url;
+      $('#st-box').innerHTML=L.filter(function(x){return !x.campo}).map(function(x){return '<div class="stx '+(x.ok?'ok':'no')+'"><b>'+(x.ok?'✓':'✕')+'</b> '+e(x.t)+(x.aiuto?'<small>'+e(x.aiuto)+'</small>':'')+'</div>'}).join('')};
+  var stato=function(forza){if(!forza&&STC.L&&Date.now()-STC.t<600000)return mostraSt(STC.L);$('#st-box').innerHTML='<p class="hint">Controllo…</p>';
+    callPiano('apiStato',[],function(L){STC={t:Date.now(),L:L};mostraSt(L)},
+      function(err){$('#st-box').innerHTML='<div class="stx no"><b>✕</b> Il controllo non è riuscito<small>'+e((err&&err.message)||'Errore sconosciuto')+' — esegui «installa» dall’editor e accetta tutti i permessi.</small></div>'})};
+  $('#st-url-ok').onclick=function(){var b=this,m=$('#st-url-m'),u=$('#st-url').value.trim();if(!u){m.textContent='Incolla prima l’indirizzo.';return}b.disabled=true;m.textContent='Provo l’indirizzo come lo usa il sito…';
+    callPiano('apiImpostaUrl',[u],function(r){b.disabled=false;if(r&&r.ok){m.textContent='✓ Salvato: il sito ora usa questo indirizzo.';toast('Indirizzo salvato');stato(true)}else m.textContent='✕ '+((r&&r.msg)||'Non risponde.')},
+      function(err){b.disabled=false;m.textContent='✕ '+((err&&err.message)||'Non riuscito')+' — esegui «installa» dall’editor e accetta tutti i permessi.'})};
+  $('#st-ok').onclick=function(){stato(true)};stato();
+  $('#im-temi').onclick=function(){var on=!this.classList.contains('on');this.classList.toggle('on',on);impSet('Temi automatici',on?'sì':'no');toast(on?'Temi automatici accesi':'Temi solo dal pannello')};
+  $('#pr-ok').onclick=function(){var da=$('#pr-da').value,a=$('#pr-a').value,g=[].map.call(document.querySelectorAll('#pr-gg input:checked'),function(x){return x.value}).join(',');
+    if(!da||!a||da>=a){toast('L’orario di fine deve essere dopo quello di inizio');return}if(!g){toast('Scegli almeno un giorno (oppure spegni il promemoria in «Oggi»)');return}
+    impSet('Promemoria dalle',da);impSet('Promemoria alle',a);impSet('Promemoria giorni',g)};
+  $('#rg-ok').onclick=function(){var n=0;document.querySelectorAll('#rgf input').forEach(function(x){var i=+x.dataset.i,orig=rg.rows[i],v=x.value.replace(/\D/g,'');if(v===''){return}if(v!==String(orig[kV]||'')){var nv={};nv[kV]=v;var oc=copia(orig);Object.assign(rg.rows[i],nv);accoda('regole','apiSalva',['regole',i,nv,null,oc]);n++}});toast(n?'Regole salvate ✓':'Nessuna modifica')};
+  $('#im-ok').onclick=function(){var u=$('#im-sito').value.trim(),r=$('#im-rec').value.trim();
+    if(u&&!/^https?:\/\/[\w.-]+\.[a-z]{2,}/i.test(u)){toast('Scrivi l’indirizzo completo, es. https://oltreconfini.it');return}
+    if(r&&!/^https:\/\/(g\.page|www\.google\.|maps\.app\.goo\.gl|search\.google\.com|goo\.gl)/i.test(r)){toast('Il link deve essere quello di Google (https://g.page/…, https://maps.app.goo.gl/…)');return}
+    if(u!==impVal('Indirizzo del sito'))impSet('Indirizzo del sito',u);if(r!==impVal('Link recensioni Google'))impSet('Link recensioni Google',r)};
+  call('apiPersone',[],mostraPersone)}
+var RUOLI={admin:'Titolare',vice:'Vice',personale:'Personale'};
+function mostraPersone(R){var box=$('#pers');if(!box)return;var L=R.persone,NOMI=R.nomi,ADM=R.mioRuolo==='admin';
+  var puo=function(p){return ADM?(p.ruolo!=='admin'||p.io):(p.ruolo==='personale'||p.io)};
+  var chip=function(p){return p.ruolo==='personale'?p.sezioni.map(function(k){return NOMI[k]}).join(', '):'tutte le sezioni'+(p.ruolo!=='personale'?' · gestisce il personale':'')};
+  box.innerHTML='<p class="hint">Ognuno entra con il suo link personale. Il titolare e il vice decidono chi vede quali sezioni; i camerieri nuovi vedono prenotazioni e opinioni. Le operazioni sulle prenotazioni restano nel registro, con il nome di chi le ha fatte.</p>'+
+   L.map(function(p){return '<div class="item pp" data-m="'+e(p.email)+'"><div class="t"><b>'+e(p.nome||p.email)+(p.io?' (tu)':'')+' <span class="badge'+(p.ruolo!=='personale'?' on':'')+'">'+RUOLI[p.ruolo]+'</span></b><span>'+(p.nome?e(p.email)+' · ':'')+chip(p)+(p.promemoria?' · promemoria':'')+'</span></div>'+
+     (puo(p)?'<button class="mv" data-a="mod" title="Modifica">✎</button>':'')+'</div>'}).join('')+
+   '<div class="row"><button class="btn gold" id="pp-new">+ Aggiungi una persona</button></div>';
+  function scheda(p){var nuovo=!p;p=p||{email:'',nome:'',ruolo:'personale',sezioni:['pren','opinioni'],promemoria:false};
+    var h='<div class="card" id="ppf"><h3 style="margin:0 0 6px">'+(nuovo?'Nuova persona':e(p.nome||p.email))+'</h3>'+
+      (nuovo?'<label>Email</label><input type="email" id="pp-m" placeholder="nome@esempio.it">':'<p class="hint">'+e(p.email)+'</p>')+
+      '<label>Nome (si vede nel registro)</label><input type="text" id="pp-n" maxlength="40" value="'+e(p.nome)+'" placeholder="es. Marco – cameriere">'+
+      (p.ruolo==='admin'?'<p class="hint">Titolare: accesso a tutto.</p>':'<label>Ruolo</label><select id="pp-r"'+(p.io?' disabled':'')+'><option value="personale"'+(p.ruolo==='personale'?' selected':'')+'>Personale: solo le sezioni scelte</option>'+(ADM?'<option value="vice"'+(p.ruolo==='vice'?' selected':'')+'>Vice: tutto, e gestisce il personale</option>':'')+'</select>')+
+      '<div id="pp-sez"><label>Sezioni che può vedere e modificare</label><div class="al">'+Object.keys(NOMI).map(function(k){return '<label><input type="checkbox" value="'+k+'"'+(p.sezioni.indexOf(k)>=0?' checked':'')+'> '+NOMI[k]+'</label>'}).join('')+'</div></div>'+
+      '<label class="sw"><input type="checkbox" id="pp-p"'+(p.promemoria?' checked':'')+'> Riceve i promemoria e gli avvisi per email</label>'+
+      '<div class="row"><button class="btn gold" id="pp-ok">'+(nuovo?'Aggiungi e manda il link':'Salva')+'</button><button class="btn light" id="pp-no">Annulla</button></div>'+
+      (nuovo||p.io?'':'<div class="row"><button class="btn light" id="pp-link">✉ Rimanda il link</button><button class="btn light" id="pp-nuovo">↻ Link nuovo</button>'+(p.titolare?'':'<button class="btn bad" id="pp-via">Togli</button>')+'</div>')+'</div>';
+    box.insertAdjacentHTML('beforeend',h);$('#pp-new').style.display='none';$('#ppf').scrollIntoView({block:'center'});
+    var sez=function(){var r=$('#pp-r');$('#pp-sez').style.display=!r||r.value!=='personale'?'none':''};if($('#pp-r'))$('#pp-r').onchange=sez;sez();
+    $('#pp-no').onclick=function(){mostraPersone(R)};
+    $('#pp-ok').onclick=function(){var m=nuovo?$('#pp-m').value.trim().toLowerCase():p.email,ru=p.ruolo==='admin'?'admin':($('#pp-r')?$('#pp-r').value:p.ruolo),
+      sz=[].map.call(document.querySelectorAll('#pp-sez input:checked'),function(x){return x.value});
+      if(!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(m)){toast('Email non valida');return}if(nuovo&&L.some(function(x){return x.email===m})){toast('C’è già');return}
+      if(ru==='personale'&&!sz.length){toast('Scegli almeno una sezione');return}
+      call('apiPersonaSalva',[m,{nome:$('#pp-n').value.trim(),ruolo:ru,sezioni:sz,promemoria:$('#pp-p').checked}],function(x){toast(nuovo?'Aggiunta: riceve il link per email':'Salvato');R=x;mostraPersone(x)})};
+    if($('#pp-link'))$('#pp-link').onclick=function(){chiedi({t:'Rimandare il link?',d:'Il link al pannello viene rimandato per email a '+p.email+'.',ok:'Rimanda il link'},function(v){if(v==='ok')call('apiPersonaLink',[p.email,false],function(x){toast('Link inviato');mostraPersone(x)})})};
+    if($('#pp-nuovo'))$('#pp-nuovo').onclick=function(){chiedi({t:'Creare un link nuovo?',d:'Per '+p.email+'. Quello vecchio smette subito di funzionare (utile se è stato perso o inoltrato).',ok:'Crea link nuovo',pericolo:true},function(v){if(v==='ok')call('apiPersonaLink',[p.email,true],function(x){toast('Nuovo link inviato');mostraPersone(x)})})};
+    if($('#pp-via'))$('#pp-via').onclick=function(){chiedi({t:'Togliere '+(p.nome||p.email)+'?',d:'Il suo link al pannello smette subito di funzionare.',ok:'Togli',pericolo:true},function(v){if(v==='ok')call('apiPersonaTogli',[p.email],function(x){toast('Tolta');mostraPersone(x)})})}}
+  box.onclick=function(ev){var b=ev.target.closest('button[data-a="mod"]');if(!b||$('#ppf'))return;var m=b.closest('.pp').dataset.m;scheda(L.filter(function(x){return x.email===m})[0])};
+  $('#pp-new').onclick=function(){if(!$('#ppf'))scheda(null)}}
+// registro: chi ha fatto cosa
+function mostraRegistro(f){var box=$('#reg');if(!box)return;f=f||{};
+  call('apiRegistro',[f],function(R){
+    box.innerHTML='<p class="hint">Le ultime 300 operazioni (filtrabili). Per le prenotazioni c’è il codice (#…), non il nome del cliente.</p>'+
+      '<div class="flt"><select id="rg-p"><option value="">Tutte le persone</option>'+R.persone.map(function(x){return '<option'+(x===f.persona?' selected':'')+'>'+e(x)+'</option>'}).join('')+'</select>'+
+      '<select id="rg-s"><option value="">Tutte le sezioni</option>'+R.sezioni.map(function(x){return '<option'+(x===f.sezione?' selected':'')+'>'+e(x)+'</option>'}).join('')+'</select></div>'+
+      '<input type="text" id="rg-t" placeholder="Cerca (es. #A1B2C3, Margherita, Arrivati)" value="'+e(f.testo||'')+'" style="margin-top:8px">'+
+      '<div class="reglist">'+(R.righe.length?R.righe.map(function(r){return '<div class="rg'+(/negato/i.test(r[5])?' neg':'')+'"><div class="h">'+e(r[0])+' '+e(r[1].slice(0,5))+' · <b>'+e(r[2])+'</b>'+(r[3]?' ('+e(r[3])+')':'')+' · '+e(r[4])+'</div><div><b>'+e(r[5])+'</b> '+e(r[6])+'</div></div>'}).join(''):'<p class="hint">Nessuna operazione.</p>')+'</div>'+
+      '<label>Per quanti giorni tenere il registro</label><div class="row" style="margin-top:0"><input type="number" id="rg-g" min="30" max="730" value="'+R.giorni+'"><button class="btn light" id="rg-gok">Salva</button></div>'+
+      '<p class="hint">Avvisa il personale che le operazioni nel pannello vengono registrate (serve per legge).</p>'+(R.url?'<p class="hint"><a href="'+e(R.url)+'" target="_blank">Apri il registro completo nel foglio Google</a></p>':'');
+    var go=function(){mostraRegistro({persona:$('#rg-p').value,sezione:$('#rg-s').value,testo:$('#rg-t').value.trim()})};
+    $('#rg-p').onchange=go;$('#rg-s').onchange=go;$('#rg-t').onchange=go;
+    $('#rg-gok').onclick=function(){call('apiRegistroGiorni',[+$('#rg-g').value],function(){toast('Salvato')})}})}
+function apri(){if(cur==='pren')return pren();if(cur==='oggi')return oggi();if(cur==='orari')return orari();if(cur==='impost')return impost();if(cur==='opinioni')return opinioni();if(DATA[cur]){lista();rinfresca(cur);return}call('apiLeggi',[cur],function(d){DATA[cur]=d;memo(cur);AGG[cur]=Date.now();lista()})}
+
+/* ---- prenotazioni: agenda del giorno, nuove prenotazioni (anche telefoniche), arrivi ---- */
+var PR=null,PRD='',PRT=0,PRF=null;
+var PRK={},PRDEF={};Object.keys(PRR).forEach(function(k){PRK[k]=PRR[k][0];PRDEF[k]=PRR[k][1]});
+var GSETP=['domenica','lunedì','martedì','mercoledì','giovedì','venerdì','sabato'],MESIP=['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre'];
+function isoDi(d){return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2)}
+function isoSposta(iso,n){var p=iso.split('-');return isoDi(new Date(+p[0],+p[1]-1,+p[2]+n))}
+function giornoTesto(iso){var p=iso.split('-'),d=new Date(+p[0],+p[1]-1,+p[2]);var t=GSETP[d.getDay()]+' '+d.getDate()+' '+MESIP[d.getMonth()];return t.charAt(0).toUpperCase()+t.slice(1)}
+function hmMin(h){var m=String(h||'').match(/(\d{1,2}):(\d{2})/);return m?+m[1]*60+ +m[2]:null}
+// chiamata senza la schermata «Un attimo…» (aggiornamento automatico ogni minuto)
+function callPiano(fn,args,ok,ko){try{google.script.run.withSuccessHandler(ok).withFailureHandler(function(err){if(ko){ko(err);toast((err&&err.message)||'Non riuscito: riprova')}}).api(CHIAVE,fn,args||[])}catch(e){}}
+var PRV='g';      // vista: g = giorno, s = settimana, m = mese
+// velocità: le giornate già viste restano in memoria (solo finché la pagina è aperta: niente dati dei clienti salvati sul telefono).
+// Si mostra subito quello che c'è, poi si aggiorna in silenzio; i giorni vicini si caricano prima che servano.
+var PRC={},PPC={};if(PREN0&&PREN0.iso)PRC[PREN0.iso]=PREN0;
+var STC={t:0,L:null};
+function prLibero(){return cur==='pren'&&!$('#prf')&&!$('#reg[data-pren]')}
+function prCarico(t){$('#main').innerHTML='<h2>Prenotazioni</h2>'+vistaBar()+'<div class="card"><p class="hint">'+t+'</p></div>';vistaAttiva()}
+function prVicini(iso){[isoSposta(iso,1),isoSposta(iso,-1)].forEach(function(x){if(!PRC[x])callPiano('apiPren',[x],function(d){if(d&&d.iso)PRC[d.iso]=d})})}
+function pren(iso){PRD=iso||PRD||(PR&&PR.iso)||(PREN0&&PREN0.iso)||'';if(PRV!=='g')return prPeriodo();
+  var c=PRD&&PRC[PRD],tok=++PRT;
+  if(c){PR=c;if(prLibero())mostraPren()}else if(prLibero())prCarico('Carico la giornata…');
+  callPiano('apiPren',[PRD],function(d){if(!d||!d.iso)return;
+      if(tok!==PRT||PRQ.length||PRQV){if(!PRQ.length&&!PRQV)PRC[d.iso]=d;return}
+      var cambiato=!PR||PR.iso!==d.iso||JSON.stringify(PR)!==JSON.stringify(d);PRC[d.iso]=d;PR=d;PRD=d.iso;
+      if(cambiato&&PRV==='g'&&prLibero())mostraPren();prVicini(d.iso)},
+    function(){if(tok===PRT&&!c&&prLibero())$('#main').innerHTML='<h2>Prenotazioni</h2><div class="card"><p>Non riesco a caricare le prenotazioni: controlla la connessione.</p><button class="btn gold" id="pn-retry">Riprova</button></div>',$('#pn-retry').onclick=function(){pren(PRD)}})}
+// azioni istantanee: lo schermo cambia subito, il salvataggio parte dietro; se non riesce torna com'era e lo dice
+var PRQ=[],PRQV=false;
+function azionePren(b,s,opz,msg){var prima=JSON.stringify(PR),x=PR.lista.filter(function(y){return y.id===b.id})[0];if(!x)return;
+  if(s==='ok'&&opz&&opz.arriva){x.eta=hm2(Math.max(x.m,PR.ora+(+opz.arriva)));x.dac=0;x.w=1}else{x.s=s;x.dac=0;if(s==='ok')x.fx=1}
+  mostraPren();toast(msg);PRQ.push({a:[PR.iso,b.id,s,opz||{}],prima:prima,iso:PR.iso});prCorri()}
+function prCorri(){if(PRQV||!PRQ.length)return;PRQV=true;var q=PRQ.shift();stato('Salvo…','');
+  google.script.run.withSuccessHandler(function(x){PRQV=false;stato('');if(!PRQ.length&&PR&&PR.iso===q.iso&&cur==='pren'&&!$('#prf')){PR=x;mostraPren()}prCorri()})
+   .withFailureHandler(function(err){PRQV=false;stato('');PRQ=[];if(PR&&PR.iso===q.iso){PR=JSON.parse(q.prima);if(cur==='pren'&&!$('#prf'))mostraPren()}
+     chiedi({t:'Non salvato',d:String(err&&err.message||err).replace(/^Error:\s*/,'')+'\nHo rimesso com’era: riprova.',ok:'Ho capito',no:false})}).api(CHIAVE,'apiPrenStato',q.a)}
+window.addEventListener('beforeunload',function(e){if(PRQ.length||PRQV){e.preventDefault();e.returnValue=''}});
+// settimana e mese: i totali per giorno, un tocco apre la giornata
+function lunedi(iso){var p=iso.split('-'),d=new Date(+p[0],+p[1]-1,+p[2]),w=(d.getDay()+6)%7;return isoDi(new Date(+p[0],+p[1]-1,+p[2]-w))}
+function prPeriodo(){var base=PRD||isoDi(new Date()),da,n;
+  if(PRV==='s'){da=lunedi(base);n=7}else{var p=base.split('-');da=p[0]+'-'+p[1]+'-01';n=new Date(+p[0],+p[1],0).getDate()}
+  var k=PRV+da,c=PPC[k],tok=++PRT;if(c){if(prLibero())mostraPeriodo(da,c)}else if(prLibero())prCarico('Carico '+(PRV==='m'?'il mese':'la settimana')+'…');
+  callPiano('apiPrenPeriodo',[da,n],function(L){PPC[k]=L;if(tok!==PRT||PRV==='g'||!prLibero())return;if(!c||JSON.stringify(c)!==JSON.stringify(L))mostraPeriodo(da,L)})}
+function vistaBar(){return '<div class="vbar">'+[['g','Giorno'],['s','Settimana'],['m','Mese']].map(function(v){return '<button class="'+(PRV===v[0]?'on':'')+'" data-v="'+v[0]+'">'+v[1]+'</button>'}).join('')+'</div>'}
+function vistaAttiva(){document.querySelectorAll('.vbar button').forEach(function(b){b.onclick=function(){PRV=b.dataset.v;if(PRV==='g')pren(PRD);else prPeriodo()}})}
+function mostraPeriodo(da,L){var p=da.split('-'),mese=PRV==='m',h='<h2>Prenotazioni</h2>'+vistaBar();
+  var sp=function(n){var d=new Date(+p[0],+p[1]-1,+p[2]);if(mese)d=new Date(+p[0],+p[1]-1+n,1);else d.setDate(d.getDate()+7*n);return isoDi(d)};
+  h+='<div class="prnav"><button class="btn light" id="pv-p">‹</button><b class="pvt">'+(mese?MESIP[+p[1]-1]+' '+p[0]:'Settimana dal '+giornoTesto(da))+'</b><button class="btn light" id="pv-n">›</button></div>';
+  var tot=L.reduce(function(a,x){return a+x.pers},0),np=L.reduce(function(a,x){return a+x.pren},0);
+  h+='<p class="hint">'+np+' prenotazioni · '+tot+' persone</p>';
+  if(mese){var w=(new Date(+p[0],+p[1]-1,1).getDay()+6)%7,oggiIso=isoDi(new Date());h+='<div class="cal"><i>lun</i><i>mar</i><i>mer</i><i>gio</i><i>ven</i><i>sab</i><i>dom</i>';for(var k=0;k<w;k++)h+='<span></span>';
+    L.forEach(function(x){var cop=(x.cop[0]||0)+(x.cop[1]||0),pc=cop?Math.min(100,Math.round(100*x.pers/cop)):0,pass=x.iso<oggiIso;
+      h+='<button class="cd'+(x.oggi?' oggi':'')+(x.chiuso?' chiuso':'')+(pass?' pass':'')+(x.pren?' con':'')+(pc>=80?' quasi':'')+'" data-iso="'+x.iso+'" aria-label="'+e(giornoTesto(x.iso)+': '+(x.chiuso?'chiuso':x.pren?x.pren+' prenotazioni, '+x.pers+' persone':'nessuna prenotazione'))+'">'+
+        '<b>'+(+x.iso.slice(8))+'</b>'+(x.dac?'<em title="da contattare">'+x.dac+'</em>':'')+
+        (x.chiuso?'<small class="cz">chiuso</small>':x.pren?'<span class="cn">'+x.pers+'<small> pers.</small></span><small class="cp">'+x.pren+' pren.</small><span class="cbar"><i class="'+(pc>=100?'r':pc>=70?'a':'v')+'" style="width:'+Math.max(8,pc)+'%"></i></span>':'')+'</button>'});
+    h+='</div><div class="leg"><span><b>12 pers.</b> persone prenotate · <b>3 pren.</b> prenotazioni</span><span><i class="l-v"></i>c’è posto</span><span><i class="l-a"></i>quasi pieno</span><span><i class="l-r"></i>pieno</span><span><i class="l-ch"></i>chiuso</span></div>';
+    var prox=L.filter(function(x){return x.pren&&x.iso>=oggiIso});
+    h+='<h3 class="sub">'+(prox.length?'Giorni con prenotazioni':'Nessuna prenotazione da oggi in poi in questo mese')+'</h3>';
+    if(prox.length)h+='<div class="card" style="padding:4px 12px">'+prox.map(function(x){return '<button class="wd'+(x.oggi?' oggi':'')+'" data-iso="'+x.iso+'"><b>'+giornoTesto(x.iso)+(x.oggi?' · oggi':'')+'</b><span>'+x.pren+(x.pren===1?' prenotazione':' prenotazioni')+' · '+x.pers+(x.pers===1?' persona':' persone')+(x.pranzo?' · pranzo '+x.pranzo+'/'+x.cop[0]:'')+(x.cena?' · cena '+x.cena+'/'+x.cop[1]:'')+(x.dac?' · <em>'+x.dac+' da contattare</em>':'')+'</span></button>'}).join('')+'</div>'}
+  else h+='<div class="card" style="padding:4px 12px">'+L.map(function(x){return '<button class="wd'+(x.oggi?' oggi':'')+'" data-iso="'+x.iso+'"><b>'+giornoTesto(x.iso)+'</b><span>'+(x.chiuso?'chiuso':x.pren?x.pren+' prenotazioni · pranzo '+x.pranzo+'/'+x.cop[0]+' · cena '+x.cena+'/'+x.cop[1]:'nessuna prenotazione')+(x.dac?' · <em>'+x.dac+' da contattare</em>':'')+'</span></button>'}).join('')+'</div>';
+  $('#main').innerHTML=h;vistaAttiva();
+  $('#pv-p').onclick=function(){PRD=sp(-1);prPeriodo()};$('#pv-n').onclick=function(){PRD=sp(1);prPeriodo()};
+  document.querySelectorAll('[data-iso]').forEach(function(b){b.onclick=function(){PRV='g';pren(b.dataset.iso)}})}
+
+function telOk(t){var s=String(t||'').replace(/[\s.\/()\-]/g,'');if(!/^\+?\d+$/.test(s))return false;if(s.indexOf('00')===0)s='+'+s.slice(2);var n=s;if(s[0]==='+'){if(s.indexOf('+39')!==0){var d=s.slice(1);return d.length>=8&&d.length<=15}n=s.slice(3)}if(/^(\d)\1+$/.test(n.slice(1)))return false;return /^3\d{8,9}$/.test(n)||/^0\d{5,10}$/.test(n)}
+function hm2(m){return ('0'+Math.floor(m/60)%24).slice(-2)+':'+('0'+m%60).slice(-2)}
+function statoPren(b){
+  if(b.s==='arr')return {t:b.ac?'Arrivati (l’ha segnalato il cliente)':'Arrivati',c:'pos'};
+  if(b.s==='lib')return {t:'Tavolo liberato',c:'neg'};
+  if(b.s==='ann')return {t:'Annullata dal cliente',c:'off'};
+  if(b.s==='annR')return {t:'Annullata',c:'off'};
+  if(PR.iso<PR.oggi)return {t:'Non segnati (arrivo non registrato)',c:'off'};
+  if(PR.iso!==PR.oggi)return {t:'Confermata',c:'ok'};
+  if(servFinito(PR,b))return {t:'Non segnati (arrivo non registrato)',c:'off'};   // servizio finito: non serve più fare niente
+  if(b.dac)return {t:'DA CONTATTARE · non ha risposto',c:'neg'};
+  if(b.eta)return {t:'Ha risposto: arriva alle '+b.eta,c:'mid'};
+  if(!b.fx&&PR.ora>=b.m+PR.cfg.avv)return {t:'In ritardo · '+(b.em?'email inviata · ':'senza email: chiamalo · ')+(PR.cfg.libAuto?'si libera alle ':'da contattare alle ')+hm2(b.m+PR.cfg.lib),c:'mid'};
+  if(PR.ora>=b.m)return {t:'Orario arrivato · da segnare',c:'mid'};
+  return {t:'Confermata',c:'ok'};
+}
+// le prenotazioni che chiedono qualcosa adesso: da contattare, in ritardo, in arrivo nei prossimi 30 minuti
+// un servizio è finito mezz'ora dopo la chiusura (es. pranzo fino alle 14:30 → alle 15:00): da lì le sue prenotazioni escono da «Adesso»
+function servFinito(d,b){var f=d.fine&&d.fine[b.k]!=null?d.fine[b.k]:b.m+180;return d.ora>f+30}
+function adesso(d){if(d.iso!==d.oggi)return [];return d.lista.filter(function(b){return b.s==='ok'&&(b.dac||d.ora>=b.m-30)&&!servFinito(d,b)}).sort(function(a,b){return (b.dac?1:0)-(a.dac?1:0)||a.m-b.m})}
+function badgePren(){var n=PR&&PR.iso===PR.oggi?PR.lista.filter(function(b){return b.s==='ok'&&b.dac&&!servFinito(PR,b)}).length:0,bt=document.querySelector('#tabs button[data-k=pren]');if(bt)bt.innerHTML='Prenotazioni'+(n?' <span class="nbad">'+n+'</span>':'')}
+function mostraPren(){(function(){
+  if(PR&&PR.iso)PRC[PR.iso]=PR;
+  var d=PR,h='<h2>Prenotazioni'+(PERM.ruolo==='admin'||PERM.ruolo==='vice'?'<button class="btn light mini" id="pn-reg">Registro</button>':'')+'</h2>'+vistaBar();
+  h+='<div class="prnav"><button class="btn light" id="pn-p" aria-label="Giorno prima">‹</button><input type="date" id="pn-d" value="'+d.iso+'"><button class="btn light" id="pn-n" aria-label="Giorno dopo">›</button>'+(d.iso!==d.oggi?'<button class="btn light" id="pn-o">Oggi</button>':'')+'</div>';
+  h+='<p class="prday">'+(d.iso===d.oggi?'<b>Oggi</b> · ':'')+giornoTesto(d.iso)+'</p>';
+  if(!d.cfg.on)h+='<div class="state no">Le prenotazioni online sono spente: il sito invita a telefonare. Si riaccendono in Impostazioni.</div>';
+  if(d.quota!==null&&d.quota<15)h+='<div class="state no">Restano solo '+d.quota+' email da inviare oggi (limite giornaliero): le conferme ai clienti potrebbero non partire. Le prenotazioni restano comunque salvate.</div>';
+  var sv=['Pranzo','Cena'],tot='';
+  [0,1].forEach(function(k){tot+='<div class="kpi"><b>'+d.occ[k]+'<small>/'+d.cfg.cop[k]+'</small></b><span>'+sv[k]+(d.servizi[k]?' · '+d.servizi[k]:' · chiuso')+'</span><i>coperti prenotati</i></div>'});
+  h+='<div class="kpis k2">'+tot+'</div>';
+  var ad=adesso(d);
+  if(ad.length)h+='<div class="grp">Adesso</div><div class="card adesso">'+ad.map(function(b){var st=statoPren(b),tel=String(b.tel||'').replace(/[^\d+]/g,'');
+    return '<div class="adx'+(b.dac?' dac':'')+'" data-id="'+b.id+'"><div><b>'+b.h+' · '+e(b.nm)+' · '+b.n+'</b><span class="tag t-'+st.c+'">'+st.t+'</span></div>'+
+      '<div class="adb"><button class="btn gold" data-a="arr">✓ Arrivati</button>'+(tel?'<a class="btn light tel" href="tel:'+e(tel)+'" target="_blank" rel="noopener">📞 Chiama</a>':'')+
+      (b.dac||d.ora>=b.m+d.cfg.avv?'<button class="btn light" data-a="arriva">Sta arrivando</button><button class="btn bad" data-a="lib">Libera</button>':'')+'</div></div>'}).join('')+
+    '<p class="hint" style="margin:8px 0 0">Appena un tavolo si siede, tocca «Arrivati»: chi resta qui senza spunta viene controllato (email al cliente, poi «da contattare»).</p></div>';
+  h+='<button class="btn gold" id="pn-new" style="width:100%">+ Nuova prenotazione</button><p class="hint" style="margin-top:8px">Segna qui anche quelle al telefono o al banco: così il sito sa quanti posti restano e nessuno prenota due volte lo stesso tavolo.</p>';
+  if(!d.lista.length)h+='<div class="card"><p class="hint">Nessuna prenotazione per questo giorno.</p></div>';
+  [0,1].forEach(function(k){var L=d.lista.filter(function(b){return b.k===k});if(!L.length)return;
+    h+='<div class="grp">'+sv[k]+'</div><div class="card" style="padding:4px 10px">'+L.map(function(b){var st=statoPren(b),att=b.s==='ok'||b.s==='arr';
+      return '<div class="item prx'+(att?'':' spenta')+(b.s==='ok'&&b.dac&&d.iso===d.oggi&&!servFinito(d,b)?' dac':'')+'" data-id="'+b.id+'"><div class="t"><b>'+b.h+' · '+e(b.nm)+' · '+b.n+(b.n===1?' persona':' persone')+'</b>'+
+        '<span>#'+String(b.id).slice(0,6).toUpperCase()+' · '+(b.o==='s'?'dal sito':'al telefono')+(b.tv?' · tavolo '+e(b.tv):'')+(b.al?' · ⚠ allergie da chiedere':'')+(b.mf?' · email non partita':'')+(b.no?' · '+e(b.no):'')+'</span>'+
+        '<span class="tag t-'+st.c+'">'+st.t+'</span></div>'+
+        (att?'<button class="arrbtn'+(b.s==='arr'?' on':'')+'" data-a="arr" aria-label="Arrivati">'+(b.s==='arr'?'✓ Arrivati':'Arrivati?')+'</button>':'')+'</div>'}).join('')+'</div>'});
+  if(d.stat)h+='<p class="hint" style="margin-top:14px">Questo mese: '+((d.stat.sito||0)+(d.stat.pannello||0))+' prenotazioni ('+(d.stat.sito||0)+' dal sito)'+(d.stat.ns?' · '+d.stat.ns+' arrivi non segnati':'')+(d.stat.lib?' · '+d.stat.lib+' tavoli liberati per ritardo':'')+'. I dati dei clienti si cancellano da soli ogni notte; restano solo questi numeri.</p>';
+  $('#main').innerHTML=h;
+  $('#pn-p').onclick=function(){pren(isoSposta(d.iso,-1))};$('#pn-n').onclick=function(){pren(isoSposta(d.iso,1))};if($('#pn-o'))$('#pn-o').onclick=function(){pren(d.oggi)};
+  $('#pn-d').onchange=function(){if(this.value)pren(this.value)};
+  $('#pn-new').onclick=function(){schedaPren(null)};
+  badgePren();vistaAttiva();
+  if($('#pn-reg'))$('#pn-reg').onclick=function(){$('#main').innerHTML='<h2>Registro delle prenotazioni</h2><p><a href="#" id="rg-back">← Torna alle prenotazioni</a></p><div class="card" id="reg" data-pren="1"><p class="hint">Carico…</p></div>';$('#rg-back').onclick=function(ev){ev.preventDefault();mostraPren()};mostraRegistro({})};
+  $('#main').onclick=function(ev){var ax=ev.target.closest('.adx');
+    if(ax){var bb=d.lista.filter(function(x){return x.id===ax.dataset.id})[0],bn=ev.target.closest('button[data-a]');if(!bb||!bn)return;
+      if(bn.dataset.a==='arr')azionePren(bb,'arr',{},bb.nm+': arrivati ✓');
+      if(bn.dataset.a==='arriva')chiedi({t:bb.nm+' sta arrivando',d:'Tra quanti minuti arriva? Il tavolo resta tenuto fino ad allora.',campo:{tipo:'number',v:'15'},ok:'Salva'},function(v,mi){if(v!=='ok')return;mi=Math.round(+mi);if(mi>0&&mi<=180)azionePren(bb,'ok',{arriva:mi},'Ok: lo aspettiamo tra '+mi+' minuti');else toast('Scrivi i minuti, da 1 a 180')});
+      if(bn.dataset.a==='lib')chiedi({t:'Liberare il tavolo?',d:bb.nm+' · ore '+bb.h+' · '+bb.n+(bb.n===1?' persona':' persone')+'\nIl cliente non è arrivato: i posti tornano prenotabili.'+(bb.em?'\nVuoi avvisarlo per email?':''),ok:bb.em?'Libera e avvisa per email':'Libera il tavolo',alt:bb.em?'Libera senza email':'',pericolo:true},
+        function(v){if(v==='ok'||v==='alt')azionePren(bb,'lib',{mail:v==='ok'&&!!bb.em},'Tavolo liberato')});
+      return}
+    var it=ev.target.closest('.prx');if(!it)return;var b=d.lista.filter(function(x){return x.id===it.dataset.id})[0];if(!b)return;
+    var bt=ev.target.closest('button[data-a="arr"]');
+    if(bt){azionePren(b,b.s==='arr'?'ok':'arr',{},b.s==='arr'?'Tolto «arrivati»':'Segnati come arrivati ✓');return}
+    schedaPren(b)};
+})()}
+function schedaPren(b){(function(){
+  var d=PR,nuova=!b;b=b||{h:'',n:2,nm:'',tel:'',em:'',no:'',tv:'',al:false};
+  var opz=function(slot,sel){var o=slot.map(function(s){return '<option value="'+s.h+'"'+(s.h===sel?' selected':'')+'>'+s.h+' · '+(s.liberi>0?s.liberi+' posti liberi':'pieno')+'</option>'}).join('');
+    if(sel&&!slot.some(function(s){return s.h===sel}))o='<option value="'+sel+'" selected>'+sel+'</option>'+o;return o+'<option value="__altro">Altro orario…</option>'};
+  var h='<h2>'+(nuova?'Nuova prenotazione':'Prenotazione')+'</h2><div class="card" id="prf">';
+  if(!nuova){var st=statoPren(b);h+='<p><span class="tag t-'+st.c+'">'+st.t+'</span> '+(b.o==='s'?'arrivata dal sito':'inserita dal pannello')+'</p>'}
+  h+='<label>Giorno</label><input type="date" id="pf-d" value="'+d.iso+'">'+
+    '<label>Ora</label><select id="pf-h">'+opz(d.slot,b.h)+'</select><input type="time" step="900" id="pf-ha" style="display:none;margin-top:8px">'+
+    '<label>Persone</label><input type="number" inputmode="numeric" min="1" max="300" id="pf-n" value="'+e(b.n)+'">'+
+    '<label>Nome</label><input type="text" id="pf-nm" autocomplete="off" value="'+e(b.nm)+'">'+
+    '<label>Telefono</label><input type="text" inputmode="tel" id="pf-tel" value="'+e(b.tel)+'">'+(b.tel&&!nuova?'<a class="btn light tel" style="margin:2px 0 6px" href="tel:'+e(String(b.tel).replace(/[^\d+]/g,''))+'" target="_blank" rel="noopener">📞 Chiama '+e(b.tel)+'</a>':'')+
+    '<label>Email (facoltativa)</label><input type="email" inputmode="email" autocomplete="off" autocapitalize="off" id="pf-em" value="'+e(b.em)+'"><p class="hint">Se la scrivi, il cliente riceve conferma, promemoria e avviso di ritardo. Puoi lasciarla vuota.</p>'+
+
+    '<label>Tavolo (facoltativo)</label><input type="text" id="pf-tv" value="'+e(b.tv)+'">'+
+    '<label>Note</label><textarea id="pf-no" placeholder="Seggiolone, compleanno…">'+e(b.no)+'</textarea><p class="hint">Non scrivere qui allergie o dati sulla salute: spunta la casella e chiedile in sala.</p>'+
+    '<label class="sw"><input type="checkbox" id="pf-al"'+(b.al?' checked':'')+'> Al tavolo ci sono allergie o intolleranze</label>'+
+    '<div id="pf-w"></div><div class="row"><button class="btn gold" id="pf-ok">Salva</button><button class="btn light" id="pf-no-btn">Indietro</button></div>';
+  if(!nuova){h+='<div class="row">';
+    if(b.s==='ok'||b.s==='arr')h+='<button class="btn bad" id="pf-ann">Annulla la prenotazione</button>';
+    else h+='<button class="btn light" id="pf-riatt">Riattiva la prenotazione</button>';
+    h+='</div>';if(PERM.ruolo==='admin'||PERM.ruolo==='vice')h+='<div class="storia" id="pf-st"><b>Storia di #'+String(b.id).slice(0,6).toUpperCase()+'</b><p class="hint">Carico chi ha fatto cosa…</p></div>'}
+  h+='</div>';$('#main').innerHTML=h;suTop();
+  if($('#pf-st'))callPiano('apiPrenStoria',[b.id],function(L){var x=$('#pf-st');if(!x)return;x.innerHTML='<b>Storia di #'+String(b.id).slice(0,6).toUpperCase()+'</b>'+(L&&L.length?'<ol>'+L.map(function(r){return '<li><span>'+e(r.d+' '+r.h)+'</span><b>'+e(r.az)+'</b>'+(r.det?' · '+e(r.det):'')+'<small>'+e(r.chi.replace(/ · .*$/,'')+(r.ruolo?' ('+r.ruolo.toLowerCase()+')':''))+'</small></li>'}).join('')+'</ol>':'<p class="hint">Nessuna operazione registrata (le prenotazioni fatte prima del registro non hanno storia).</p>')},function(){var x=$('#pf-st');if(x)x.innerHTML='<b>Storia</b><p class="hint">Non disponibile in questo momento.</p>'});
+  var giorno=d.iso;
+  function oraSel(){var v=$('#pf-h').value;return v==='__altro'?$('#pf-ha').value:v}
+  $('#pf-h').onchange=function(){$('#pf-ha').style.display=this.value==='__altro'?'':'none';if(this.value==='__altro')$('#pf-ha').focus()};
+  $('#pf-d').onchange=function(){var v=this.value;if(!v)return;giorno=v;call('apiPren',[v],function(x){PRF=x;var cur=oraSel();$('#pf-h').innerHTML=opz(x.slot,cur);if(!x.servizi[0]&&!x.servizi[1])toast('Quel giorno risulta chiuso')})};
+  function salva(forza){var r={h:oraSel(),n:$('#pf-n').value,nm:$('#pf-nm').value,tel:$('#pf-tel').value,em:$('#pf-em').value,tv:$('#pf-tv').value,no:$('#pf-no').value,al:$('#pf-al').checked};
+    if(!r.h){toast('Scegli l’orario');return}if(!(+r.n>=1)){toast('Indica quante persone');return}if(r.nm.trim().length<2){toast('Scrivi il nome');return}
+    if(!telOk(r.tel)){toast('Telefono non valido: cellulare (3…) o fisso (0…); se estero con il prefisso +');return}
+    r.em=String(r.em||'').trim();if(r.em&&!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(r.em)){toast('L’email non sembra giusta: correggila o lasciala vuota');$('#pf-em').focus();return}
+    // spostata a un altro giorno: si crea nel nuovo giorno e si annulla la vecchia
+    var spostata=!nuova&&giorno!==d.iso;
+    call('apiPrenSalva',[giorno,r,spostata?null:(nuova?null:b.id),!!forza],function(x){
+      if(x.avvisi){$('#pf-w').innerHTML='<div class="ck"><b>Controlla prima di salvare</b><ul>'+x.avvisi.map(function(a){return '<li>'+e(a)+'</li>'}).join('')+'</ul><div class="row"><button class="btn light" id="pf-fix">Correggo</button><button class="btn gold" id="pf-force">Salva lo stesso</button></div></div>';
+        $('#pf-fix').onclick=function(){$('#pf-w').innerHTML=''};$('#pf-force').onclick=function(){salva(true)};$('#pf-w').scrollIntoView({block:'center'});return}
+      if(spostata){call('apiPrenStato',[d.iso,b.id,'annR',{}],function(){PR=x;mostraPren();toast('Spostata a '+giornoTesto(giorno))});return}
+      PR=x;mostraPren();toast(nuova?'Prenotazione salvata ✓':'Modifiche salvate ✓')})}
+  $('#pf-ok').onclick=function(){salva(false)};$('#pf-no-btn').onclick=function(){mostraPren()};
+  if($('#pf-ann'))$('#pf-ann').onclick=function(){chiedi({t:'Annullare la prenotazione?',d:b.nm+' · ore '+b.h+(b.em?'\nVuoi avvisare il cliente per email?':''),ok:b.em?'Annulla e avvisa per email':'Annulla la prenotazione',alt:b.em?'Annulla senza email':'',no:'Indietro',pericolo:true},
+    function(v){if(v!=='ok'&&v!=='alt')return;call('apiPrenStato',[d.iso,b.id,'annR',{mail:v==='ok'&&!!b.em}],function(x){PR=x;mostraPren();toast('Prenotazione annullata')})})};
+  if($('#pf-riatt'))$('#pf-riatt').onclick=function(){call('apiPrenStato',[d.iso,b.id,'ok',{}],function(x){PR=x;mostraPren();toast('Riattivata: non verrà più liberata in automatico')},function(m){if(/posto/.test(m))chiedi({t:'Non c’è più posto',d:m+'\nRiattivarla lo stesso, oltre i coperti?',ok:'Riattiva lo stesso'},function(v){if(v==='ok')call('apiPrenStato',[d.iso,b.id,'ok',{forza:true}],function(x){PR=x;mostraPren();toast('Riattivata')})})})};
+})()}
+// aggiornamento automatico: ogni minuto, mentre si guarda l'agenda (non durante la modifica)
+setInterval(function(){if(cur==='pren'&&PRV==='g'&&PR&&!PRQ.length&&!PRQV&&!$('#prf')&&!$('#reg')&&document.visibilityState!=='hidden')callPiano('apiPren',[PR.iso],function(x){if(cur==='pren'&&!$('#prf')){PR=x;var y=window.scrollY;mostraPren();window.scrollTo(0,y)}})},60000);
+// impostazioni delle prenotazioni (scheda Impostazioni)
+var PRGRUPPI=[
+ ['Posti e orari',[['copL','Coperti a pranzo','Quante persone potete accogliere insieme. Il sito non vende mai più posti di questi.'],['copD','Coperti a cena'],
+   ['durL','Durata del tavolo a pranzo (minuti)','Per quanto tempo un tavolo resta occupato: serve a capire quando si libera.'],['durD','Durata del tavolo a cena (minuti)'],
+   ['maxN','Persone massime per una prenotazione online','I gruppi più grandi vengono invitati a telefonare.'],['step','Intervallo tra gli orari prenotabili (minuti)','Es. 15 = 19:00, 19:15, 19:30…'],
+   ['pochi','Mostra «ultimi posti» quando ne restano meno di','0 = mai.']]],
+ ['Avvisi al cliente',[
+   ['prom','Promemoria: quante ore prima','0 = nessun promemoria.'],['avv','Ritardo: dopo quanti minuti mandiamo l’email «stai arrivando?»'],['lib','Senza risposta: dopo quanti minuti dall’orario prenotato','Da quel momento la prenotazione diventa rossa «da contattare» e arriva un’email al personale con nome e telefono.'],
+   ['libAuto','Libera il tavolo da solo (invece di «da contattare»)','Spento: decide il personale dopo aver chiamato. Acceso: il tavolo si libera e il cliente riceve un’email.'],
+   ['etaMax','Ritardo massimo che il cliente può chiedere (minuti)','Il cliente che conferma «sto arrivando» può scegliere fino a questo ritardo.'],['etaMarg','Margine dopo l’orario confermato dal cliente (minuti)']]],
+ ['Dati del locale nei messaggi',[['nomeLoc','Nome del locale'],['indLoc','Indirizzo'],['telLoc','Telefono','Compare nelle email e nei messaggi del sito («chiamaci al…»).'],['mailLoc','Email per le risposte dei clienti'],['notaMail','Nota in fondo alle email (facoltativa)','Es.: Parcheggio gratuito nel cortile.']]],
+ ['Avvisi al locale',[['avvisa','Email al locale per le prenotazioni e disdette del giorno stesso','Senza dati personali: solo ora e persone.']]],
+ ['Privacy e sicurezza',[['conserva','Giorni di conservazione dei dati dopo la prenotazione','0 = si cancellano la notte dopo (consigliato). Se lo cambi, l’informativa del sito si aggiorna da sola.'],
+   ['oraPul','Ora della cancellazione notturna (0–6)'],['doppia','Stesso telefono: considera doppione entro (ore)','0 = nessun controllo.'],['oraMax','Prenotazioni online massime all’ora','Protezione contro gli invii automatici.']]]];
+function impPrenHTML(){var v=function(k){var x=impVal(PRK[k]);return x===''?PRDEF[k]:x};
+  var campo=function(c){var k=c[0],t=PRR[k][2],h='';
+    if(t==='s'){var on=!/^(no|off|spent)/i.test(v(k));return '<div class="sw2" style="margin-top:14px"><span>'+c[1]+'</span><button class="tg big'+(on?' on':'')+'" data-pk="'+k+'" aria-label="'+e(c[1])+'"><span></span></button></div>'+(c[2]?'<p class="hint">'+c[2]+'</p>':'')}
+    if(Array.isArray(t))h='<input type="number" inputmode="numeric" min="'+t[0]+'" max="'+t[1]+'" data-pk="'+k+'" value="'+e(v(k))+'">';
+    else h='<input type="'+(t==='e'?'email':'text')+'" data-pk="'+k+'" value="'+e(v(k))+'">';
+    return '<label>'+c[1]+'</label>'+h+(c[2]?'<p class="hint">'+c[2]+'</p>':'')};
+  var h='<h2>Prenotazioni</h2><div class="card" id="prs">'+campo(['on','Prenotazioni online dal sito','Spente: il sito non accetta prenotazioni e invita a telefonare.'])+
+   PRGRUPPI.map(function(g,i){return '<details'+(i===0?' open':'')+' class="prg"><summary>'+g[0]+'</summary>'+g[1].map(campo).join('')+(g[0]==='Avvisi al locale'?'<label>A chi arrivano gli avvisi (una email per riga)</label><textarea id="pr-avv" placeholder="Vuoto = chi ha il promemoria acceso (scheda Persone)"></textarea><p class="hint">Ricevono le nuove prenotazioni del giorno e i clienti da contattare per ritardo (con nome e telefono).</p>':'')+'</details>'}).join('')+
+   '<div class="row"><button class="btn gold" id="prs-ok">Salva prenotazioni</button></div></div>';
+  return h}
+function impPrenAttiva(){var box=$('#prs');if(!box)return;
+  var sw=function(ev){var t=ev.target.closest('button.tg[data-pk]');if(!t)return;var on=!t.classList.contains('on');t.classList.toggle('on',on);impSet(PRK[t.dataset.pk],on?'sì':'no');toast((on?'Acceso: ':'Spento: ')+PRK[t.dataset.pk])};
+  box.addEventListener('click',sw);
+  call('apiPrenAvvisi',[null],function(a){var t=$('#pr-avv');if(t){t.value=a.join('\n');t.dataset.orig=t.value}});
+  $('#prs-ok').onclick=function(){var err='',cambi=[];[].forEach.call(box.querySelectorAll('input[data-pk]'),function(x){var k=x.dataset.pk,t=PRR[k][2],val=String(x.value).trim();
+      if(Array.isArray(t)){val=val.replace(/\D/g,'');if(val===''||+val<t[0]||+val>t[1]){err='«'+x.previousElementSibling.textContent+'»: scegli un numero tra '+t[0]+' e '+t[1];return}}
+      if(t==='e'&&val&&!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(val)){err='Email non valida';return}
+      if(k==='telLoc'&&val.replace(/\D/g,'').length<6){err='Scrivi il telefono completo';return}
+      if(/[<>]/.test(val)){err='Niente simboli < >';return}
+      var cur=impVal(PRK[k]);if(cur==='')cur=PRDEF[k];if(val!==cur)cambi.push([k,val])});
+    var g=function(k){var x=box.querySelector('[data-pk="'+k+'"]');return +x.value};
+    if(!err&&g('lib')<=g('avv'))err='Il tavolo si libera dopo la domanda «stai arrivando?»: metti un numero più grande';
+    if(err){toast(err);return}
+    var av=$('#pr-avv'),avv=av.value!==av.dataset.orig;
+    if(!cambi.length&&!avv){toast('Nessuna modifica');return}
+    cambi.forEach(function(c){impSet(PRK[c[0]],c[1])});
+    if(avv)call('apiPrenAvvisi',[av.value.split(/[\s,;]+/).filter(Boolean)],function(a){av.value=a.join('\n');av.dataset.orig=av.value;toast('Salvato ✓')});else toast('Salvato ✓')};
+}
+/* ---- menù della settimana (pranzo, lunedì–sabato) + prezzi delle formule ---- */
+var SETTV=null;    // la settimana che si sta guardando (lunedì, aaaa-mm-gg)
+function oggi(lun){if(!lun&&OGGI&&OGGI.giorni&&(!SETTV||SETTV===OGGI.lun)){mostraOggi(OGGI);return}
+  call('apiSettLeggi',[lun||''],function(o){if(!lun||lun===o.corrente){OGGI=o;memo('__oggi')}mostraOggi(o)})}
+var MESI_S=['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre'];
+function dataLunga(iso){var p=iso.split('-');return (+p[2])+' '+MESI_S[+p[1]-1]}
+function spostaIso(iso,gg){var d=new Date(iso+'T12:00:00Z');d.setUTCDate(d.getUTCDate()+gg);return d.toISOString().slice(0,10)}
+function mostraOggi(o){(function(){
+  if(!o||!o.giorni){OGGI=null;return oggi()}
+  SETTV=o.lun;
+  var kC0=DATA.regole&&key(DATA.regole.headers,'chiave'),kV0=DATA.regole&&key(DATA.regole.headers,'valore'),rp=DATA.regole?DATA.regole.rows.filter(function(r){return /^promemoria/i.test(r[kC0]||'')})[0]:null,promOn=!rp||!/^(no|spent|off)/i.test(rp[kV0]||'');
+  var corr=o.lun===o.corrente,prox=o.lun===spostaIso(o.corrente,7),nome=corr?'Questa settimana':prox?'Prossima settimana':(o.lun<o.corrente?'Settimana passata':'Settimana');
+  var chiuso=function(i){try{var O=DATA.orari,kg=key(O.headers,'giorno'),kp=key(O.headers,'pranzo dal'),r=O.rows.filter(function(x){return nrm(x[kg]).slice(0,3)===['lun','mar','mer','gio','ven','sab'][i]})[0];return r&&!r[kp]}catch(x){return false}};
+  var h='<label class="sw big"><input type="checkbox" id="prom" '+(promOn?'checked':'')+'><span class="tr"></span><span><b>Promemoria del menù della settimana</b><small>'+(promOn?'Acceso: un’email nei giorni scelti in Configurazione (di base sabato, domenica e lunedì), solo se la settimana non è ancora scritta.':'Spento: non arrivano email di promemoria.')+'</small></span></label>'+
+  '<h2>Menù della settimana</h2>'+
+  '<div class="pnav"><button class="btn light" id="sw-p" aria-label="Settimana prima">‹</button><div class="sw-t"><b>'+nome+'</b><span>da lunedì '+dataLunga(o.lun)+' a sabato '+dataLunga(spostaIso(o.lun,5))+'</span></div><button class="btn light" id="sw-n" aria-label="Settimana dopo">›</button></div>'+
+  (o.pubblicata?'<div class="state ok">Sul sito ✓ — puoi cambiarla quando vuoi.</div>':'<div class="state no">Non ancora scritta.</div>')+
+  '<p class="hint">Un piatto per riga. Il sito mostra il menù del giorno e, sotto, quello degli altri giorni. Un giorno vuoto non compare.</p><div id="sw-ck"></div>'+
+  o.giorni.map(function(d,i){var pass=d.iso<o.oggi,oggiQ=d.iso===o.oggi;
+    return '<div class="card sw-g'+(pass?' pass':'')+(oggiQ?' oggiq':'')+'"><div class="sw-h"><b>'+d.nome+' '+dataLunga(d.iso)+'</b>'+(oggiQ?'<span class="tag">oggi</span>':'')+(pass?'<span class="tag grey">passato</span>':'')+
+      (i?'<button class="btn mini light" data-cp="'+i+'">Copia da '+o.giorni[i-1].nome.toLowerCase()+'</button>':'')+'</div>'+
+      (chiuso(i)?'<p class="hint">Secondo la scheda Orari a pranzo siete chiusi.</p>':'')+
+      '<label for="p'+i+'">Primi</label><textarea id="p'+i+'" rows="3"'+(i?'':' placeholder="Linguine ai frutti di mare"')+'>'+e(d.primi.join('\n'))+'</textarea>'+
+      '<label for="s'+i+'">Secondi</label><textarea id="s'+i+'" rows="3"'+(i?'':' placeholder="Coniglio alla ligure con patate"')+'>'+e(d.secondi.join('\n'))+'</textarea></div>'}).join('')+
+  '<div class="row sw-bar"><button class="btn gold" id="pub">Pubblica la settimana</button>'+(o.pubblicata?'<button class="btn bad" id="tog">Togli dal sito</button>':'')+'</div>'+
+  '<h2>Prezzi delle formule</h2><div class="card" id="prezzi">Carico…</div>';
+  $('#main').innerHTML=h;
+  $('#sw-p').onclick=function(){oggi(spostaIso(o.lun,-7))};$('#sw-n').onclick=function(){oggi(spostaIso(o.lun,7))};
+  document.querySelectorAll('[data-cp]').forEach(function(b){b.onclick=function(){var i=+b.dataset.cp;$('#p'+i).value=$('#p'+(i-1)).value;$('#s'+i).value=$('#s'+(i-1)).value;toast('Copiato: cambia solo quello che serve')}});
+  var righe=function(t){return String(t||'').split(/\r?\n/).map(function(x){return x.replace(/^[\s•·\-–*]+/,'').trim()}).filter(Boolean).slice(0,8)};
+  var leggi=function(vuota){return o.giorni.map(function(d,i){return vuota?{primi:'',secondi:''}:{primi:$('#p'+i).value,secondi:$('#s'+i).value}})};
+  // controllo dell'IA fatto in anticipo, mentre si scrive: quando si tocca «Pubblica» di solito è già pronto
+  var IAQ={},iaChiave=function(G){return JSON.stringify(G.map(function(x){return [righe(x.primi),righe(x.secondi)]}))},
+    iaPer=function(G){return G.map(function(x,i){return {giorno:o.giorni[i].nome,primi:righe(x.primi),secondi:righe(x.secondi)}})},
+    iaChiedi=function(G,fatto){var k=iaChiave(G),q=IAQ[k];if(q&&q.r){if(fatto)fatto(q.r);return}if(q){if(fatto)q.cb.push(fatto);return}
+      q=IAQ[k]={cb:fatto?[fatto]:[]};google.script.run.withSuccessHandler(function(r){q.r=r||{};q.cb.forEach(function(f){f(q.r)})}).withFailureHandler(function(){q.r={errore:1};q.cb.forEach(function(f){f(q.r)})}).api(CHIAVE,'apiControllaSettIA',[iaPer(G)])},
+    iaT=null;
+  if(IA==='1')document.querySelectorAll('.sw-g textarea').forEach(function(t){t.addEventListener('input',function(){clearTimeout(iaT);iaT=setTimeout(function(){if($('#p0'))iaChiedi(leggi())},1500)})});
+  var pubblica=function(G,forza,ia){
+    // controlli prima di pubblicare (avvisano soltanto: si può sempre pubblicare lo stesso)
+    if(!forza&&IA==='1'&&ia===undefined&&!G.every(function(x){return !righe(x.primi).length&&!righe(x.secondi).length})){
+      var fatto=false,vai=function(r){if(fatto)return;fatto=true;$('#pub').disabled=false;$('#pub').textContent='Pubblica la settimana';pubblica(G,false,r&&!r.errore?r:null)};
+      $('#pub').disabled=true;$('#pub').textContent='Controllo…';setTimeout(function(){vai(null)},6000);iaChiedi(G,vai);return}
+    if(!forza){var w=[],vuota=G.every(function(x){return !righe(x.primi).length&&!righe(x.secondi).length}),pesce=[];DUBBIE=[];
+      if(vuota)w.push('Non hai scritto nessun piatto: pubblicando così la settimana viene tolta dal sito.');
+      else G.forEach(function(x,i){if(!righe(x.primi).length&&!righe(x.secondi).length)return;
+        righe(x.primi).concat(righe(x.secondi)).forEach(function(y){if(PESCE.test(nrm(y))&&!/\*/.test(y)&&pesce.indexOf(y)<0)pesce.push(y)});
+        controllaOggi(x.primi,x.secondi,i,{noPesce:true,noRefusi:!!ia}).forEach(function(m){w.push(o.giorni[i].nome+': '+m)})});
+      if(ia&&ia.avvisi)ia.avvisi.forEach(function(a){w.unshift((a.giorno?a.giorno+': ':'')+a.testo)});
+      if(pesce.length)w.push('Piatti di pesce: se il pesce è surgelato, per legge va indicato con * dopo il nome (es. Trancio di spada*). '+pesce.join(' · '));
+      var corr=ia&&ia.correzioni?ia.correzioni:[];
+      var box=$('#sw-ck');box.innerHTML='';
+      if(w.length||corr.length){box.innerHTML='<div class="ck"><b>Controlla prima di pubblicare</b>'+(ia?'<p class="hint" style="margin:4px 0 0">Riletto dall’IA ✓</p>':'')+'<ul>'+w.slice(0,14).map(function(x){return '<li>'+e(x)+'</li>'}).join('')+
+          corr.map(function(c,j){return '<li>'+(c.giorno?e(c.giorno)+': ':'')+'«'+e(c.da)+'» → «'+e(c.a)+'» <a href="#" data-co="'+j+'">correggi</a></li>'}).join('')+'</ul>'+
+          (corr.length>1?'<div class="row" style="margin-top:6px"><button class="btn light" id="ck-all">Correggi tutto</button></div>':'')+
+          '<div class="row"><button class="btn light" id="ck-no">Correggo</button><button class="btn gold" id="ck-ok">Pubblica lo stesso</button></div></div>';
+        var applica=function(c){o.giorni.forEach(function(d,i){if(c.giorno&&c.giorno!==d.nome)return;['p','s'].forEach(function(k){var t=$('#'+k+i);if(t&&t.value.indexOf(c.da)>=0)t.value=t.value.split(c.da).join(c.a)})})};
+        box.querySelectorAll('a[data-co]').forEach(function(a){a.onclick=function(ev){ev.preventDefault();applica(corr[+a.dataset.co]);a.parentNode.style.textDecoration='line-through';a.remove()}});
+        if($('#ck-all'))$('#ck-all').onclick=function(){corr.forEach(applica);box.innerHTML='';toast('Corretto: controlla e pubblica')};
+        var dub=DUBBIE.slice();box.scrollIntoView({behavior:'smooth',block:'start'});$('#ck-no').onclick=function(){box.innerHTML=''};
+        $('#ck-ok').onclick=function(){box.innerHTML='';if(dub.length)imparaParole(dub);pubblica(leggi(),true)};return}}
+    var P=G.map(function(x){return {primi:righe(x.primi).map(function(y){return pulisci(y,true)}).join('\n'),secondi:righe(x.secondi).map(function(y){return pulisci(y,true)}).join('\n')}});
+    o.giorni.forEach(function(d,i){d.primi=righe(P[i].primi);d.secondi=righe(P[i].secondi)});o.pubblicata=o.giorni.some(function(d){return d.primi.length||d.secondi.length});
+    if(o.lun===o.corrente){OGGI=o;memo('__oggi')}
+    accoda('oggi','apiSettPubblica',[o.lun,P],function(r){if(r&&r.lun===r.corrente){OGGI=r;memo('__oggi')}});mostraOggi(o);toast(o.pubblicata?'Settimana pubblicata ✓':'Settimana tolta dal sito')};
+  $('#pub').onclick=function(){pubblica(leggi())};
+  $('#prom').onchange=function(){var on=this.checked,val=on?'sì':'no';
+    if(DATA.regole){var r=DATA.regole.rows.filter(function(x){return /^promemoria/i.test(x[kC0]||'')})[0];if(r)r[kV0]=val;else{var n={};n[kC0]='Promemoria menù del giorno';n[kV0]=val;DATA.regole.rows.push(n)}}
+    accoda('regole','apiImpostazione',['Promemoria menù del giorno',val]);toast(on?'Promemoria acceso':'Promemoria spento');mostraOggi(o)};
+  if($('#tog'))$('#tog').onclick=function(){chiedi({t:'Togliere tutta la settimana dal sito?',d:'Si cancellano i piatti da lunedì a sabato di questa settimana.',ok:'Togli dal sito',pericolo:true},function(v){if(v==='ok')pubblica(leggi(true),true)})};
+  var conPrezzi=function(d){DATA.prezzi=d;var kF=key(d.headers,'formula'),kC=key(d.headers,'cosa'),kP=key(d.headers,'prezzo');
+    $('#prezzi').innerHTML='<p class="hint">Il + davanti vuol dire «in più» (pizza + 2 €).</p>'+d.rows.map(function(r,i){return '<label>'+e(r[kF])+'</label><input type="text" data-i="'+i+'" value="'+e(r[kP])+'" inputmode="decimal"><span class="hint">'+e(r[kC])+'</span>'}).join('')+
+    '<div class="row"><button class="btn" id="savep">Salva i prezzi</button></div>';
+    $('#savep').onclick=function(){var n=0;document.querySelectorAll('#prezzi input').forEach(function(inp){var i=+inp.dataset.i,v=inp.value.replace(/\s*€\s*/g,'').trim(),orig=DATA.prezzi.rows[i];if(v===String(orig[kP]||''))return;var o={};o[kP]=v;var oc=copia(orig);orig[kP]=v;n++;accoda('prezzi','apiSalva',['prezzi',i,o,null,oc])});if(!n)toast('Nessuna modifica')}};
+  if(DATA.prezzi)conPrezzi(DATA.prezzi);else call('apiLeggi',['prezzi'],function(d){memo('prezzi');conPrezzi(d)})})()}
+
+
+/* ---- opinioni: dashboard (grafici amCharts) ---- */
+var OPN=null,PER=30,ROOTS=[],F={q:'',sent:'',tipo:'',tema:'',stato:'',ord:'new',testo:true,pag:0},CANEDIT=true;
+var VOCI=['Cucina','Pizza','Servizio in sala','Ambiente','Tempi di attesa','Puntualità al ritiro'];
+var MESI=['gen','feb','mar','apr','mag','giu','lug','ago','set','ott','nov','dic'];
+var COL={pos:'#2f7a4a',mid:'#c08a1e',neg:'#b23a2e',ink:'#0b121c',gold:'#a8874e'};
+var SENT={neg:'Critica',mid:'Da migliorare',pos:'Positiva'};
+var TEMI=[['Attesa',/attes|lent|aspett|ritard|tempi|wait|slow|late|langsam|warte|attente/],
+ ['Servizio',/personal|camerier|servizio|scortes|maleducat|antipatic|sgarbat|staff|service|rude|unfreundlich|bedienung|serveur|impoli/],
+ ['Prezzo',/\bcar[oie]\b|prezz|costos|conto|expensive|price|teuer|preis|cher\b|prix/],
+ ['Cibo freddo',/fredd|tiepid|\bcold\b|kalt|froid/],
+ ['Qualità del cibo',/crud|bruciat|salat|insipid|scott[oa]\b|gommos|unt[oa]\b|pesant|burnt|salty|bland|undercook|verbrannt|versalzen|brul|fade\b|qualit/],
+ ['Porzioni',/porzion|scars|piccol|portion|small|klein|petit/],
+ ['Rumore',/rumor|confusion|nois|\blaut|bruyant|bruit/],
+ ['Pulizia',/sporc|pulizi|bagn|dirty|unclean|schmutz|propre/],
+ ['Prenotazione',/prenot|telefon|rispost|booking|phone|reserv/]];
+var NEGW=/attes|lent|fredd|tiepid|crud|bruciat|salat|insipid|scortes|maleducat|sgarbat|sporc|rumor|car[oie]\b|pessim|deludent|mai pi|scars|cold|slow|rude|dirty|expensive|disappoint|bad|kalt|langsam|teuer|schlecht|froid|lent|cher\b|mauvais|decevant/g;
+function dt(s){var m=String(s).match(/(\d{1,2})\/(\d{1,2})\/(\d{4})/);return m?new Date(+m[3],+m[2]-1,+m[1]).getTime():NaN}
+function num(x){var n=parseFloat(String(x).replace(',','.'));return isNaN(n)?null:n}
+function avg(a){a=a.filter(function(x){return x!==null});return a.length?a.reduce(function(p,q){return p+q},0)/a.length:null}
+function f1(x){return x===null?'–':x.toFixed(1).replace('.',',')}
+function nrm(s){return String(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase()}
+function prep(x){var o={row:x[0],t:dt(x[1]),d:x[1],h:x[2],tipo:x[3]||'Non indicato',v:x.slice(4,10).map(num),m:num(x[10]),best:x[11],better:x[12],wish:x[13],l:x[14],stato:x[15]||'Nuova',nota:x[16]||''};
+  if(x[17]||x[18]||x[19]){o.orig={best:o.best,better:o.better,wish:o.wish};o.best=x[17]||o.best;o.better=x[18]||o.better;o.wish=x[19]||o.wish}
+  var mn=Math.min.apply(null,o.v.filter(function(z){return z!==null}).concat([5]));
+  o.sent=(o.m!==null&&o.m<3)||mn<=2?'neg':((o.m!==null&&o.m<4)||o.better?'mid':'pos');
+  var txt=nrm(o.better+' '+(o.sent!=='pos'?o.best:'')+' '+o.wish);o.temi=o.sent==='pos'?[]:TEMI.filter(function(t){return t[1].test(txt)}).map(function(t){return t[0]});
+  o.low=o.v.map(function(z,k){return z!==null&&z<=2?VOCI[k]+' '+z:null}).filter(Boolean);o.all=nrm([o.d,o.tipo,o.best,o.better,o.wish,o.nota].concat(o.orig?[o.orig.best,o.orig.better,o.orig.wish]:[]).join(' '));return o}
+function loadAm(cb){if(window.am5&&window.am5xy)return cb();var L=['https://cdn.amcharts.com/lib/5/index.js','https://cdn.amcharts.com/lib/5/xy.js','https://cdn.amcharts.com/lib/5/themes/Animated.js','https://cdn.amcharts.com/lib/5/locales/it_IT.js'],i=0;
+  (function nx(){if(i>=L.length)return cb();var s=document.createElement('script');s.src=L[i++];s.onload=nx;s.onerror=function(){toast('Grafici non disponibili: controlla la connessione');cb()};document.head.appendChild(s)})()}
+function opinioni(){if(OPN)return dash();
+  var usa=function(r){CANEDIT=r.ruolo==='editor';OPN=r.righe.map(prep).filter(function(o){return !isNaN(o.t)})};
+  var c=null;try{c=JSON.parse(localStorage.getItem('pn1-opn')||'null')}catch(e){}
+  var nuove=function(r){try{localStorage.setItem('pn1-opn',JSON.stringify(r))}catch(e){}};
+  if(c&&c.righe){usa(c);loadAm(dash);google.script.run.withSuccessHandler(function(r){if(!r||inCoda('opinioni'))return;nuove(r);if(JSON.stringify(r)!==JSON.stringify(c)){usa(r);if(cur==='opinioni')dash()}}).withFailureHandler(function(){}).api(CHIAVE,'apiOpinioni',[]);return}
+  call('apiOpinioni',[],function(r){nuove(r);usa(r);loadAm(dash)})}
+function root(id){var r=am5.Root.new(id);r.setThemes([am5themes_Animated.new(r)]);if(window.am5locales_it_IT)r.locale=am5locales_it_IT;r.numberFormatter.set('numberFormat','#.#');ROOTS.push(r);return r}
+function xy(r,horiz){var c=r.container.children.push(am5xy.XYChart.new(r,{panX:false,panY:false,wheelX:'none',wheelY:'none',paddingLeft:0,paddingRight:6}));
+  c.set('cursor',am5xy.XYCursor.new(r,{behavior:'none'}));c.get('cursor').lineY.set('visible',false);if(horiz)c.get('cursor').lineX.set('visible',false);return c}
+function axisStyle(ax){ax.get('renderer').labels.template.setAll({fontSize:12,fill:am5.color(0x6d6a63)});ax.get('renderer').grid.template.setAll({stroke:am5.color(0xe7e1d4),strokeOpacity:1})}
+function charts(cur){ROOTS.forEach(function(r){r.dispose()});ROOTS=[];if(!window.am5||!window.am5xy)return;
+  // 1. opinioni al mese: positive / da migliorare / critiche (colonne impilate)
+  var now=new Date(),mons=[];for(var i=11;i>=0;i--){var d=new Date(now.getFullYear(),now.getMonth()-i,1);mons.push({m:MESI[d.getMonth()],full:MESI[d.getMonth()]+' '+d.getFullYear(),y:d.getFullYear(),mo:d.getMonth(),pos:0,mid:0,neg:0,a:[]})}
+  OPN.forEach(function(o){var d=new Date(o.t);mons.forEach(function(x){if(x.y===d.getFullYear()&&x.mo===d.getMonth()){x[o.sent]++;if(o.m!==null)x.a.push(o.m)}})});
+  mons.forEach(function(x){x.avg=x.a.length?Math.round(avg(x.a)*10)/10:null;x.n=x.a.length});
+  var r=root('ch-mesi'),c=xy(r),xa=c.xAxes.push(am5xy.CategoryAxis.new(r,{categoryField:'m',renderer:am5xy.AxisRendererX.new(r,{minGridDistance:24})})),ya=c.yAxes.push(am5xy.ValueAxis.new(r,{min:0,renderer:am5xy.AxisRendererY.new(r,{})}));
+  axisStyle(xa);axisStyle(ya);xa.data.setAll(mons);
+  ['pos','mid','neg'].forEach(function(k){var s=c.series.push(am5xy.ColumnSeries.new(r,{name:SENT[k],xAxis:xa,yAxis:ya,valueYField:k,categoryXField:'m',stacked:true,fill:am5.color(COL[k]),stroke:am5.color(0xffffff),
+    tooltip:am5.Tooltip.new(r,{labelText:'{full} · {name}: {valueY}'})}));s.columns.template.setAll({width:am5.percent(62),strokeWidth:2,cornerRadiusTL:k==='neg'?4:0,cornerRadiusTR:k==='neg'?4:0});s.data.setAll(mons);s.appear(600)});
+  r.container.set('layout',r.verticalLayout);var lg=r.container.children.push(am5.Legend.new(r,{centerX:am5.p50,x:am5.p50,marginTop:6}));lg.labels.template.setAll({fontSize:12});lg.data.setAll(c.series.values);
+  // 2. voto medio mese per mese (linea)
+  r=root('ch-media');c=xy(r);xa=c.xAxes.push(am5xy.CategoryAxis.new(r,{categoryField:'m',renderer:am5xy.AxisRendererX.new(r,{minGridDistance:24})}));ya=c.yAxes.push(am5xy.ValueAxis.new(r,{min:1,max:5,strictMinMax:true,renderer:am5xy.AxisRendererY.new(r,{})}));
+  axisStyle(xa);axisStyle(ya);xa.data.setAll(mons);
+  var ls=c.series.push(am5xy.LineSeries.new(r,{name:'Voto medio',xAxis:xa,yAxis:ya,valueYField:'avg',categoryXField:'m',stroke:am5.color(COL.ink),connect:false,tooltip:am5.Tooltip.new(r,{labelText:'{full}: {valueY} su 5 ({n} opinioni)'})}));
+  ls.strokes.template.set('strokeWidth',2);ls.bullets.push(function(rt,se,di){if(di.dataContext&&di.dataContext.avg==null)return;return am5.Bullet.new(rt,{locationX:.5,sprite:am5.Circle.new(rt,{radius:5,fill:am5.color(COL.ink),stroke:am5.color(0xffffff),strokeWidth:2})})});ls.data.setAll(mons);ls.appear(600);
+  // 3. voto medio per voce (barre orizzontali)
+  var voci=VOCI.map(function(n,k){var a=cur.map(function(o){return o.v[k]}).filter(function(z){return z!==null});var mm=a.length?Math.round(avg(a)*10)/10:null;return{v:n+'  '+f1(mm),m:mm,n:a.length}}).filter(function(x){return x.n}).reverse();
+  r=root('ch-voci');c=xy(r,true);ya=c.yAxes.push(am5xy.CategoryAxis.new(r,{categoryField:'v',renderer:am5xy.AxisRendererY.new(r,{minGridDistance:10})}));xa=c.xAxes.push(am5xy.ValueAxis.new(r,{min:0,max:5,strictMinMax:true,renderer:am5xy.AxisRendererX.new(r,{})}));
+  axisStyle(xa);axisStyle(ya);ya.get('renderer').grid.template.set('visible',false);ya.data.setAll(voci);
+  var bs=c.series.push(am5xy.ColumnSeries.new(r,{xAxis:xa,yAxis:ya,valueXField:'m',categoryYField:'v',fill:am5.color(COL.ink),stroke:am5.color(COL.ink),tooltip:am5.Tooltip.new(r,{labelText:'{categoryY}: {valueX} su 5 ({n} voti)'})}));
+  bs.columns.template.setAll({height:am5.percent(55),cornerRadiusTR:4,cornerRadiusBR:4,strokeOpacity:0});
+  bs.columns.template.adapters.add('fill',function(f,t){var d=t.dataItem&&t.dataItem.dataContext;return d&&d.m<3.5?am5.color(COL.neg):f});
+  bs.data.setAll(voci);bs.appear(600);
+  // 4. di cosa si lamentano (temi nelle critiche e nei suggerimenti)
+  var tm=TEMI.map(function(t){var nn=cur.filter(function(o){return o.temi.indexOf(t[0])>=0}).length;return{tema:t[0],t:t[0]+'  '+nn,n:cur.filter(function(o){return o.temi.indexOf(t[0])>=0}).length}}).filter(function(x){return x.n}).sort(function(a,b){return a.n-b.n});
+  var box=document.getElementById('ch-temi');
+  if(!tm.length){box.innerHTML='<p class="hint">Nessuna critica ricorrente in questo periodo.</p>';box.style.height='auto'}else{box.style.height=(70+tm.length*34)+'px';
+  r=root('ch-temi');c=xy(r,true);ya=c.yAxes.push(am5xy.CategoryAxis.new(r,{categoryField:'t',renderer:am5xy.AxisRendererY.new(r,{minGridDistance:10})}));xa=c.xAxes.push(am5xy.ValueAxis.new(r,{min:0,maxPrecision:0,renderer:am5xy.AxisRendererX.new(r,{})}));
+  axisStyle(xa);axisStyle(ya);ya.get('renderer').grid.template.set('visible',false);ya.data.setAll(tm);
+  bs=c.series.push(am5xy.ColumnSeries.new(r,{xAxis:xa,yAxis:ya,valueXField:'n',categoryYField:'t',fill:am5.color(COL.neg),stroke:am5.color(COL.neg),tooltip:am5.Tooltip.new(r,{labelText:'{categoryY}: {valueX} opinioni'})}));
+  bs.columns.template.setAll({height:am5.percent(55),cornerRadiusTR:4,cornerRadiusBR:4,strokeOpacity:0,cursorOverStyle:'pointer'});
+  bs.columns.template.events.on('click',function(ev){F.tema=ev.target.dataItem.dataContext.tema;F.pag=0;lista2();document.getElementById('cm-box').scrollIntoView({behavior:'smooth'})});
+  bs.data.setAll(tm);bs.appear(600)}
+  // 5. come votano
+  var dist=[1,2,3,4,5].map(function(v){return{s:v+'★',n:cur.filter(function(o){return o.m!==null&&Math.min(5,Math.max(1,Math.round(o.m)))===v}).length}});
+  r=root('ch-dist');c=xy(r);xa=c.xAxes.push(am5xy.CategoryAxis.new(r,{categoryField:'s',renderer:am5xy.AxisRendererX.new(r,{minGridDistance:10})}));ya=c.yAxes.push(am5xy.ValueAxis.new(r,{min:0,maxPrecision:0,renderer:am5xy.AxisRendererY.new(r,{})}));
+  axisStyle(xa);axisStyle(ya);xa.data.setAll(dist);
+  bs=c.series.push(am5xy.ColumnSeries.new(r,{xAxis:xa,yAxis:ya,valueYField:'n',categoryXField:'s',fill:am5.color(COL.ink),stroke:am5.color(COL.ink),tooltip:am5.Tooltip.new(r,{labelText:'{categoryX}: {valueY} opinioni'})}));
+  bs.columns.template.setAll({width:am5.percent(55),cornerRadiusTL:4,cornerRadiusTR:4,strokeOpacity:0});
+  bs.columns.template.adapters.add('fill',function(f,t){var d=t.dataItem&&t.dataItem.dataContext;return d&&parseInt(d.s)<=2?am5.color(COL.neg):d&&parseInt(d.s)===3?am5.color(COL.mid):f});
+  bs.data.setAll(dist);bs.appear(600)}
+function periodo(){var now=Date.now(),day=864e5;return{from:PER?now-PER*day:0,prev:PER?now-2*PER*day:0}}
+function dash(){
+  var P=periodo(),cur=OPN.filter(function(o){return o.t>=P.from}),prev=PER?OPN.filter(function(o){return o.t>=P.prev&&o.t<P.from}):[];
+  var h='<h2>Opinioni dei clienti</h2><div class="seg" id="per">'+[[30,'30 giorni'],[90,'3 mesi'],[365,'12 mesi'],[0,'Tutto']].map(function(p){return '<button data-p="'+p[0]+'" class="'+(p[0]===PER?'on':'')+'">'+p[1]+'</button>'}).join('')+'</div>';
+  if(!OPN.length){$('#main').innerHTML=h+'<div class="card">Ancora nessuna opinione. Arrivano dal modulo «Com’è andata?» del sito: appena un cliente lo invia, compare qui.</div>';bindPer();return}
+  var m=avg(cur.map(function(o){return o.m})),mp=avg(prev.map(function(o){return o.m})),delta=(m!==null&&mp!==null)?m-mp:null;
+  var sod=cur.length?Math.round(cur.filter(function(o){return o.m>=4}).length/cur.length*100):null,neg=cur.filter(function(o){return o.sent==='neg'}).length;
+  h+='<div class="kpis k4"><div class="kpi"><b>'+f1(m)+'</b><span>voto medio su 5</span>'+(delta!==null?'<i>'+(delta>=0?'▲ ':'▼ ')+f1(Math.abs(delta))+' sul periodo prima</i>':'')+'</div>'+
+    '<div class="kpi"><b>'+cur.length+'</b><span>opinioni</span>'+(PER?'<i>'+prev.length+' nel periodo prima</i>':'')+'</div>'+
+    '<div class="kpi"><b>'+(sod===null?'–':sod+'%')+'</b><span>soddisfatti</span><i>media 4 o più</i></div>'+
+    '<div class="kpi neg" id="k-neg" role="button" tabindex="0"><b>'+neg+'</b><span>⚠ critiche</span><i>tocca per vederle</i></div></div>';
+  h+='<div class="card"><b>Opinioni al mese</b><p class="hint">Ultimi 12 mesi, divise per giudizio.</p><div id="ch-mesi" class="am"></div></div>'+
+     '<div class="card"><b>Voto medio mese per mese</b><p class="hint">Scala da 1 a 5. Tocca un punto per i dettagli.</p><div id="ch-media" class="am"></div></div>'+
+     '<div class="card"><b>Voto medio per voce</b><p class="hint">Nel periodo scelto. In rosso le voci sotto 3,5.</p><div id="ch-voci" class="am" style="height:250px"></div></div>'+
+     '<div class="card"><b>Di cosa si lamentano</b><p class="hint">Temi trovati nelle critiche e nei suggerimenti. Tocca una barra per leggere quei commenti.</p><div id="ch-temi" class="am"></div></div>'+
+     '<div class="card"><b>Come votano</b><p class="hint">Opinioni per voto medio arrotondato.</p><div id="ch-dist" class="am" style="height:220px"></div></div>';
+  var tipi={};cur.forEach(function(o){(tipi[o.tipo]=tipi[o.tipo]||[]).push(o)});
+  h+='<div class="card"><b>Per tipo di visita</b><table class="tt"><tr><th>Cosa hanno preso</th><th>Media</th><th>Opinioni</th><th>Critiche</th></tr>'+Object.keys(tipi).sort(function(a,b){return tipi[b].length-tipi[a].length}).map(function(k){var a=tipi[k];return '<tr><td>'+e(k)+'</td><td>'+f1(avg(a.map(function(o){return o.m})))+'</td><td>'+a.length+'</td><td>'+a.filter(function(o){return o.sent==='neg'}).length+'</td></tr>'}).join('')+'</table></div>';
+  h+='<div class="card" id="cm-box"></div>';
+  $('#main').innerHTML=h;bindPer();
+  $('#k-neg').onclick=function(){F.sent='neg';F.pag=0;lista2();$('#cm-box').scrollIntoView({behavior:'smooth'})};
+  setTimeout(function(){charts(cur)},30);lista2()}
+function bindPer(){$('#per').onclick=function(ev){var b=ev.target.closest('button');if(!b)return;PER=+b.dataset.p;F.pag=0;dash()}}
+var NEGWW=new RegExp('[a-zàèéìíòóùäöüßç]*(?:'+NEGW.source+')[a-zàèéìíòóùäöüßç]*','gi');
+function evid(s){return e(s).replace(NEGWW,function(w){return '<mark>'+w+'</mark>'})}
+function filtrate(){var P=periodo(),q=nrm(F.q).split(/\s+/).filter(Boolean);
+  var a=OPN.filter(function(o){return o.t>=P.from&&(!F.sent||o.sent===F.sent)&&(!F.tipo||o.tipo===F.tipo)&&(!F.tema||o.temi.indexOf(F.tema)>=0)&&(!F.stato||o.stato===F.stato)&&(!F.testo||o.best||o.better||o.wish)&&q.every(function(w){return o.all.indexOf(w)>=0})});
+  var srt={'new':function(x,y){return y.t-x.t||String(y.h).localeCompare(x.h)},old:function(x,y){return x.t-y.t},low:function(x,y){return (x.m||0)-(y.m||0)||y.t-x.t},high:function(x,y){return (y.m||0)-(x.m||0)||y.t-x.t}};
+  return a.sort(srt[F.ord])}
+function lista2(keep){var box=$('#cm-box');if(!box)return;var old=$('#cmlist'),top=keep&&old?old.scrollTop:0;var tipi={};OPN.forEach(function(o){tipi[o.tipo]=1});
+  var sel=function(id,cur,opts){return '<select id="'+id+'">'+opts.map(function(o){return '<option value="'+e(o[0])+'"'+(o[0]===cur?' selected':'')+'>'+e(o[1])+'</option>'}).join('')+'</select>'};
+  var a=filtrate(),PG=25,pages=Math.max(1,Math.ceil(a.length/PG));F.pag=Math.min(F.pag,pages-1);var pg=a.slice(F.pag*PG,F.pag*PG+PG);
+  var h='<b>Cosa dicono</b><p class="hint">Cerca, filtra e ordina. Le parole che di solito indicano un problema sono evidenziate.</p>'+
+   '<input type="text" id="f-q" placeholder="Cerca una parola, es. attesa" value="'+e(F.q)+'"><div class="flt">'+
+   sel('f-sent',F.sent,[['','Tutti i giudizi'],['neg','⚠ Solo critiche'],['mid','Da migliorare'],['pos','Positive']])+
+   sel('f-tema',F.tema,[['','Tutti i temi']].concat(TEMI.map(function(t){return[t[0],t[0]]})))+
+   sel('f-tipo',F.tipo,[['','Ogni visita']].concat(Object.keys(tipi).map(function(t){return[t,t]})))+
+   sel('f-stato',F.stato,[['','Ogni stato'],['Nuova','Nuove'],['In lavorazione','In lavorazione'],['Risolta','Risolte']])+
+   sel('f-ord',F.ord,[['new','Più recenti'],['old','Più vecchie'],['low','Voto più basso'],['high','Voto più alto']])+'</div>'+
+   '<label class="sw" style="font-weight:400;margin-top:8px"><input type="checkbox" id="f-testo" '+(F.testo?'checked':'')+'> Solo chi ha scritto un commento</label>'+
+   '<div class="cmbar"><span><b>'+a.length+'</b> opinioni'+(F.sent||F.tema||F.tipo||F.stato||F.q?' · <a href="#" id="f-reset">togli i filtri</a>':'')+'</span>'+(CANEDIT&&a.length?'<button class="btn light" id="f-exp">Esporta (arriva per email)</button>':'')+'</div>';
+  h+='<div class="cmlist" id="cmlist">';
+  h+=pg.length?pg.map(function(o){return '<div class="cm s-'+o.sent+'"><div class="h"><span class="tag t-'+o.sent+'">'+(o.sent==='neg'?'⚠ ':'')+SENT[o.sent]+'</span> '+e(o.d)+' '+e(o.h)+' · '+e(o.tipo)+' · media <b>'+f1(o.m)+'</b>'+(o.l&&o.l!=='it'?' · '+e(o.l.toUpperCase()):'')+'</div>'+
+    (o.low.length?'<div class="low">Voti bassi: '+o.low.map(e).join(', ')+'</div>':'')+
+    (o.best?'<p><b>Piaciuto:</b> '+(o.sent==='pos'?e(o.best):evid(o.best))+'</p>':'')+(o.better?'<p><b>Da migliorare:</b> '+evid(o.better)+'</p>':'')+(o.wish?'<p><b>Vorrebbe trovare:</b> '+e(o.wish)+'</p>':'')+(o.orig?'<p class="orig">Tradotto '+({en:'dall’inglese',de:'dal tedesco',fr:'dal francese'}[o.l]||'in italiano')+' · originale: «'+e([o.orig.best,o.orig.better,o.orig.wish].filter(Boolean).join(' · '))+'»</p>':'')+
+    (o.temi.length?'<div class="temi">'+o.temi.map(function(t){return '<span>'+e(t)+'</span>'}).join('')+'</div>':'')+
+    (CANEDIT?'<div class="act"><select data-row="'+o.row+'" class="st">'+['Nuova','In lavorazione','Risolta'].map(function(s){return '<option'+(s===o.stato?' selected':'')+'>'+s+'</option>'}).join('')+'</select><button class="btn light nt" data-row="'+o.row+'">'+(o.nota?'Modifica nota':'Aggiungi nota')+'</button></div>':'<div class="h">Stato: '+e(o.stato)+'</div>')+
+    (o.nota?'<div class="nota">Nota: '+e(o.nota)+'</div>':'')+'</div>'}).join(''):'<p class="hint">Nessuna opinione con questi filtri.</p>';
+  h+='</div>';
+  if(pages>1)h+='<div class="pager"><button class="btn light" id="pg-p" '+(F.pag?'':'disabled')+'>‹ Indietro</button><span>Pagina '+(F.pag+1)+' di '+pages+'</span><button class="btn light" id="pg-n" '+(F.pag<pages-1?'':'disabled')+'>Avanti ›</button></div>';
+  box.innerHTML=h;$('#cmlist').scrollTop=top;
+  var re=function(){F.pag=0;lista2()};
+  $('#f-q').oninput=function(){F.q=this.value;var p=this.selectionStart;F.pag=0;lista2();var q=$('#f-q');q.focus();q.setSelectionRange(p,p)};
+  ['sent','tema','tipo','stato','ord'].forEach(function(k){$('#f-'+k).onchange=function(){F[k]=this.value;re()}});
+  $('#f-testo').onchange=function(){F.testo=this.checked;re()};
+  if($('#f-reset'))$('#f-reset').onclick=function(ev){ev.preventDefault();F.q='';F.sent='';F.tema='';F.tipo='';F.stato='';re()};
+  if($('#pg-p'))$('#pg-p').onclick=function(){F.pag--;lista2()};
+  if($('#pg-n'))$('#pg-n').onclick=function(){F.pag++;lista2()};
+  box.querySelectorAll('select.st').forEach(function(s){s.onchange=function(){var o=OPN.filter(function(x){return x.row==s.dataset.row})[0];o.stato=s.value;try{localStorage.removeItem('pn1-opn')}catch(e){}accoda('opinioni','apiOpinioneStato',[o.row,o.stato,o.nota])}});
+  box.querySelectorAll('button.nt').forEach(function(b){b.onclick=function(){var o=OPN.filter(function(x){return x.row==b.dataset.row})[0],_n=chiedi({t:'Nota interna',d:'Cosa abbiamo deciso o fatto (la vede solo lo staff).',campo:{tipo:'textarea',v:o.nota||''},ok:'Salva la nota'},function(v,n){if(v!=='ok')return;o.nota=String(n||'').trim();try{localStorage.removeItem('pn1-opn')}catch(e){}accoda('opinioni','apiOpinioneStato',[o.row,o.stato,o.nota]);lista2(true)})}});
+  if($('#f-exp'))$('#f-exp').onclick=function(){var rows=a.map(function(o){return[o.d,o.tipo,f1(o.m),SENT[o.sent],o.temi.join(', '),o.low.join(', '),o.best,o.better,o.wish,o.stato,o.nota]});
+    call('apiEsporta',[rows],function(m){toast('Ti ho mandato il file per email ('+m+')')})}}
+/* ---- liste generiche ---- */
+function lista(){var s=SEZ[cur],d=DATA[cur],H=d.headers,kT=key(H,s.titolo),kS=key(H,s.sotto),kG=s.gruppo?key(H,s.gruppo):null,kA=key(H,'attivo'),kTipo=key(H,'tipo');
+  var h='<h2>'+s.nome+'</h2><p class="hint">'+s.aiuto+'</p><div class="row" style="margin:0 0 12px"><button class="btn gold" id="add">+ Aggiungi</button></div>';
+  if(cur==='vini')h+='<a class="btn light" style="display:block;text-align:center;text-decoration:none;margin:0 0 12px" href="'+e(SITO)+'digitale/?stampa=vini" target="_blank" rel="noopener">🖨 Carta dei vini da stampare (A5, PDF)</a>';
+  if(cur==='piatti'){try{var kAl=key(H,'allergeni'),kIn=key(H,'ingredienti'),kCa=key(H,'categoria'),dub=[];
+    if(kAl)d.rows.forEach(function(r,i){if(!r[kT])return;var al=alNum(r[kAl]),sg=alSugg(r[kT]+' '+(r[kIn]||'')+(/^pizz/i.test(r[kCa]||'')?' pizza':'')),m=sg.filter(function(n){return al.indexOf(n)<0});
+      var sig=nrm(r[kT]+'|'+(r[kIn]||'')+'|'+al.join(','));if(m.length&&ALOK.indexOf(sig)<0)dub.push('<li><a href="#" data-ai="'+i+'"><b>'+e(r[kT])+'</b></a> · forse manca '+m.map(function(n){return n+' '+AL[n-1].toLowerCase()}).join(', ')+' · <a href="#" data-alok="'+e(sig)+'">è giusto così</a></li>')});
+    if(dub.length)h+='<details class="ck" style="margin:0 0 12px"><summary><b>⚠ Allergeni da controllare: '+dub.length+' '+(dub.length===1?'piatto':'piatti')+'</b></summary><p class="hint" style="margin:6px 0">Dagli ingredienti sembrano mancare alcuni allergeni (obbligatori per legge). Controlla con lo chef: tocca il piatto, spunta quelli giusti e salva. Se invece è già giusto, tocca «è giusto così» e non te lo chiede più.</p><ul>'+dub.join('')+'</ul></details>'}catch(err){}}
+  if(d.rows.length>12)h+='<input type="text" class="search" id="q" placeholder="Cerca…" value="'+e(cerca)+'">';
+  h+='<div class="card" id="lst">';var last=null,q=cerca.toLowerCase();
+  d.rows.forEach(function(r,i){if(!r[kT]&&!r[kS])return;if(q&&JSON.stringify(r).toLowerCase().indexOf(q)<0)return;
+    if(kTipo&&/^esempio/i.test(r[kTipo]))return;
+    if(kG&&r[kG]!==last){last=r[kG];h+='<div class="grp">'+e(last)+'</div>'}
+    var badge=kA?'<button class="tg'+(/^s/i.test(r[kA])?' on':'')+'" data-tg="1" role="switch" aria-checked="'+(/^s/i.test(r[kA])?'true':'false')+'" aria-label="Attivo sul sito"><span></span></button>':'';
+    var sub=cur==='avvisi'?(r[kTipo]||'')+' · '+(r[key(H,'dal')]||'')+(r[key(H,'al')]?' → '+r[key(H,'al')]:'')+(r[key(H,'pizza')]?' · '+r[key(H,'pizza')]:r[key(H,'tema')]?' · '+r[key(H,'tema')]:r[key(H,'quando')]?' · '+r[key(H,'quando')]:''):cur==='eventi'?(r[key(H,'dal')]+' → '+r[key(H,'al')]):(r[kS]||'');
+    h+='<div class="item" data-i="'+i+'"><div class="t"><b>'+e(r[kT]||r[kTipo]||'')+'</b><span>'+e(sub)+'</span></div>'+badge+
+      (s.ordina&&!q?'<button class="mv" data-m="-1" aria-label="Su">↑</button><button class="mv" data-m="1" aria-label="Giù">↓</button>':'')+'</div>'});
+  h+='</div>';$('#main').innerHTML=h;
+  if($('#q'))$('#q').oninput=function(){cerca=this.value;var p=this.selectionStart;lista();$('#q').focus();$('#q').setSelectionRange(p,p)};
+  $('#add').onclick=function(){scheda(null)};
+  document.querySelectorAll('#main [data-ai]').forEach(function(x){x.onclick=function(ev){ev.preventDefault();scheda(+x.dataset.ai)}});
+  document.querySelectorAll('#main [data-alok]').forEach(function(x){x.onclick=function(ev){ev.preventDefault();ALOK.push(x.dataset.alok);try{localStorage.setItem('pn1-alok',JSON.stringify(ALOK.slice(-300)))}catch(er){}var li=x.closest('li'),dt=x.closest('details');if(li)li.remove();if(dt&&!dt.querySelector('li'))dt.remove();toast('Ok, segnato come giusto')}});
+  $('#lst').onclick=function(ev){var it=ev.target.closest('.item');if(!it)return;var i=+it.dataset.i,m=ev.target.dataset.m;
+    // interruttore Attivo: si accende o spegne senza aprire la scheda
+    if(ev.target.closest('[data-tg]')){ev.stopPropagation();var R=DATA[cur].rows[i],cA=s.campi.filter(function(c){return c.h==='attivo'})[0]||{si:'SÌ',no:'NO'},orig=copia(R),o={};
+      o[kA]=/^s/i.test(R[kA])?cA.no:cA.si;R[kA]=o[kA];accoda(cur,'apiSalva',[cur,i,o,null,orig]);toast(/^s/i.test(o[kA])?'Attivo: si vede sul sito (nelle sue date)':'Spento: non si vede sul sito');lista();return}
+    if(m){ev.stopPropagation();var R=DATA[cur].rows,j=i+(+m>0?1:-1);if(j<0||j>=R.length)return;var orig=copia(R[i]),tmp=R[i];R[i]=R[j];R[j]=tmp;accoda(cur,'apiSposta',[cur,i,+m,orig]);lista();return}scheda(i)}}
+
+/* ---- controlli prima di salvare: allergeni, refusi, doppioni simili, surgelati, prezzi ---- */
+// parole che indicano un allergene (aiuto: la decisione finale resta dello chef)
+var ALW=[[1,/farin|pasta\b|pane\b|pani\b|pangrattat|grissin|crostin|bruschett|gnocc|pizza|impast|focacc|tagliatell|pappardell|spaghett|raviol|plin|fileja|lasagn|cous|orzo|farro|segale|birra|panat|impanat|pastella|cotolett|cordon|seitan|piadin|cracker|biscott|frolla|sfoglia|base pizza|pizza fritta|calzone/],
+ [2,/gamber|scamp|aragost|astice|granch|mazzancoll|crostace|bisque/],
+ [3,/uov|tuorl|maiones|frittat|carbonara|albume|tagliatell|pappardell|raviol|plin|cordon|cotolett|frolla/],
+ [4,/pesce|acciug|alic[ie]\b|tonn|salmon|baccal|merluzz|branzin|orata|spada|colatura|bottarga|sgombr|cacciucc/],
+ [5,/arachid|nocciolin/],[6,/\bsoia|edamame|tofu/],
+ [7,/latte|mozzarell|burrat|formagg|parmigian|grana\b|pecorin|gorgonzol|taleggi|provol|scamorz|ricott|mascarpon|fontin|castelmagno|caciocavall|stracciatell|burro|panna|fondut|besciamell|bufala|crescenza|stracchin|cacio\b|cacio e pepe|carbo-crema/],
+ [8,/\bnoci\b|\bnoce\b|nocciol|mandorl|pistacchi|anacard|pinoli|pesto/],[9,/sedan|soffritt|ragu|ragù/],[10,/senap|mostard/],[11,/sesam|tahin/],
+ [12,/\bvino\b|nebbiolo|magliocco|aceto|balsamic|solfit|marsala|prosecco|riduzione al/],[13,/lupin/],
+ [14,/cozz|vongol|polp(?!ett)|polip|calamar|seppi|totan|ostric|capesant|moscardin|frutti di mare|lumach|fasolar/]];
+function alSugg(txt){var t=nrm(txt);return ALW.filter(function(a){return a[1].test(t)}).map(function(a){return a[0]})}
+// vocabolario: tutte le parole già usate nel menù + parole di cucina comuni
+var VOC={piatti:'allo alla alle agli alle della dello delle degli dalla dallo nella nello nelle negli sulla sullo sulle sugli dalle dagli con senza oppure fresco fresca freschi fresche casa nostro nostra nostri nostre forno scoglio mare terra giorno ripieno ripiena ripieni saltato saltata saltati gratinato gratinata gratinati croccante croccanti profumato profumata leggero leggera delicato delicata rustico rustica tradizionale nonna stagione stagionale tipico tipica antica antico verace veraci nero nera bianca bianche rosse fumé fume speziato speziata mantecato mantecata cotto cotta cotti crude crudo affettato tostato tostata aromatico aromatiche erbe agrumi limone arancia lime menta prezzemolo rosmarino salvia timo alloro maggiorana erba cipollina pepe sale olio burro panna latte mollica pane pangrattato zucchero miele vino cottura lenta lungo lunga antipasto antipasti primo primi secondo secondi contorno contorni pizza pizze speciale speciali margherita marinara diavola capricciosa quattro stagioni formaggi napoli calabrese pugliese bufalina ortolana tirolese tedesca calzone fritto fritta fritti focaccia pomodoro pomodorini san marzano mozzarella fior latte basilico origano aglio olio extravergine oliva olive nere taggiasche capperi acciughe alici tonno cipolla tropea rossa peperoni peperoncino piccante salame salamino salsiccia finocchietto prosciutto cotto crudo parma speck bresaola mortadella guanciale pancetta lardo arnad nduja wurstel funghi champignon porcini chiodini tartufo carciofi zucchine melanzane rucola grana parmigiano pecorino romano gorgonzola taleggio provola scamorza affumicata ricotta mascarpone burrata stracciatella fontina castelmagno caciocavallo pistacchio noci nocciole mandorle pinoli miele patate patatine forno grigliate griglia verdure stagione insalata mista verde gamberi gambero rosso mazara scampi cozze vongole calamari polipo polpo seppie pesce spada branzino orata salmone baccalà frutti mare crudo crudi tartare carpaccio battuta manzo vitello maiale pollo tacchino cervo capriolo cinghiale agnello costata tagliata filetto guancetta brasata brasato ragù bolognese carbonara amatriciana cacio pepe risotto milanese zafferano gnocchi pappardelle tagliatelle spaghetti spaghettone linguine paccheri ravioli raviolo plin lasagne fileja carnaroli riserva castagne mirtilli salsa crema vellutata fonduta riduzione nebbiolo magliocco vino bianco aceto balsamico maionese senape sesamo soia hummus ceci fagioli lenticchie bisque gremolada midollo tuorlo uovo uova marinato cialda crusco confettura pera fichi trifolati scottato scottata affumicato sott’aceti gnocco bruschette polpette tagliere salumi miste misto selezione crostacei bimbi cheeseburger cotoletta impasto integrale carbone vegetale aggiunta condimenti coperto glutine trancio tranci trancetto filetto filetti fettina fettine fetta fette spiedino spiedini involtino involtini polpetta polpette polpettone medaglione medaglioni scaloppina scaloppine cotoletta cotolette bistecca bistecche fiorentina tagliata straccetti spezzatino stufato stracotto arrosto arrosti arrostito arrostita bollito bolliti lesso brasato ossobuco ossibuchi stinco stinchi guancia guanciale coppa lonza arista porchetta cotechino zampone luganega luganiga salsicce rognone fegato fegatini trippa lampredotto coda cappone faraona anatra petto petti coscia cosce sovracoscia alette pollo galletto tacchino quaglia coniglio lepre cinghiale capriolo cervo agnello abbacchio capretto vitello vitellone manzo scottona maiale suino maialino bovino carpaccio tartare battuta roastbeef vitel tonné tonnato hamburger spada tonno salmone merluzzo nasello baccala stoccafisso orata branzino spigola ricciola rombo sogliola platessa trota persico lavarello coregone luccio pesce persico sgombro sardine sarde alici acciughe triglie triglia cernia dentice pagello sarago palombo verdesca razza gallinella scorfano coda di rospo rana pescatrice seppia seppie seppioline calamari calamaretti totani polpo polipo moscardini gamberi gamberetti gamberoni mazzancolle scampi aragosta astice granchio cozze vongole telline cannolicchi capesante ostriche fasolari frutti mare crostacei molluschi bottarga colatura fagioli fagiolini cannellini borlotti ceci lenticchie piselli fave lupini edamame soia patate patatine purè pure crocchette spinaci bietole bieta erbette cicoria catalogna friarielli broccoli broccoletti cavolfiore cavolo cavoli verza cavolo nero cappuccio cavoletti bruxelles carciofi carciofini asparagi zucchine zucchina melanzane melanzana peperoni peperone peperonata caponata ratatouille pomodori pomodorini datterini ciliegini cipolle cipolline scalogno porri porro sedano carote carota finocchi finocchio rape rapa ravanelli radicchio indivia scarola lattuga songino valeriana rucola crescione misticanza funghi porcini champignon chiodini finferli galletti pioppini tartufo zucca castagne mais olive capperi friggitelli cetrioli barbabietola topinambur cardi germogli verdure ortaggi contorno contorni insalata insalatina pasta paste spaghetti spaghettoni spaghettini vermicelli linguine bavette tagliolini tagliatelle fettuccine pappardelle lasagne lasagna cannelloni ravioli raviolini tortellini tortelloni tortelli agnolotti plin cappelletti anolini culurgiones mezzelune penne pennette rigatoni maccheroni mezze maniche sedanini fusilli trofie orecchiette cavatelli strozzapreti pici bigoli garganelli farfalle conchiglie paccheri ziti candele calamarata mafalde reginette casarecce gramigna tubetti ditalini orzo farro riso risotto risotti arancini gnocchi gnocchetti malloreddus pizzoccheri canederli spatzle passatelli minestra minestrone zuppa zuppe vellutata crema passato brodo consommé pasta fagioli ribollita pappa acquacotta polenta polentina taragna frittata frittate tortino sformato flan quiche torta salata burro olio aglio peperoncino prezzemolo basilico salvia rosmarino timo origano maggiorana alloro menta finocchietto aneto erba cipollina pepe noce moscata zafferano curry paprika cannella chiodi garofano ginepro vino bianco rosso marsala aceto balsamico limone arancia lime agrumi miele senape maionese ketchup salsa salse sugo sughi ragu ragout pesto pesto genovese pomodoro passata pelati concentrato panna latte besciamella fonduta formaggio formaggi mozzarella bufala burrata stracciatella ricotta mascarpone gorgonzola taleggio fontina asiago montasio provolone provola scamorza caciocavallo pecorino parmigiano grana padano reggiano robiola stracchino crescenza squacquerone castelmagno bitto casera emmental brie crosta uovo uova tuorlo albume pancetta speck prosciutto crudo cotto bresaola salame salamino mortadella nduja lardo culatello coppa salumi tagliere affettati gratin gratinato gratinata gratinati gratinate impanato impanata impanati panato panata fritto fritta fritti fritte frittura pastella tempura griglia grigliato grigliata grigliati alla brace piastra forno al cartoccio vapore lessato lessata saltato saltata saltati saltate trifolato trifolati spadellato spadellati stufato stufata stufati brasata mantecato mantecata affumicato affumicata marinato marinata marinati scottato scottata confit glassato glassata caramellato caramellata ripieno ripiena ripieni farcito farcita croccante croccanti cremoso cremosa morbido morbida tiepido tiepida freddo fredda caldo calda casereccio casereccia fatto in casa nostrano nostrana tradizionale classico classica rustico rustica genovese bolognese milanese napoletana siciliana romana pugliese calabrese sarda toscana ligure piemontese valtellinese veneziana carbonara amatriciana gricia arrabbiata puttanesca norma boscaiola pescatora marinara scoglio vongole carbonara cacio pepe aglio olio peperoncino quattro formaggi primavera ortolana contadina cacciatora pizzaiola parmigiana valdostana saltimbocca piccata con e al alla allo alle ai agli del della dello dei degli delle di da in su sul sulla nel nella crema di dadolata julienne cubetti scaglie granella briciole crumble chips cialda cialde dolce dolci dessert tiramisù tiramisu panna cotta cheesecake sorbetto gelato gelati semifreddo torta tortino crostata cannolo cannoli cannoncino babà baba profiteroles millefoglie affogato fondente cuore caldo cioccolato bianco frutti bosco fragole lamponi crème brûlée creme brulee zabaione meringa meringata pastiera cassata sfogliatella tartufo bignè bigne biscotti cantucci amaretti savoiardi caramello caramellato salato vaniglia cannella cocco mousse soufflé souffle strudel mele crumble zuppa inglese bonet salame cioccolato macedonia ananas gelato fiordilatte nocciola caffè cacao granella frolla sfoglia pan spagna pandoro panettone colomba chiacchiere frittelle paté pate patè fegatino sformatino sformatini muggine caprino cime ripassate duchessa brioche crostino tradizione benvenuto chef abbinamento mezzanotte brindisi spumante caldarroste crostone schiacciata crudité bottone bollicine calice omaggio viola novello acciuga agliata agnolini agretti agrodolce alalunga albicocca albicocche alborella amaretto anelletti anguilla anice animelle arancine arance arrosticini arselle baci bagna cauda bagnetto baicoli battuto bergamotto bianchetti biancomangiare bocconcini boga bomboloni bottoni braciola braciole brodetto bruschetta bucatini budino busiate cacciagione cacciucco caciotta caciucco campanelle capocollo caprese carciofo cardoncelli carpione carrè casatiello casoncelli castagnaccio casunziei cazzimperio cecina cedro cetriolo chiocciole ciabatta ciambella ciliegie cioppino cipollotto ciuppin cocomero coratella cornetto costine costolette crescentina crespelle crostini cuscus dolcetti farinata favette fegatelli fettunta finanziera finocchiona frattaglie fregola frico galantina gelatina gianduia gnudi granita grissini gubana impepata lampascioni lingua lombata lombo lumache malfatti marmellata maritozzo melagrana missoltini mondeghili more mostarda nervetti occhiata ombrina padellata pagnotta pajata palamita panelle panforte panissa pannacotta panzanella panzerotti pasticcio pere pesche piadina pistacchi pitta prugne puntarelle ricci risi pietro sartù scialatielli soppressata strangozzi strascinati struffoli supplì susine tiella tomino tonnarelli tordelli torrone tracchie trenette umbricelli uvetta vincisgrassi zeppole zuccotto affumicati glassati caramellati laccato laccata vellutato sfiziosi sfizioso brasati umido ripassato ripassata ripassati trifolata sottolio sottaceto sottaceti scottati spadellata pastellato pastellata infarinato soffritto rosolato rosolata sbriciolato sbriciolata scomposto scomposta tiepidi profumati aromatizzato aromatizzata mantecati sfumato sfumata frullato frullata emulsione pestato tartara cruda cotte dente brisè lievitato lievitazione fermentato stagionato stagionata stagionati affinato affinata erborinato sottovuoto bassa temperatura cbt legna padella wok fritture panko brunoise chiffonade concassé dadini listarelle polvere tuile spuma bavarese gel sferificazione majonese aioli tzatziki guacamole pinzimonio amuse bouche andouillette baguette béarnaise béchamel beignet beignets beurre blanc blanquette bœuf boeuf bourguignon bouillabaisse bouillon brandade cassoulet céleri champignons chantilly charcuterie chèvre choucroute clafoutis cocotte coq coquilles cordon bleu crêpe crêpes croissant croque monsieur madame croûte croûtons crudités daube éclair entrecôte escargots escalope financier flambé foie gras fricassée frites fromage galette gâteau gaufre glace gougères dauphinois hachis parmentier homard jambon macaron macarons madeleine magret meunière millefeuille mille feuille moules marinière navarin niçoise nougat omelette pain perdu palmier parfait pâtisserie paupiettes pissaladière pithiviers pot feu potage poulet lorraine rillettes rouille sabayon salade saumon soupe tapenade tarte tatin terrine tournedos rossini velouté vichyssoise vinaigrette vol vent quenelles rösti fondue raclette tartiflette sauce hollandaise dijonnaise provençale bordelaise normande lyonnaise parisienne duxelles mirepoix bouquet garni noisette sorbet chocolat praline pralin ganache nougatine tuiles opéra fraisier paris brest religieuse chouquettes canelé cannelé kouign amann mignardises petit four petits fours paella tapas tapa pintxos pinchos tortilla española gazpacho salmorejo jamón ibérico serrano chorizo morcilla croquetas patatas bravas alioli pulpo gallega gambas ajillo calamares pimientos padrón boquerones vinagre albóndigas fabada asturiana cocido madrileño churros chocolate catalana turrón empanada empanadas pisto escalivada sobrasada manchego queso fideuà arroz negro marisco mariscos merluza bacalao pil chipirones zarzuela pescaíto frito huevos rotos migas lacón callos montaditos bocadillo tostas tomate amb tomàquet chuletón solomillo secreto presa pluma cochinillo lechazo rabo toro pimentón romesco calçots mojo picón papas arrugadas ensaladilla rusa porra antequerana sangría tinto verano horchata ceviche tacos burrito nachos quesadilla enchiladas fajitas chili carne mole tamales arepas burger burgers beef chicken pork lamb steak ribs ribeye sirloin brisket pulled bacon sausage sausages ham turkey duck salmon tuna cod haddock prawns shrimp lobster crab oysters mussels scallops squid fish fries wedges mash mashed potatoes roast roasted grilled fried baked smoked braised stewed sauteed crispy creamy spicy sweet sour tangy glazed stuffed breaded battered caesar salad coleslaw onion rings nuggets wings hot dog club sandwich wrap toast bagel muffin pancakes waffles brownie pudding pie tart trifle scone scones shortbread cookie cookies cupcake donut doughnut ice cream sundae milkshake smoothie gravy mayo mustard barbecue bbq dressing ranch pickles cheddar blue cheese parmesan avocado tomato lettuce cucumber spinach mushrooms beans peas carrots corn sweetcorn rice noodles soup chowder stew tikka masala korma vindaloo naan samosa shepherd cottage and full english breakfast yorkshire sunday bangers ploughman toad hole sticky toffee eton mess bread butter vegan vegetarian gluten free dairy plant based veggie homemade fresh seasonal local organic special combo side sides starter starters main mains desserts kids menu brunch lunch dinner tasting platter sharing pinsa padellino tegamino sfilatino burratina datterino pachino spianata ventricina zola multicereali kamut canapa lievito madre biga poolish idratazione cornicione montanara battilocchio portafoglio crocchè frittatina arancino pizzetta pizzette doppio misti polpettine ascolane mozzarelle carrozza fiori espresso macchiato cappuccino ristretto corretto decaffeinato ginseng amaro digestivo limoncello grappa sambuca mirto genepì nocino vin santo passito moscato brachetto spritz aperol campari negroni americano bellini hugo prosecco sushi sashimi nigiri uramaki hosomaki temaki ramen udon soba gyoza poke wasabi teriyaki miso tofu kimchi bibimbap dumpling dumplings dim sum wonton pad thai satay basmati jasmine biryani tandoori chutney falafel couscous tajine pita kebab shawarma moussaka feta gyros souvlaki halloumi baklava goulash gulasch schnitzel wiener knödel pretzel brezel sachertorte kaiserschmarrn borscht pierogi blini cevapcici burek tabbouleh ganoush labneh harissa za’atar sumac quinoa bulgur chia açaí acai bowl granola yogurt kefir',vini:'vino vini bianco bianchi rosso rossi rosato rosati bollicine spumante brut extra dry metodo classico millesimato riserva superiore classico docg doc igt igp dop bio biologico cuvée calice bottiglia champagne premier grand cru réserve franciacorta satèn prosecco valdobbiadene conegliano cartizze trento lugana vermentino falanghina greco tufo fiano avellino gewürztraminer müller thurgau riesling sauvignon chardonnay pinot grigio nero bianco kerner sylvaner traminer malvasia grillo inzolia catarratto zibibbo moscato passito barolo barbaresco nebbiolo langhe roero arneis barbera dolcetto alba asti gavi cortese amarone valpolicella ripasso recioto bardolino soave custoza brunello montalcino rosso montepulciano nobile chianti classico morellino scansano bolgheri sangiovese ciliegiolo vernaccia gimignano aglianico taurasi primitivo manduria negroamaro salice salentino nero avola etna cerasuolo vittoria frappato cirò magliocco gaglioppo tintilia molise lambrusco sangiovese romagna sagrantino montefalco verdicchio castelli jesi pecorino passerina cannonau sardegna carignano groppello garda valtellina sforzato merlot cabernet franc syrah tenuta cantina castello poggio podere fattoria azienda agricola cascina masseria villa',bevande:'acqua naturale frizzante minerale bottiglia birra birre spina bionda ambrata rossa scura weiss weissbier ipa lager pils bock dunkel analcolica senza glutine luppoli coca cola zero fanta sprite chinotto aranciata limonata gassosa succo frutta pesca pera albicocca ace tè freddo limone caffè macchiato espresso decaffeinato ginseng orzo cappuccino tisana digestiva camomilla spritz aperol campari negroni sbagliato americano gin tonic lemon rum cola vodka whisky bourbon scotch grappa amaro limoncello sambuca mirto brandy cognac passito liquore'};
+var ALOK=[];try{ALOK=JSON.parse(localStorage.getItem('pn1-alok')||'[]')}catch(e){}
+var PAROLE=[];try{PAROLE=JSON.parse(localStorage.getItem('pn1-parole')||'[]')}catch(e){}
+function vocab(sez){var v={};String(VOC[sez]||'').split(' ').forEach(function(w){if(w)v[nrm(w)]=w});PAROLE.forEach(function(w){v[nrm(w)]=w});[sez].forEach(function(k){var d=DATA[k];if(!d)return;d.rows.forEach(function(r){Object.keys(r).forEach(function(c){String(r[c]||'').split(/[^A-Za-zÀ-ÿ’']+/).forEach(function(w){if(w.length>=4&&!/\d/.test(w))v[nrm(w)]=v[nrm(w)]||w})})})});return v}
+function lev(a,b){if(Math.abs(a.length-b.length)>2)return 9;var d=[],i,j;for(i=0;i<=a.length;i++){d[i]=[i]}for(j=1;j<=b.length;j++)d[0][j]=j;for(i=1;i<=a.length;i++)for(j=1;j<=b.length;j++)d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1));return d[a.length][b.length]}
+// parole probabilmente scritte male: non presenti nel vocabolario ma molto simili a una che c'è
+// la parola è conosciuta? anche al plurale o con -ini, -etti, -oni… (fagiolini ← fagioli, tranci ← trancio)
+function imparaParole(L){L=L.filter(function(x){return x&&x.length>=3});if(!L.length)return;L.forEach(function(w){if(PAROLE.indexOf(w.toLowerCase())<0)PAROLE.push(w.toLowerCase())});try{localStorage.setItem('pn1-parole',JSON.stringify(PAROLE))}catch(e){}
+  try{google.script.run.withSuccessHandler(function(p){if(p){PAROLE=p;try{localStorage.setItem('pn1-parole',JSON.stringify(p))}catch(e){}}}).api(CHIAVE,'apiParoleOk',[L])}catch(e){}}
+function noto(n,V){if(V[n])return true;if(n.length<5)return false;var fin=['','o','i','a','e'];
+  if(/[aeio]$/.test(n)){var b=n.slice(0,-1);for(var k=1;k<fin.length;k++)if(V[b+fin[k]])return true}
+  var suf=['ini','ino','ina','ine','etti','etto','etta','ette','elli','ello','ella','elle','oni','one','ata','ate','ati','ato','ita','ite','iti','ito','issimo','issima'];
+  for(var i=0;i<suf.length;i++){var s=suf[i];if(n.length>s.length+3&&n.slice(-s.length)===s){var r=n.slice(0,-s.length);for(var j=0;j<fin.length;j++)if(V[r+fin[j]])return true}}
+  return false}
+// parole corte (3 lettere) che vanno sempre bene; le altre di 3 lettere sconosciute si segnalano (es. «Linguine al ast»)
+var CORTE={};'all agl dal del dei sul sui nel nei col coi con per tra fra gli una uno and the con con mix bar pub gin rum tea the uva uve sal pan tè thè bbq dop igp doc cbt kg lt cl ml pz ext mou soia due tre sei che chi non più piu via ore già gia suo sua mio mia bis top new hot red big veg pie jam bun dip pot oil egg ham cod hen rib bao poke'.split(' ').forEach(function(w){CORTE[w]=1});
+function refusi(txt,V){var out=[],seen={};String(txt||'').split(/[^A-Za-zÀ-ÿ’']+/).forEach(function(w){var n=nrm(w);if(w.length<3||seen[n]||noto(n,V))return;
+  if(w.length===3){seen[n]=1;if(CORTE[n]||/^[A-Z]{3}$/.test(w))return;var b3=null;Object.keys(V).forEach(function(k){if(!b3&&k.length>=3&&k.length<=4&&k[0]===n[0]&&lev(n,k)===1)b3=V[k]});out.push([w,b3||''])
+    ;return}seen[n]=1;var best=null,bd=9;Object.keys(V).forEach(function(k){if(Math.abs(k.length-n.length)>1||k.slice(0,2)!==n.slice(0,2))return;var x=lev(n,k);if(x<bd){bd=x;best=V[k]}});if(best&&bd<=(n.length>=8?2:1))out.push([w,best])});return out}
+// accenti e maiuscole: sistemati da soli
+var ACC={'ragu':'ragù','caffe':'caffè','baccala':'baccalà','menu':'menù','pero':'però'};
+// spazi doppi tolti, ma gli «a capo» restano (menù degli eventi, ingredienti su più righe)
+function pulisci(s,maiusc){s=String(s||'').replace(/\r\n?/g,'\n').split('\n').map(function(r){return r.replace(/[ \t\u00a0\u200b]+/g,' ').replace(/ +([,.;:])/g,'$1').trim()}).join('\n').replace(/\n{3,}/g,'\n\n').trim();s=s.replace(/[A-Za-zÀ-ÿ]+/g,function(w){var r=ACC[w.toLowerCase()];return r?(w[0]===w[0].toUpperCase()?r[0].toUpperCase()+r.slice(1):r):w});if(maiusc&&s)s=s[0].toUpperCase()+s.slice(1);return s}
+function num(x){var n=parseFloat(String(x||'').replace(',','.').replace(/[^\d.]/g,''));return isNaN(n)?null:n}
+function mediana(a){a=a.filter(function(x){return x!==null}).sort(function(x,y){return x-y});return a.length?a[Math.floor(a.length/2)]:null}
+function controlla(sez,o,H,i){var err=[],warn=[],V=vocab(sez),d=DATA[sez],k=function(h){return key(H,h)};
+  if(sez==='piatti'){var nm=o[k('piatto')]||'',ing=o[k('ingredienti')]||'',cat=o[k('categoria')]||'',pr=k('prezzo');
+    var al=alNum(o[k('allergeni')]),sg=alSugg(nm+' '+ing+(/^pizz/i.test(cat)?' pizza':''));
+    var mancano=sg.filter(function(n){return al.indexOf(n)<0});
+    if(mancano.length)warn.push('Allergeni: dagli ingredienti sembrano esserci anche '+mancano.map(function(n){return n+' · '+AL[n-1]}).join(', ')+'. Controlla con lo chef e spunta quelli giusti.');
+    if(!al.length&&!sg.length)warn.push('Nessun allergene segnato: confermi che il piatto non ne contiene nessuno?');
+    if(/gamber|scamp|aragost|astice|granch|mazzancoll|pesce|tonn|salmon|baccal|merluzz|branzin|orata|spada|cozz|vongol|polp|polip|calamar|seppi|totan|capesant|frutti di mare|crud/.test(nrm(nm+' '+ing))&&!/\*/.test(nm+ing))
+      warn.push('Pesce o frutti di mare: se sono surgelati, per legge va indicato. Aggiungi * dopo il nome (es. Gambero* scottato).');
+    if(pr&&o[pr]!==''){var p=num(o[pr]);if(p===null)err.push('Il prezzo deve essere un numero (es. 12 oppure 12,50).');
+      else{var m=mediana(d.rows.filter(function(r,j){return j!==i&&r[k('categoria')]===cat}).map(function(r){return num(r[pr])}));
+        if(m&&(p>m*2.5||p<m*.4))warn.push('Prezzo '+o[pr]+' €: in «'+cat+'» i prezzi di solito sono intorno ai '+m+' €. È giusto?')}}
+    else if(pr)warn.push('Manca il prezzo.');
+    refusi(nm+' '+ing,V).forEach(function(x){DUBBIE.push(x[0]);warn.push((x[1]?'«'+x[0]+'» è scritto bene? Forse intendevi «'+x[1]+'».':'«'+x[0]+'»: parola che non conosco, controlla che sia scritta bene.'))})}
+  if(sez==='vini'){var b=num(o[k('prezzo bott')]),c=num(o[k('prezzo cal')]),wn=nrm(o[k('vino')]+' '+(o[k('produttore')]||'')),wc=o[k('categoria')]||'',wr=o[k('regione')]||'';
+    var REG=[[/barolo|barbaresco|roero|arneis|langhe|barbera|dolcetto|gavi|nebbiolo d.alba|asti\b/,'Piemonte'],[/amarone|valpolicella|ripasso|recioto|bardolino|soave|custoza|prosecco|valdobbiadene|conegliano|cartizze/,'Veneto'],
+      [/franciacorta|valtellina|sforzato|oltrepo|groppello/,'Lombardia'],[/brunello|montalcino|chianti|morellino|scansano|bolgheri|vernaccia|nobile di montepulciano|ciliegiolo/,'Toscana'],
+      [/greco di tufo|fiano|taurasi|falanghina|aglianico del taburno/,'Campania'],[/primitivo|negroamaro|salice salentino|castel del monte/,'Puglia'],[/nero d.avola|grillo|inzolia|catarratto|etna|cerasuolo di vittoria|frappato|zibibbo|pantelleria/,'Sicilia'],
+      [/ciro|magliocco|gaglioppo/,'Calabria'],[/tintilia/,'Molise'],[/lambrusco|sangiovese di romagna|albana/,'Emilia'],[/sagrantino|montefalco/,'Umbria'],[/verdicchio|pecorino.*offida|passerina/,'Marche'],
+      [/montepulciano d.abruzzo|trebbiano d.abruzzo|cerasuolo d.abruzzo/,'Abruzzo'],[/cannonau|carignano del sulcis|vermentino di gallura/,'Sardegna'],[/gewurztraminer|lagrein|schiava|santa maddalena|kerner|muller thurgau/,'Alto Adige'],
+      [/trento doc|teroldego|marzemino/,'Trentino'],[/champagne/,'Francia']];
+    var ART={Piemonte:'del',Veneto:'del',Lombardia:'della',Toscana:'della',Campania:'della',Puglia:'della',Sicilia:'della',Calabria:'della',Molise:'del',Emilia:'dell’',Umbria:'dell’',Marche:'delle',Abruzzo:'dell’',Sardegna:'della','Alto Adige':'dell’',Trentino:'del'};
+    var reg=REG.filter(function(x){return x[0].test(wn)})[0];
+    if(reg&&wr&&nrm(wr).indexOf(nrm(reg[1]))<0&&!(reg[1]==='Alto Adige'&&/trentino|alto adige|sudtirol/.test(nrm(wr))))warn.push('«'+o[k('vino')]+'» di solito è un vino '+(reg[1]==='Francia'?'francese':ART[reg[1]]+(/’$/.test(ART[reg[1]])?'':' ')+reg[1])+', ma hai scelto la regione «'+wr+'». È giusto?');
+    var tipo=/rosato|rose\b|cerasuolo d.abruzzo|chiaretto/.test(wn)?'rosati':/champagne|franciacorta|prosecco|spumante|brut|metodo classico|trento doc|cartizze|extra dry|pas dose|saten/.test(wn)?'bollicine':
+      /passito|recioto|moscato d.asti|vin santo|zibibbo/.test(wn)?'dessert':
+      /barolo|barbaresco|amarone|valpolicella|ripasso|brunello|chianti|morellino|primitivo|negroamaro|nero d.avola|aglianico|taurasi|nebbiolo|barbera|dolcetto|sagrantino|cannonau|lambrusco|tintilia|ciliegiolo|magliocco|merlot|cabernet|syrah|pinot nero|lagrein|teroldego|montepulciano d|sangiovese|groppello|frappato|gaglioppo/.test(wn)?'rossi':
+      /gewurztraminer|lugana|vermentino|falanghina|greco|fiano|arneis|gavi|soave|verdicchio|grillo|inzolia|chardonnay|sauvignon|pinot grigio|pinot bianco|riesling|kerner|muller|malvasia|trebbiano|pecorino|passerina|catarratto|vernaccia|custoza|traminer/.test(wn)?'bianchi':'';
+    if(tipo&&wc&&nrm(wc).indexOf(tipo)<0&&!(tipo==='bollicine'&&/spumant|bollicin/.test(nrm(wc))))warn.push('«'+o[k('vino')]+'» sembra '+{rosati:'un rosato',bollicine:'una bollicina',dessert:'un vino da dessert',rossi:'un vino rosso',bianchi:'un vino bianco'}[tipo]+', ma la categoria scelta è «'+wc+'». È giusto?');
+    if(o[k('prezzo bott')]&&b===null)err.push('Il prezzo della bottiglia deve essere un numero.');
+    if(o[k('prezzo cal')]&&c===null)err.push('Il prezzo al calice deve essere un numero.');
+    if(b!==null&&c!==null&&c>=b)err.push('Il calice costa più (o uguale) della bottiglia: controlla i due prezzi.');
+    var mzS=k('prezzo mezza')?o[k('prezzo mezza')]:'',mz=mzS?num(mzS):null;
+    if(/37[,.]5|mezza|½|·/i.test(String(o[k('prezzo bott')]||'')))err.push('Nel prezzo della bottiglia scrivi solo il numero: la mezza bottiglia ha il suo campo qui sotto.');
+    if(mzS&&mz===null)err.push('Il prezzo della mezza bottiglia deve essere un numero.');
+    if(mz!==null&&b!==null&&mz>=b)err.push('La mezza bottiglia costa quanto o più della bottiglia intera: controlla i prezzi.');
+    if(mz!==null&&c!==null&&mz<=c)warn.push('La mezza bottiglia costa meno (o uguale) di un calice: è giusto?');
+    if(c!==null&&c>15)warn.push('Calice a '+o[k('prezzo cal')]+' €: è giusto?');
+    if(!o[k('prezzo bott')])warn.push('Manca il prezzo della bottiglia.');
+    refusi(o[k('vino')]+' '+o[k('produttore')],V).forEach(function(x){DUBBIE.push(x[0]);warn.push((x[1]?'«'+x[0]+'» è scritto bene? Forse intendevi «'+x[1]+'».':'«'+x[0]+'»: parola che non conosco, controlla che sia scritta bene.'))})}
+  if(sez==='bevande'){var pv=o[k('prezzo')]||'';if(!pv)warn.push('Manca il prezzo.');else if(!/^\d+([.,]\d{1,2})?(\s*\/\s*\d+([.,]\d{1,2})?)?$/.test(pv.replace(/\s*€/,'')))err.push('Il prezzo deve essere un numero (es. 3,50) oppure due misure (es. 7 / 9).');
+    refusi(o[k('bevanda')],V).forEach(function(x){DUBBIE.push(x[0]);warn.push((x[1]?'«'+x[0]+'» è scritto bene? Forse intendevi «'+x[1]+'».':'«'+x[0]+'»: parola che non conosco, controlla che sia scritta bene.'))})}
+  if(sez==='eventi'){var VE=vocab('piatti'),righe=[];menuSezioni(String(o[k('men')]||''),'it').forEach(function(x){righe=righe.concat(x.items)});
+    righe.forEach(function(rg){var ws=rg.split(/[^A-Za-zÀ-ÿ’']+/).filter(function(w){return w.length>=3});if(ws.length&&!ws.some(function(w){return VE[nrm(w)]}))warn.push('«'+rg+'» non sembra un piatto che conosco: controlla che sia scritto bene.')});
+    refusi(righe.join(' '),VE).forEach(function(x){DUBBIE.push(x[0]);warn.push((x[1]?'«'+x[0]+'» è scritto bene? Forse intendevi «'+x[1]+'».':'«'+x[0]+'»: parola che non conosco, controlla che sia scritta bene.'))});
+    var pe=o[k('prezzo')];if(pe&&num(pe)===null)err.push('Il prezzo deve essere un numero (es. 45).');
+    if(o[k('dal')]&&o[k('al')]&&toIso(o[k('al')])<toIso(o[k('dal')]))err.push('La data «fino al» è prima di «si vede dal».')}
+  // il nome ha senso per questa sezione? (almeno una parola conosciuta, o una voce già usata)
+  var kN={piatti:'piatto',vini:'vino',bevande:'bevanda'}[sez];
+  if(kN&&o[k(kN)]){var nmw=String(o[k(kN)]).split(/[^A-Za-zÀ-ÿ’']+/).filter(function(w){return w.length>=3}),altre={piatti:'vini',vini:'bevande',bevande:'vini'},Vo=vocab(sez==='vini'?'bevande':'vini'),Vf=vocab('piatti');
+    var conosce=nmw.some(function(w){return V[nrm(w)]}),altrove=nmw.filter(function(w){return !V[nrm(w)]&&(Vo[nrm(w)]||(sez!=='piatti'&&Vf[nrm(w)]))});
+    var BRAND=/poretti|menabrea|moretti|peroni|heineken|paulaner|ichnusa|nastro azzurro|corona|tennent|guinness|leffe|beck|coca|fanta|sprite|schweppes|red bull|san pellegrino|levissima|aperol|campari|martini|jagermeister|baileys/;
+    if(sez==='vini'&&BRAND.test(nrm(o[k(kN)])))warn.push('«'+o[k(kN)]+'» sembra una bevanda (birra, bibita o liquore), non un vino: va nella sezione Bevande?');
+    else if(altrove.length&&!conosce)warn.push('«'+o[k(kN)]+'» sembra appartenere a un’altra sezione ('+(Vo[nrm(altrove[0])]?{vini:'Bevande',bevande:'Vini',piatti:'Vini'}[sez]:'Piatti')+'). È giusto metterlo qui?');
+    else if(!conosce&&nmw.length)warn.push('«'+o[k(kN)]+'» non è un nome che conosco come '+{piatti:'piatto',vini:'vino',bevande:'bevanda'}[sez]+': controlla che sia scritto bene e completo'+(sez==='vini'?' (es. denominazione + nome, come «Barolo Serralunga»)':'')+'.')}
+  // nome molto simile a una voce che c'è già (es. Margerita / Margherita)
+  var s=SEZ[sez],kT=s&&key(H,s.titolo);if(kT&&o[kT]&&s.unico){var me=nrm(o[kT]);d.rows.forEach(function(r,j){if(j===i)return;var x=nrm(r[kT]||'');if(x&&x!==me&&me.length>4&&lev(x,me)<=2)warn.push('Il nome è molto simile a «'+r[kT]+'», che c’è già: è un doppione scritto diversamente?')})}
+  return {err:err,warn:warn}}
+function scheda(i,pre,dopoCopia,forza){var iaFatto=false,iaRis=null,iaTok=0,dupOk=false;var s=SEZ[cur],d=DATA[cur],H=d.headers,r=i===null?(pre||{}):d.rows[i];
+  var h='<h2>'+(i===null?(pre?'Copia da modificare':'Aggiungi'):'Modifica')+'</h2>'+(pre?'<p class="hint">È una copia: cambia quello che serve (almeno il nome) e tocca Salva. Verrà messa subito sotto l’originale.</p>':'')+'<div class="card" id="frm">';
+  s.campi.forEach(function(c){var k=key(H,c.h);if(!k)return;var v=r[k]||'';
+    var wrap='<div class="f" data-h="'+c.h+'"'+(c.se?' data-se="'+e(JSON.stringify(c.se))+'"':'')+'>';
+    if(c.t==='check'){h+=wrap+'<label class="sw"><input type="checkbox" data-k="'+e(k)+'" data-t="check" data-si="'+c.si+'" data-no="'+c.no+'" '+((i===null?c.si==='SÌ':/^s/i.test(v))?'checked':'')+'> '+c.l+'</label></div>';return}
+    h+=wrap+'<label>'+c.l+'</label>';
+    if(c.t==='select'){if(i===null&&cur==='piatti'&&cerca)v='';h+='<select data-k="'+e(k)+'">'+c.o.map(function(o){return '<option'+(o===v?' selected':'')+'>'+e(o)+'</option>'}).join('')+'</select>'}
+    else if(c.t==='scelta'){var opts=[];(c.o||[]).concat(d.rows.map(function(x){return x[k]})).forEach(function(o){o=String(o||'').trim();if(o&&opts.indexOf(o)<0)opts.push(o)});if(v&&opts.indexOf(v)<0)opts.push(v);
+      h+='<select data-k="'+e(k)+'" data-t="scelta" data-l="'+e(c.l.toLowerCase())+'"><option value="">— scegli —</option>'+opts.map(function(o){return '<option'+(o===v?' selected':'')+'>'+e(o)+'</option>'}).join('')+'<option value="__nuova__">＋ Nuova '+e(c.l.toLowerCase())+'…</option></select>'+
+        '<input type="text" class="nuova" placeholder="Scrivi la nuova '+e(c.l.toLowerCase())+'" style="display:none;margin-top:8px"><p class="hint">Scegli dalla lista. Usa «Nuova» solo se non c’è davvero.</p>'}
+    else if(c.t==='list'){var opts={};d.rows.forEach(function(x){if(x[k])opts[x[k]]=1});h+='<input type="text" list="dl-'+c.h.replace(/\W/g,'')+'" data-k="'+e(k)+'" value="'+e(v)+'"><datalist id="dl-'+c.h.replace(/\W/g,'')+'">'+Object.keys(opts).map(function(o){return '<option value="'+e(o)+'">'}).join('')+'</datalist>'}
+    else if(c.t==='pizza'){h+='<select data-k="'+e(k)+'"><option></option>'+PIZZE.map(function(o){return '<option'+(o===v?' selected':'')+'>'+e(o)+'</option>'}).join('')+'</select>'}
+    else if(c.t==='textarea')h+='<textarea data-k="'+e(k)+'">'+e(v)+'</textarea>';
+    else if(c.t==='date')h+='<input type="date" data-k="'+e(k)+'" data-t="date" value="'+toIso(v)+'">'+(c.vuoto?'<p class="hint">'+c.vuoto+'</p>':'');
+    else if(c.t==='ora')h+='<input type="time" step="900" data-k="'+e(k)+'" value="'+e(String(v).replace('.',':').slice(0,5))+'">';
+    else if(c.t==='number')h+='<input type="text" inputmode="decimal" data-k="'+e(k)+'" value="'+e(v)+'">';
+    else if(c.t==='sfondo'){var mia=v&&c.o.indexOf(v)<0;if(!v)v=c.o[0];
+      h+='<div class="sf" data-k="'+e(k)+'" data-t="sfondo" data-v="'+e(v)+'">'+c.o.map(function(o){return '<button type="button" class="sfo'+(o===v?' on':'')+'" data-o="'+e(o)+'">'+(o==='Nessuna'?'<i class="sfn"></i>':'<img src="'+fotoUrl(SFONDI[o]||'calici')+'" alt="" loading="lazy">')+'<span>'+e(o)+'</span></button>'}).join('')+
+        '<label class="sfo sfu'+(mia?' on':'')+'">'+(mia?'<img src="'+fotoUrl(v)+'" alt="">':'')+'<span>📷 La tua foto</span><input type="file" accept="image/*" hidden></label></div>'}
+    else if(c.t==='foto'){h+='<div class="foto" data-k="'+e(k)+'" data-t="foto" data-v="'+e(v)+'"><div class="fprev">'+(v?'<img src="'+fotoUrl(v)+'" alt="">':'<p class="hint">Nessuna foto: il piatto si vede senza.</p>')+'</div>'+
+      '<label class="btn light">📷 Scatta o scegli una foto<input type="file" accept="image/*" hidden></label> <button type="button" class="btn bad" data-xf'+(v?'':' style="display:none"')+'>Togli la foto</button></div>'}
+    else if(c.t==='allergeni'){var a=alNum(v);h+='<p class="hint sugg" id="sugg"></p><div class="al" data-k="'+e(k)+'" data-t="al">'+AL.map(function(n,j){return '<label><input type="checkbox" value="'+(j+1)+'" '+(a.indexOf(j+1)>=0?'checked':'')+'> '+(j+1)+' · '+n+'</label>'}).join('')+'</div>'}
+    else h+='<input type="text" data-k="'+e(k)+'" value="'+e(v)+'"'+(c.max?' maxlength="'+c.max+'" data-max="'+c.max+'" data-ideale="'+c.ideale+'"':'')+'>'+(c.max?'<p class="hint cnt"></p>':'');
+    if(c.aiutoCampo)h+='<p class="hint">'+c.aiutoCampo+'</p>';
+    h+='</div>'});
+  h+='<div class="row"><button class="btn gold" id="ok">Salva</button><button class="btn light" id="no">Annulla</button></div>'+(i!==null?'<div class="row"><button class="btn light" id="dup">Duplica e modifica</button><button class="btn bad" id="del">Elimina</button></div>':'')+'</div>';
+  $('#main').innerHTML=h;suTop();
+  if(cur==='eventi'){var mt=document.querySelector('#frm .f[data-h="men"] textarea');if(mt){
+    var pv=document.createElement('div');pv.className='mo-prev';var bt=document.createElement('button');bt.type='button';bt.className='btn light';bt.textContent='✨ Metti in ordine';
+    var anteprima=function(){var S=menuSezioni(mt.value,'it');pv.innerHTML=S.length?'<p class="hint" style="color:#b9b3a3;margin:0 0 8px">Anteprima sul sito</p>'+S.map(function(x){return (x.h?'<b>'+e(x.h)+'</b>':'')+x.items.map(function(t){return '<div>'+e(t)+'</div>'}).join('')}).join(''):'';pv.style.display=S.length?'':'none'};
+    bt.onclick=function(){var nv=menuInOrdine(mt.value);if(nv&&nv!==mt.value){mt.value=nv;toast('Fatto: un piatto per riga. Controlla e tocca Salva')}else toast('Il menù è già in ordine');mt.style.height=Math.min(600,mt.scrollHeight+4)+'px';anteprima()};
+    mt.parentNode.insertBefore(bt,mt.nextSibling);mt.parentNode.insertBefore(pv,bt.nextSibling);mt.addEventListener('input',function(){clearTimeout(anteprima.t);anteprima.t=setTimeout(anteprima,250)});
+    if(mt.value&&!/\n/.test(mt.value.trim())&&mt.value.length>90){var nv0=menuInOrdine(mt.value);if(nv0&&nv0!==mt.value){mt.value=nv0;toast('Ho messo il menù in ordine, un piatto per riga: controlla e tocca Salva')}}
+    mt.style.minHeight='180px';mt.style.height=Math.min(600,mt.scrollHeight+4)+'px';anteprima()}}
+  function vis(){document.querySelectorAll('#frm .f[data-se]').forEach(function(f){var se=JSON.parse(f.dataset.se),ok=true;Object.keys(se).forEach(function(h){var el=document.querySelector('#frm .f[data-h="'+h+'"] [data-k]');if(el&&el.value!==se[h])ok=false});f.style.display=ok?'':'none'})}
+  // contatore dei caratteri: oltre il consigliato il titolo resta leggibile ma diventa più piccolo
+  function conta(el){var p=el.parentNode.querySelector('.cnt');if(!p)return;var n=el.value.length,id=+el.dataset.ideale;p.textContent=n+' / '+el.dataset.max+' caratteri'+(n>id?' · lungo: sul sito il testo sarà più piccolo (consigliato fino a '+id+')':'');p.style.color=n>id?'#b26b00':''}
+  document.querySelectorAll('#frm [data-max]').forEach(function(el){conta(el);el.addEventListener('input',function(){conta(el)})});
+  $('#frm').onchange=function(ev){var inp=ev.target;if(inp.type==='file'&&inp.files[0])return caricaFoto(inp);
+    if(inp.dataset&&inp.dataset.t==='scelta'){var n=inp.parentNode.querySelector('.nuova');n.style.display=inp.value==='__nuova__'?'':'none';if(inp.value==='__nuova__')n.focus()}vis()};vis();
+  if($('#dup'))$('#dup').onclick=function(){var c={};Object.keys(r).forEach(function(k){c[k]=r[k]});var kT=key(H,s.titolo);if(kT)c[kT]=(c[kT]||'')+' (copia)';scheda(null,c,i)};
+  $('#frm').addEventListener('click',function(ev){var so=ev.target.closest('button.sfo');if(so){var sf=so.closest('.sf');sf.dataset.v=so.dataset.o;sf.querySelectorAll('.sfo').forEach(function(b){b.classList.toggle('on',b===so)});return}});
+  $('#frm').addEventListener('click',function(ev){if(!ev.target.hasAttribute('data-xf'))return;var f=ev.target.closest('.foto');f.dataset.v='';f.querySelector('.fprev').innerHTML='<p class="hint">Nessuna foto.</p>';ev.target.style.display='none'});
+  // suggerimento allergeni mentre si scrivono nome e ingredienti
+  function sugg(){var p=$('#sugg');if(!p)return;var nm=document.querySelector('#frm .f[data-h="piatto"] [data-k]'),ig=document.querySelector('#frm .f[data-h="ingredienti"] [data-k]'),ct=document.querySelector('#frm .f[data-h="categoria"] [data-k]');
+    var sg=alSugg((nm?nm.value:'')+' '+(ig?ig.value:'')+(ct&&/^pizz/i.test(ct.value)?' pizza':'')),box=document.querySelector('#frm .al');var on=[].map.call(box.querySelectorAll('input:checked'),function(x){return +x.value});
+    var miss=sg.filter(function(n){return on.indexOf(n)<0});
+    p.innerHTML=sg.length?('Dagli ingredienti: probabili allergeni '+sg.map(function(n){return '<b>'+n+'</b> '+AL[n-1]}).join(', ')+(miss.length?' · <a href="#" id="sugg-ok">spunta quelli mancanti</a>':' ✓')):'';
+    var a=$('#sugg-ok');if(a)a.onclick=function(ev){ev.preventDefault();miss.forEach(function(n){var x=box.querySelector('input[value="'+n+'"]');if(x)x.checked=true});sugg()}}
+  document.querySelectorAll('#frm .f[data-h="piatto"] [data-k],#frm .f[data-h="ingredienti"] [data-k]').forEach(function(el){el.addEventListener('input',sugg)});
+  if($('#sugg')){document.querySelector('#frm .al').addEventListener('change',sugg);sugg()}
+  $('#frm').addEventListener('input',function(ev){if(ev.isTrusted){iaFatto=false;iaRis=null;dupOk=false}});$('#frm').addEventListener('change',function(ev){if(ev.isTrusted){iaFatto=false;iaRis=null}});
+  $('#no').onclick=lista;
+  if($('#del'))$('#del').onclick=function(){chiedi({t:'Eliminare definitivamente?',d:'«'+(d.rows[i][key(H,s.titolo)]||'')+'» sparisce dal sito e dal pannello.',ok:'Elimina',pericolo:true},function(v){if(v!=='ok')return;var orig=copia(d.rows[i]);d.rows.splice(i,1);accoda(cur,'apiElimina',[cur,i,orig]);lista()})};
+  $('#ok').onclick=function(){var o={},manca='';document.querySelectorAll('#frm [data-k]').forEach(function(el){var k=el.dataset.k,f=el.closest('.f');
+      if(f&&f.style.display==='none'){o[k]='';return}
+      if(el.dataset.t==='scelta'){var val=el.value;
+        if(val==='__nuova__'){val=el.parentNode.querySelector('.nuova').value.trim();
+          // scritta in modo diverso ma già esistente (maiuscole, accenti, spazi)? si usa quella che c'è
+          [].forEach.call(el.options,function(op){if(op.value!=='__nuova__'&&op.value&&nrm(op.value).replace(/\s+/g,' ').trim()===nrm(val).replace(/\s+/g,' ').trim())val=op.value})}
+        if(!val)manca=manca||el.dataset.l;o[k]=val;return}
+      if(el.dataset.t==='check')o[k]=el.checked?el.dataset.si:el.dataset.no;
+      else if(el.dataset.t==='date')o[k]=fromIso(el.value);
+      else if(el.dataset.t==='foto'||el.dataset.t==='sfondo')o[k]=el.dataset.v||'';
+      else if(el.dataset.t==='al')o[k]=alTxt([].map.call(el.querySelectorAll('input:checked'),function(x){return +x.value}));
+      else o[k]=el.value.trim()});
+    if(manca){toast('Scegli la '+manca+' (o scrivi quella nuova)');return}
+    // spazi doppi, accenti (ragu → ragù) e maiuscola iniziale sistemati da soli
+    Object.keys(o).forEach(function(k){if(typeof o[k]==='string'&&!/^(Foto|Allergeni|Dal|Al|Attivo|Firma)/i.test(k))o[k]=pulisci(o[k],k===key(H,s.titolo))});
+    var kT=key(H,s.titolo);if(kT&&!o[kT]&&cur!=='avvisi'){toast('Manca il nome');return}
+    // niente doppioni: stesso nome (e per i vini stesso produttore) già presente
+    if(s.unico){var ks=s.unico.map(function(x){return key(H,x)}).filter(Boolean),sig=function(x){return ks.map(function(k){return nrm(x[k]||'').replace(/\s+/g,' ').trim()}).join('|')},me=sig(o),j=-1;
+      d.rows.forEach(function(x,n){if(n!==i&&j<0&&sig(x)===me)j=n});
+      if(j>=0&&!forza&&!dupOk){chiedi({t:'«'+(o[kT]||'')+'» esiste già'+(s.gruppo&&d.rows[j][key(H,s.gruppo)]?' in '+d.rows[j][key(H,s.gruppo)]:''),d:'Vuoi aprire quella che c’è già, oppure salvarla lo stesso come voce nuova?',ok:'Apri quella che c’è',alt:'Salva come nuova'},function(v){if(v==='ok')scheda(j);else if(v==='alt'){dupOk=true;$('#ok').click()}});return}}
+    if(cur==='avvisi'){var kd=key(H,'dal'),kp=key(H,'pizza'),kty=key(H,'tipo');if(!o[kd]){toast('Manca la data');return}if(o[kty]==='Pizza della settimana'&&!o[kp]){toast('Scegli la pizza');return}if(o[kty]==='Promozione'&&!o[key(H,'testo')]){toast('Manca il titolo');return}if(o[kty]==='Tema del sito'&&!o[key(H,'al')]){toast('Scegli anche fino a quando');return}}
+    // un errore nei controlli non deve mai impedire di salvare
+    DUBBIE=[];var ck;try{ck=controlla(cur,o,H,i)}catch(err){ck={err:[],warn:[]}}var dubbie=DUBBIE.slice();var box=$('#ck');if(box)box.remove();
+    // seconda opinione dell'IA (se attiva): prima dei controlli locali, una volta per ogni versione della scheda
+    if(!forza&&IA==='1'&&!iaFatto&&['piatti','vini','bevande','eventi'].indexOf(cur)>=0){var ctx={};s.campi.forEach(function(c){if(c.t==='select'||c.t==='scelta'){var kk=key(H,c.h),v={};d.rows.forEach(function(x){if(x[kk])v[x[kk]]=1});ctx[c.l]=Object.keys(v).slice(0,40)}});
+      var tok=Date.now(),fine=function(r,msg){if(iaTok!==tok)return;iaTok=0;busy(false);var w=$('#ia-w');if(w)w.remove();$('#ok').disabled=false;iaRis=r||{};iaFatto=true;if(msg)toast(msg);$('#ok').click()};iaTok=tok;
+      var w=document.createElement('div');w.id='ia-w';w.className='ck';w.innerHTML='<b>Controllo in corso…</b><p class="hint" style="margin:6px 0 0">L’IA sta rileggendo la voce (pochi secondi).</p>';$('#frm').insertBefore(w,$('#frm').firstChild);w.scrollIntoView({behavior:'smooth',block:'start'});$('#ok').disabled=true;busy(true);
+      setTimeout(function(){fine({},'L’IA non ha risposto in tempo: controllo con le regole normali')},12000);
+      google.script.run.withSuccessHandler(function(r){fine(r,r&&r.errore?'IA non disponibile ora: controllo con le regole normali':'')}).withFailureHandler(function(){fine({},'IA non disponibile ora: controllo con le regole normali')}).api(CHIAVE,'apiControllaIA',[cur,o,ctx,ck.warn]);return}
+    var corr=(iaRis&&iaRis.correzioni)||{},ck2=Object.keys(corr);
+    if(iaRis&&iaRis.avvisi){ck.warn=ck.warn.filter(function(x){return x.indexOf('è scritto bene?')<0}).concat(iaRis.avvisi.map(function(x){return 'IA · '+x}));dubbie=[]}   // l'IA riconosce le parole meglio del dizionario
+    if((ck.err.length||ck.warn.length||ck2.length)&&!forza){var b=document.createElement('div');b.id='ck';b.className='ck';
+      b.innerHTML='<b>'+(ck.err.length?'Attenzione, controlla prima di salvare':'Controlla prima di salvare')+'</b><ul>'+ck.err.map(function(x){return '<li class="e">'+e(x)+'</li>'}).join('')+ck.warn.map(function(x){return '<li>'+e(x)+'</li>'}).join('')+
+        ck2.map(function(f){return '<li>Proposta: <b>'+e(f)+'</b> → «'+e(corr[f])+'» <a href="#" data-cor="'+e(f)+'">applica</a></li>'}).join('')+'</ul>'+
+        '<p class="hint" style="margin:6px 0 10px">Sono solo avvisi: se sei sicuro che è tutto giusto, puoi salvare lo stesso.</p><div class="row"><button class="btn light" id="ck-no">Correggo</button><button class="btn gold" id="ck-ok">'+(ck.err.length?'Salva lo stesso':'È tutto giusto, salva')+'</button></div>';
+      $('#frm').insertBefore(b,$('#frm').firstChild);b.scrollIntoView({behavior:'smooth',block:'start'});
+      if($('#ck-no'))$('#ck-no').onclick=function(){b.remove()};
+      b.querySelectorAll('a[data-cor]').forEach(function(a){a.onclick=function(ev){ev.preventDefault();var el=document.querySelector('#frm [data-k="'+a.dataset.cor.replace(/"/g,'\\"')+'"]');
+        if(el&&'value' in el){el.value=corr[a.dataset.cor];el.dispatchEvent(new Event('input'))}a.parentNode.style.textDecoration='line-through';a.remove()}});
+      if($('#ck-ok'))$('#ck-ok').onclick=function(){forza=true;b.remove();if(dubbie.length)imparaParole(dubbie);$('#ok').click()};
+      return}
+    var kG0=s.gruppo?key(H,s.gruppo):null,dopo=null;if(i===null&&dopoCopia!=null&&(!kG0||o[kG0]===d.rows[dopoCopia][kG0]))dopo=dopoCopia;else if(i===null&&s.gruppo){var kG=key(H,s.gruppo);d.rows.forEach(function(x,j){if(x[kG]===o[kG])dopo=j})}
+    var sez=cur,orig=i===null?null:copia(d.rows[i]);if(i===null)d.rows.splice(dopo==null||dopo<0?d.rows.length:dopo+1,0,riga(H,o));else d.rows[i]=Object.assign({},d.rows[i],o);accoda(sez,'apiSalva',[sez,i,o,dopo,orig]);lista()}}
+// carica in sottofondo tutte le sezioni, senza bloccare lo schermo
+function precarica(){google.script.run.withSuccessHandler(function(t){if(!t)return;PIZZE=t.__pizze||PIZZE;try{localStorage.setItem('pn1-pizze',JSON.stringify(PIZZE))}catch(e){}
+    if('__demo' in t){DEMO=t.__demo||'';demoStriscia()}
+    if(t.__parole){PAROLE=t.__parole;try{localStorage.setItem('pn1-parole',JSON.stringify(PAROLE))}catch(e){}}
+    if(t.__oggi&&!inCoda('oggi')){var cambio=JSON.stringify(t.__oggi)!==JSON.stringify(OGGI);OGGI=t.__oggi;memo('__oggi');if(cambio&&cur==='oggi'&&(!SETTV||SETTV===OGGI.lun)&&!document.activeElement.closest('textarea,input'))mostraOggi(OGGI)}
+    Object.keys(t).forEach(function(k){if(k.indexOf('__')===0||!t[k]||!t[k].headers||inCoda(k)||(cur===k&&($('#frm')||$('#orf'))))return;var nuovo=JSON.stringify(t[k])!==JSON.stringify(DATA[k]);DATA[k]=t[k];AGG[k]=Date.now();memo(k);if(nuovo&&inLista(k))lista()})})
+  .withFailureHandler(function(){}).api(CHIAVE,'apiTutto',[])}
+var DEMO='';
+// striscia rossa in cima finché la demo è in corso: così non ci si dimentica di finirla
+function demoStriscia(){var b=$('#demo-x');if(!DEMO){if(b)b.remove();return}if(!b){b=document.createElement('div');b.id='demo-x';b.style.cssText='background:#b23a2e;color:#fff;padding:8px 14px;font:600 14px sans-serif;text-align:center;cursor:pointer';document.body.insertBefore(b,document.body.firstChild)}
+  b.textContent='DEMO DEL SITO IN CORSO dal '+DEMO+' · si finisce dall’editor con «fineDemoSito»';b.onclick=function(){toast('Apri Apps Script, scegli «fineDemoSito» in alto e premi Esegui')}}
+var OGGI=null;try{PIZZE=JSON.parse(localStorage.getItem('pn1-pizze')||'[]')}catch(e){}memoLeggi();
+(function(){var G=PERM.ruolo==='admin'||PERM.ruolo==='vice';
+  if(!G){Object.keys(SEZ).forEach(function(k){var base=k==='categorie'?'piatti':k;if(k==='impost'||PERM.sezioni.indexOf(base)<0)delete SEZ[k]})}
+  if(!SEZ[cur])cur=Object.keys(SEZ).filter(function(k){return !SEZ[k].nascosta})[0]||'pren';
+  if(G||PERM.sezioni.some(function(k){return ['oggi','orari','piatti','eventi','avvisi','vini','bevande','faq'].indexOf(k)>=0}))precarica()})();
+tabs();apri();
+</script></body></html>

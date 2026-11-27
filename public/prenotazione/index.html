@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-a3eWhGa0HCUX48bFkjVcqWApRHlAa7MUomrwQ8XUwh4=' 'sha256-ARRMiuXkAUcKiN7hAjh9UmxkdL4Hy6WTJQwiGeu1bhU='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://tile.openstreetmap.org https://lh3.googleusercontent.com; font-src 'self'; manifest-src 'self'; connect-src 'self' https://docs.google.com https://*.googleusercontent.com https://script.google.com; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-a3eWhGa0HCUX48bFkjVcqWApRHlAa7MUomrwQ8XUwh4=' 'sha256-Rxlgow/OBOcf9g3WgRQ5cF9D9Sy61n/eFw8uZt0ADeU='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://tile.openstreetmap.org; font-src 'self'; manifest-src 'self'; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <title>La tua prenotazione · Oltreconfini</title>
 <meta name="robots" content="noindex, nofollow">
 <meta name="referrer" content="no-referrer">
@@ -95,7 +95,7 @@ var BK = {
     m_eta:'Nous vous attendons à {h}.', m_min:'dans {m} min', m_cancel:'Annuler la réservation', m_sure:'Voulez-vous vraiment annuler la réservation ?',
     m_cancelled:'Réservation annulée. Vous recevez une confirmation par e-mail. Merci de nous avoir prévenus !', m_eta_ok:'Merci ! Nous gardons la table jusqu’à {h}.', m_late:'Elle ne peut plus être modifiée en ligne : appelez le {t}.', close:'Fermer'}
 };
-var IMP = 'https://docs.google.com/spreadsheets/d/1v_NRS6B0PGeC2fCGgbp8Myrp45ZGUbUPI9fAbl9Viso/gviz/tq?tqx=out:csv&headers=1&sheet=Impostazioni';
+var IMP = '/dati/d/1v_NRS6B0PGeC2fCGgbp8Myrp45ZGUbUPI9fAbl9Viso?tqx=out:csv&headers=1&sheet=Impostazioni';
 var EXTRA = {
   it:{ph:'Per qualsiasi cosa chiamaci al', home:'Vai al sito', back:'Indietro', yes:'Sì, annulla', no:'No, la tengo'},
   en:{ph:'For anything, call us on', home:'Go to the website', back:'Back', yes:'Yes, cancel', no:'No, keep it'},
@@ -159,7 +159,7 @@ msg(T('m_load'));
 fetch(IMP + '&_=' + Date.now(), {cache:'no-store'}).then(function(r){ return r.text(); }).then(function(t){
   var rows = csv(t), r = rows.filter(function(x){ return /^opinioni$/i.test(String(x[0] || '').trim()); })[0], u = r ? String(r[1] || '').trim() : '';
   var tl = rows.filter(function(x){ return /^telefono/i.test(String(x[0] || '').trim()); })[0]; if (tl && /^\+?[\d\s]{8,}$/.test(String(tl[1] || '').trim())) TEL = String(tl[1]).trim();
-  if (!/^https:\/\/script\.google\.com\/macros\/s\/[\w-]+\/exec$/.test(u)) throw new Error('url');
+  if (!/^(https:\/\/script\.google\.com\/macros\/s\/[\w-]+\/exec|\/api)$/.test(u)) throw new Error('url');
   URL_ = u; testi(); carica();
 }).catch(function(){ mostra({ok:false, err:'net'}); });
 })();

@@ -34,10 +34,9 @@
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#0b121c">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<link rel="preconnect" href="https://docs.google.com" crossorigin>
 <link rel="preload" href="media/fonts/jost-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="media/fonts/cormorant-garamond-latin-400-italic.woff2" as="font" type="font/woff2" crossorigin>
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-a3eWhGa0HCUX48bFkjVcqWApRHlAa7MUomrwQ8XUwh4=' 'sha256-ARRMiuXkAUcKiN7hAjh9UmxkdL4Hy6WTJQwiGeu1bhU='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://tile.openstreetmap.org https://lh3.googleusercontent.com; font-src 'self'; manifest-src 'self'; connect-src 'self' https://docs.google.com https://*.googleusercontent.com https://script.google.com; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-aylAf0v50uI9cXAoUP2FnG9ZEKeJBy+1tSMskmyOIHY=' 'sha256-ARRMiuXkAUcKiN7hAjh9UmxkdL4Hy6WTJQwiGeu1bhU='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://tile.openstreetmap.org; font-src 'self'; manifest-src 'self'; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <script type="application/ld+json">
 [{"@context": "https://schema.org", "@type": "Restaurant", "@id": "https://oltreconfini.it/#restaurant", "name": "Oltreconfini Ristorante Pizzeria", "alternateName": "Oltreconfini", "url": "https://oltreconfini.it/", "logo": "https://oltreconfini.it/media/logo.png", "image": ["https://oltreconfini.it/media/og-image.jpg", "https://oltreconfini.it/media/foto/sala-archi.jpg", "https://oltreconfini.it/media/foto/pizze-forno.jpg", "https://oltreconfini.it/media/foto/fritto-misto.jpg", "https://oltreconfini.it/media/foto/forno.jpg"], "description": "Ristorante pizzeria a Bisuschio (Varese), vicino al confine svizzero: pizza al forno a legna anche da asporto, pesce, carne e pranzo di lavoro dal lunedì al sabato.", "telephone": "+39 0332 475287", "email": "info@oltreconfini.it", "address": {"@type": "PostalAddress", "streetAddress": "Via Giuseppe Mazzini 82", "addressLocality": "Bisuschio", "postalCode": "21050", "addressRegion": "VA", "addressCountry": "IT"}, "geo": {"@type": "GeoCoordinates", "latitude": 45.871, "longitude": 8.87}, "hasMap": "https://www.google.com/maps/search/?api=1&query=Oltreconfini+Via+Giuseppe+Mazzini+82+Bisuschio", "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], "opens": "12:00", "closes": "14:30"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], "opens": "19:00", "closes": "22:30"}], "servesCuisine": ["Pizza", "Italiana", "Pesce", "Carne", "Calabrese"], "acceptsReservations": true, "hasMenu": "https://oltreconfini.it/#menu", "priceRange": "€€", "currenciesAccepted": "EUR", "areaServed": ["Bisuschio", "Arcisate", "Induno Olona", "Porto Ceresio", "Viggiù", "Besano", "Varese", "Mendrisio", "Stabio", "Lugano"], "founder": {"@type": "Person", "name": "Francesco Mannarino"}, "foundingDate": "2026-10-30", "legalName": "Mannarino Francesco", "vatID": "IT04166550121", "sameAs": ["https://www.instagram.com/oltreconfini_bisuschio/"]}, {"@context": "https://schema.org", "@type": "WebSite", "@id": "https://oltreconfini.it/#website", "url": "https://oltreconfini.it/", "name": "Oltreconfini", "inLanguage": ["it", "en", "de", "fr"], "publisher": {"@id": "https://oltreconfini.it/#restaurant"}}]
 </script>
@@ -3976,10 +3975,10 @@ function renderSeason(){
 }
 
 /* ---------- sheet 4: closures, announcements, pizza of the week (written with the Google form) ---------- */
-const SHEET_AVV = 'https://docs.google.com/spreadsheets/d/13APEOWk5UfT-UKSeQwimxqCDEv2IPVpj_aZZLZmPvig/gviz/tq?tqx=out:csv&headers=1';
-const SHEET_VINI = 'https://docs.google.com/spreadsheets/d/1-0z5yJQEZGXKPylGXmVyayMo8MxCSr8Hzqds6wjrhHw/gviz/tq?tqx=out:csv&headers=1';
-const SHEET_BEV = 'https://docs.google.com/spreadsheets/d/1YRDF5-ylgRLAHKflsOT0bA5tR5KGI0ACIERCyqR0krA/gviz/tq?tqx=out:csv&headers=1';
-const SHEET_FAQ = 'https://docs.google.com/spreadsheets/d/10hYZp8qGAr9u4ZR1MNMUYZ1ZUmQgBZcCoSoVDRbJQ_A/gviz/tq?tqx=out:csv&headers=1';
+const SHEET_AVV = '/dati/d/13APEOWk5UfT-UKSeQwimxqCDEv2IPVpj_aZZLZmPvig?tqx=out:csv&headers=1';
+const SHEET_VINI = '/dati/d/1-0z5yJQEZGXKPylGXmVyayMo8MxCSr8Hzqds6wjrhHw?tqx=out:csv&headers=1';
+const SHEET_BEV = '/dati/d/1YRDF5-ylgRLAHKflsOT0bA5tR5KGI0ACIERCyqR0krA?tqx=out:csv&headers=1';
+const SHEET_FAQ = '/dati/d/10hYZp8qGAr9u4ZR1MNMUYZ1ZUmQgBZcCoSoVDRbJQ_A?tqx=out:csv&headers=1';
 let ANN = [];
 /* ---------- opening hours: weekly hours (panel → Orari), special hours and closures (panel → avvisi) ---------- */
 // 0 = Monday … 6 = Sunday; each day [lunch, dinner] in minutes, null = closed. Used until the panel's "Orari" is read.
@@ -4236,7 +4235,7 @@ function promoDialog(list){
       const a = list[k], th = promoTheme(a), t = T[lang], pts = promoPts(a), fo = promoFoto(a), f = fo.id;
       d.innerHTML = `<div class="pbox pt-${th}${lenC(a.text[lang]) === 'l3' || (a.sub[lang] || '').length > 70 ? ' long' : ''}" role="dialog" aria-modal="true" aria-labelledby="pdlg-t">${decorHTML(th, 'dialog')}` +
         `<button type="button" class="x" aria-label="×">×</button>` +
-        `<div class="ph">${fo.mia ? `<picture><img src="https://lh3.googleusercontent.com/d/${f}=w900" alt="" referrerpolicy="no-referrer"></picture>` : `<picture><source type="image/webp" srcset="${BASE}media/foto/${f}-900.webp"><img src="${BASE}media/foto/${f}-900.webp" alt=""></picture>`}</div>` +
+        `<div class="ph">${fo.mia ? `<picture><img src="/foto/${f}=w900" alt="" referrerpolicy="no-referrer"></picture>` : `<picture><source type="image/webp" srcset="${BASE}media/foto/${f}-900.webp"><img src="${BASE}media/foto/${f}-900.webp" alt=""></picture>`}</div>` +
         `<div class="ct"><div class="eyebrow">${esc(t.promo_e)}</div><h2 id="pdlg-t" class="${lenC(a.text[lang])}">${esc(a.text[lang])}</h2>` + (a.sub[lang] ? `<p class="sub ${a.sub[lang].length > 70 ? 'l3' : ''}">${esc(a.sub[lang])}</p>` : '') +
         (pts.length ? `<ul>${pts.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : '') +
         `<div class="ctas"><a class="btn solid pulse" href="#prenota">${esc(t.promo_cta)}</a>` +
@@ -4264,7 +4263,7 @@ function activePromos(){
 }
 // foto della promozione: caricata dal pannello (Google Drive) oppure una delle foto del locale
 function promoFoto(a){ const raw = String(a.foto || '').trim(), mia = !PROMO_FOTO[norm(raw)] && /^[\w-]{20,80}$/.test(raw); return {mia, id:mia ? raw : PROMO_FOTO[norm(raw)] || 'calici'}; }
-const promoThumb = a => { const f = promoFoto(a); return f.mia ? `https://lh3.googleusercontent.com/d/${f.id}=w200` : `${BASE}media/foto/${f.id}-480.webp`; };
+const promoThumb = a => { const f = promoFoto(a); return f.mia ? `/foto/${f.id}=w200` : `${BASE}media/foto/${f.id}-480.webp`; };
 let PROMO_SEL = 0, barTimer = 0;
 function renderPromo(sel){
   const box = $('#promo'); if (!box) return;
@@ -4273,7 +4272,7 @@ function renderPromo(sel){
   if (typeof sel === 'number') PROMO_SEL = sel;
   if (PROMO_SEL >= list.length) PROMO_SEL = 0;
   const a = list[PROMO_SEL], t = T[lang], fo = promoFoto(a), mia = fo.mia, f = fo.id, th = promoTheme(a), pts = promoPts(a);
-  const pic = mia ? `<picture><img src="https://lh3.googleusercontent.com/d/${f}=w1400" srcset="https://lh3.googleusercontent.com/d/${f}=w800 800w, https://lh3.googleusercontent.com/d/${f}=w1400 1400w" sizes="100vw" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></picture>`
+  const pic = mia ? `<picture><img src="/foto/${f}=w1400" srcset="/foto/${f}=w800 800w, /foto/${f}=w1400 1400w" sizes="100vw" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"></picture>`
     : `<picture><source type="image/webp" srcset="${BASE}media/foto/${f}-480.webp 480w, ${BASE}media/foto/${f}-900.webp 900w" sizes="100vw"><img src="${BASE}media/foto/${f}-900.webp" alt="" loading="lazy" decoding="async"></picture>`;
   const hasMenu = SPECIALS.length > 0;
   const altre = list.map((x, k) => k === PROMO_SEL ? '' : `<button type="button" class="mc pt-${promoTheme(x)}" data-pi="${k}"><i></i><img src="${promoThumb(x)}" alt="" loading="lazy" referrerpolicy="no-referrer"><span><b>${esc(x.text[lang])}</b>${x.sub[lang] ? `<small>${esc(x.sub[lang])}</small>` : ''}</span></button>`).join('');
@@ -4807,7 +4806,7 @@ function photoRef(v){
   const m = v.match(/\/d\/([\w-]{20,})|[?&]id=([\w-]{20,})/); if (m) return m[1] || m[2];
   return /^[\w-]{20,}$/.test(v) || /^[a-z0-9-]{2,40}$/.test(v) ? v : '';
 }
-const photoUrl = v => !/^[a-z0-9-]{2,24}$/.test(v) ? `https://lh3.googleusercontent.com/d/${v}=w1200` : `${ONLY ? '/' : BASE}media/foto/${v}-900.webp`;
+const photoUrl = v => !/^[a-z0-9-]{2,24}$/.test(v) ? `/foto/${v}=w1200` : `${ONLY ? '/' : BASE}media/foto/${v}-900.webp`;
 let dphLast = null;
 document.addEventListener('click', e => {
   const b = e.target.closest('.phb'); if (!b) return;
@@ -5509,7 +5508,7 @@ addEventListener('scroll', nearMap, {passive:true});
 
 /* ---------- today in the kitchen: Google Sheet (published as CSV) or oggi.txt ---------- */
 // Paste here the link of the Google Sheet "Oltreconfini – Oggi in cucina (sito)": File > Share > Publish to web > CSV
-const OGGI_CSV = 'https://docs.google.com/spreadsheets/d/1v_NRS6B0PGeC2fCGgbp8Myrp45ZGUbUPI9fAbl9Viso/gviz/tq?tqx=out:csv';
+const OGGI_CSV = '/dati/d/1v_NRS6B0PGeC2fCGgbp8Myrp45ZGUbUPI9fAbl9Viso?tqx=out:csv';
 function csvRows(t){
   const rows = [[]]; let cell = '', q = false;
   for (let k = 0; k < t.length; k++) { const ch = t[k];
@@ -5630,11 +5629,11 @@ function loadOggi(){
 loadOggi();
 
 /* ---------- MENU FROM GOOGLE SHEETS (the restaurant edits the sheet, the site updates by itself) ---------- */
-const SHEET_MENU = 'https://docs.google.com/spreadsheets/d/17VDTk8vTuRRGopyZX1Xurbn2HeKW7UybRyaMOI4SGdk/gviz/tq?tqx=out:csv&headers=1';
-const SHEET_SPEC = 'https://docs.google.com/spreadsheets/d/1pUILHxGPZY4pVVKz30u6kKz4qjc-2VkfM_wvNrxw9yI/gviz/tq?tqx=out:csv&headers=1';
+const SHEET_MENU = '/dati/d/17VDTk8vTuRRGopyZX1Xurbn2HeKW7UybRyaMOI4SGdk?tqx=out:csv&headers=1';
+const SHEET_SPEC = '/dati/d/1pUILHxGPZY4pVVKz30u6kKz4qjc-2VkfM_wvNrxw9yI?tqx=out:csv&headers=1';
 // nightly copies made by the Apps Script ("copiaRiserva"), used only if the sheets above can't be read
-const SHEET_MENU_BAK = 'https://docs.google.com/spreadsheets/d/1qzLLSIVL9OhBv-mTW1DG3_IQrYnpTu3d_m_s7jgi_1U/gviz/tq?tqx=out:csv&headers=1';
-const SHEET_SPEC_BAK = 'https://docs.google.com/spreadsheets/d/1rHk3fJJ26kJJHBgCk08H3JNaK7g7KdcdhUjyfgVzro4/gviz/tq?tqx=out:csv&headers=1';
+const SHEET_MENU_BAK = '/dati/d/1qzLLSIVL9OhBv-mTW1DG3_IQrYnpTu3d_m_s7jgi_1U?tqx=out:csv&headers=1';
+const SHEET_SPEC_BAK = '/dati/d/1rHk3fJJ26kJJHBgCk08H3JNaK7g7KdcdhUjyfgVzro4?tqx=out:csv&headers=1';
 const SHEET_CAT = {'dolci':'dolci','dessert':'dolci','i dolci':'dolci','contorni':'contorni','antipasti':'antipasti','primi':'primi','secondi':'secondi','pizze':'pizze','pizze speciali':'speciali','pizza speciali':'speciali','menù bimbi':'bimbi','menu bimbi':'bimbi','bimbi':'bimbi'};
 const LOADING = /^(caricamento|loading|wird geladen|chargement)/i;
 const clean = v => { v = String(v || '').replace(/\s+/g, ' ').trim(); return LOADING.test(v) || /^#(ERROR|N\/A|VALUE|REF|NAME)/i.test(v) ? '' : v.slice(0, 1200); };
@@ -5866,7 +5865,7 @@ if (location.protocol !== 'file:') sheetLive(OGGI_CSV + '&headers=1&sheet=Impost
   const rv = rows.find(x => /^link recensioni/i.test(x[0] || '')), ru = rv ? String(rv[1] || '').trim() : '';
   if (/^https:\/\/(g\.page|www\.google\.|maps\.app\.goo\.gl|search\.google\.com|goo\.gl)\/[^\s"'<>]*$/.test(ru)) GOOGLE_REVIEW = ru;
   const r = rows.find(x => /^opinioni$/i.test(x[0] || '')); const u = r ? String(r[1] || '').trim() : '';
-  if (/^https:\/\/script\.google\.com\/macros\/s\/[\w-]+\/exec$/.test(u) && u !== OPN_URL) { OPN_URL = u; bkLoad(); }
+  if (/^(https:\/\/script\.google\.com\/macros\/s\/[\w-]+\/exec|\/api)$/.test(u) && u !== OPN_URL) { OPN_URL = u; bkLoad(); }
 }).catch(() => {});
 function saveOpinion(){
   if (opSaved || !OPN_URL) return;

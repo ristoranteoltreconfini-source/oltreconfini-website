@@ -1,15 +1,33 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  // Sito statico servito da Cloudflare Workers (static assets).
-  "name": "oltreconfini",
+  // Versione nuova (senza fogli Google). Nome diverso dal sito attuale «oltreconfini»,
+  // così si prova su oltreconfini-nuovo.<account>.workers.dev senza toccare quello pubblicato.
+  "name": "oltreconfini-nuovo",
+  "main": "src/index.js",
   "compatibility_date": "2026-11-01",
   "assets": {
     "directory": "./public",
-    "not_found_handling": "404-page"
-  }
-  // Quando il dominio oltreconfini.it sarà su Cloudflare, aggiungere:
-  // "routes": [
-  //   { "pattern": "oltreconfini.it", "custom_domain": true },
-  //   { "pattern": "www.oltreconfini.it", "custom_domain": true }
-  // ]
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/api", "/dati/*", "/foto/*", "/pannello", "/pannello/*", "/_importa", "/_link"]
+  },
+  // pagina del pannello importata come testo
+  "rules": [{ "type": "Text", "globs": ["**/*.html"], "fallthrough": true }],
+  // tutti i dati: un Durable Object con database SQLite (creato nella giurisdizione UE)
+  "durable_objects": { "bindings": [{ "name": "OLTRECONFINI", "class_name": "Oltreconfini" }] },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["Oltreconfini"] }],
+  // ogni minuto: email in coda, ritardi delle prenotazioni, promemoria, pulizia notturna, copie di riserva
+  "triggers": { "crons": ["* * * * *"] },
+  "vars": {
+    "SITO": "https://oltreconfini-nuovo.mannarino.workers.dev/",
+    "EMAIL_MITTENTE": "Oltreconfini <prenotazioni@oltreconfini.it>"
+  },
+  "observability": { "enabled": true }
+  // Segreti (wrangler secret put …, mai nel repository):
+  //   OWNER_EMAIL     email del titolare (accesso completo al pannello)
+  //   ADMIN_TOKEN     chiave per l'importazione iniziale e per ottenere il link del titolare
+  //   GEMINI_API_KEY  IA del pannello (controlli e traduzioni)
+  //   RESEND_API_KEY  invio delle email
+  // Quando il dominio oltreconfini.it sarà su Cloudflare:
+  // "routes": [{ "pattern": "oltreconfini.it", "custom_domain": true }, { "pattern": "www.oltreconfini.it", "custom_domain": true }]
 }
