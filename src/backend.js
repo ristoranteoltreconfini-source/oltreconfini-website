@@ -1088,38 +1088,38 @@ function prDaToken_(t) { const m = String(t || '').match(/^(\d{4})(\d{2})(\d{2})
 
 // --- le email al cliente, nella sua lingua ---
 const PR_TXT = {
-  it: {conferma: 'Prenotazione confermata', modifica: 'Prenotazione modificata', promemoria: 'Ti aspettiamo', ritardo: 'Stai arrivando?', liberata: 'Tavolo liberato', annullata: 'Prenotazione annullata',
+  it: {recensione: 'Grazie della visita', b_recensione: 'grazie per essere stati da noi! Se vi siete trovati bene, una recensione su Google ci aiuta tantissimo: bastano un minuto e qualche stella.', rev: 'Lascia una recensione su Google', conferma: 'Prenotazione confermata', modifica: 'Prenotazione modificata', promemoria: 'Ti aspettiamo', ritardo: 'Stai arrivando?', liberata: 'Tavolo liberato', annullata: 'Prenotazione annullata',
     ciao: 'Ciao', persone: 'persone', persona: 'persona', alle: 'alle',
     b_conferma: 'la tua prenotazione è confermata:', b_modifica: 'abbiamo aggiornato la tua prenotazione:', b_promemoria: 'ti ricordiamo la prenotazione di oggi:',
     b_ritardo: 'ti stiamo aspettando. Se stai arrivando, confermacelo con un tocco: teniamo il tavolo fino all’orario che ci indichi. Senza conferma il tavolo viene liberato {m} minuti dopo l’orario prenotato.',
     b_ritardo_m: 'ti stiamo aspettando. Se stai arrivando dicci tra quanto con un tocco; se sei già da noi tocca «Siamo già qui». Se non riusciamo a sentirti, ti chiameremo al numero che ci hai lasciato.',
     b_liberata: 'non avendo tue notizie abbiamo liberato il tavolo prenotato. Se sei già da noi, ignora questo messaggio.', b_annullata: 'la prenotazione è stata annullata:',
     gest: 'Annulla la prenotazione', arr: 'Rispondi: arrivo o sono già qui', cambia: 'Per cambiare giorno o orario annulla e prenota di nuovo, oppure chiamaci al {tel}.',
-    priv: 'Usiamo questi dati solo per la tua prenotazione e li cancelliamo la notte dopo. Informativa:'},
-  en: {conferma: 'Booking confirmed', modifica: 'Booking updated', promemoria: 'See you soon', ritardo: 'Are you on your way?', liberata: 'Table released', annullata: 'Booking cancelled',
+    priv: 'Usiamo questi dati solo per la tua prenotazione (e, dopo la visita, per chiederti un parere) e li cancelliamo la notte dopo. Informativa:'},
+  en: {recensione: 'Thank you for visiting', b_recensione: 'thank you for dining with us! If you enjoyed your visit, a Google review helps us a lot: it only takes a minute and a few stars.', rev: 'Leave a Google review', conferma: 'Booking confirmed', modifica: 'Booking updated', promemoria: 'See you soon', ritardo: 'Are you on your way?', liberata: 'Table released', annullata: 'Booking cancelled',
     ciao: 'Hello', persone: 'people', persona: 'person', alle: 'at',
     b_conferma: 'your booking is confirmed:', b_modifica: 'we have updated your booking:', b_promemoria: 'a reminder of your booking for today:',
     b_ritardo: 'we are waiting for you. If you are on your way, let us know with one tap: we will keep the table until the time you choose. Without a reply the table is released {m} minutes after the booked time.',
     b_ritardo_m: 'we are waiting for you. If you are on your way, tell us when with one tap; if you are already here, tap «We are already here». If we do not hear from you, we will call the number you gave us.',
     b_liberata: 'as we have not heard from you, we have released your table. If you are already here, please ignore this message.', b_annullata: 'the booking has been cancelled:',
     gest: 'Cancel your booking', arr: 'Reply: on my way or already here', cambia: 'To change day or time, cancel and book again, or call us on {tel}.',
-    priv: 'We use these details only for your booking and delete them the following night. Privacy notice:'},
-  de: {conferma: 'Reservierung bestätigt', modifica: 'Reservierung geändert', promemoria: 'Wir freuen uns auf Sie', ritardo: 'Sind Sie unterwegs?', liberata: 'Tisch freigegeben', annullata: 'Reservierung storniert',
+    priv: 'We use these details only for your booking (and, after your visit, to ask for your feedback) and delete them the following night. Privacy notice:'},
+  de: {recensione: 'Danke für Ihren Besuch', b_recensione: 'vielen Dank für Ihren Besuch! Wenn es Ihnen gefallen hat, hilft uns eine Google-Bewertung sehr: Es dauert nur eine Minute.', rev: 'Auf Google bewerten', conferma: 'Reservierung bestätigt', modifica: 'Reservierung geändert', promemoria: 'Wir freuen uns auf Sie', ritardo: 'Sind Sie unterwegs?', liberata: 'Tisch freigegeben', annullata: 'Reservierung storniert',
     ciao: 'Guten Tag', persone: 'Personen', persona: 'Person', alle: 'um',
     b_conferma: 'Ihre Reservierung ist bestätigt:', b_modifica: 'wir haben Ihre Reservierung geändert:', b_promemoria: 'wir erinnern Sie an Ihre heutige Reservierung:',
     b_ritardo: 'wir warten auf Sie. Wenn Sie unterwegs sind, bestätigen Sie es mit einem Tipp: Wir halten den Tisch bis zur angegebenen Zeit frei. Ohne Antwort wird der Tisch {m} Minuten nach der reservierten Zeit freigegeben.',
     b_ritardo_m: 'wir warten auf Sie. Wenn Sie unterwegs sind, sagen Sie uns mit einem Tipp, wann Sie da sind; wenn Sie schon hier sind, tippen Sie auf «Wir sind schon da». Wenn wir nichts hören, rufen wir Sie an.',
     b_liberata: 'da wir nichts von Ihnen gehört haben, haben wir den Tisch freigegeben. Falls Sie schon bei uns sind, ignorieren Sie diese Nachricht.', b_annullata: 'die Reservierung wurde storniert:',
     gest: 'Reservierung stornieren', arr: 'Antworten: unterwegs oder schon da', cambia: 'Um Tag oder Uhrzeit zu ändern, stornieren und neu reservieren oder anrufen: {tel}.',
-    priv: 'Wir verwenden diese Daten nur für Ihre Reservierung und löschen sie in der folgenden Nacht. Datenschutz:'},
-  fr: {conferma: 'Réservation confirmée', modifica: 'Réservation modifiée', promemoria: 'À tout à l’heure', ritardo: 'Êtes-vous en route ?', liberata: 'Table libérée', annullata: 'Réservation annulée',
+    priv: 'Wir verwenden diese Daten nur für Ihre Reservierung (und nach dem Besuch für eine kurze Bitte um Ihre Meinung) und löschen sie in der folgenden Nacht. Datenschutz:'},
+  fr: {recensione: 'Merci de votre visite', b_recensione: 'merci d’être venus chez nous ! Si vous avez aimé, un avis sur Google nous aide beaucoup : il suffit d’une minute et de quelques étoiles.', rev: 'Laisser un avis sur Google', conferma: 'Réservation confirmée', modifica: 'Réservation modifiée', promemoria: 'À tout à l’heure', ritardo: 'Êtes-vous en route ?', liberata: 'Table libérée', annullata: 'Réservation annulée',
     ciao: 'Bonjour', persone: 'personnes', persona: 'personne', alle: 'à',
     b_conferma: 'votre réservation est confirmée :', b_modifica: 'nous avons modifié votre réservation :', b_promemoria: 'nous vous rappelons votre réservation d’aujourd’hui :',
     b_ritardo: 'nous vous attendons. Si vous êtes en route, confirmez-le d’un geste : nous gardons la table jusqu’à l’heure indiquée. Sans réponse, la table est libérée {m} minutes après l’heure réservée.',
     b_ritardo_m: 'nous vous attendons. Si vous êtes en route, dites-nous dans combien de temps d’un geste ; si vous êtes déjà là, touchez «Nous sommes déjà là». Sans nouvelles, nous vous appellerons.',
     b_liberata: 'sans nouvelles de votre part, nous avons libéré la table. Si vous êtes déjà chez nous, ignorez ce message.', b_annullata: 'la réservation a été annulée :',
     gest: 'Annuler la réservation', arr: 'Répondre : en route ou déjà là', cambia: 'Pour changer de jour ou d’heure, annulez et réservez à nouveau, ou appelez le {tel}.',
-    priv: 'Nous utilisons ces données uniquement pour votre réservation et les supprimons la nuit suivante. Confidentialité :'}
+    priv: 'Nous utilisons ces données uniquement pour votre réservation (et, après votre visite, pour vous demander votre avis) et les supprimons la nuit suivante. Confidentialité :'}
 };
 const PR_GG = {it: ['domenica', 'lunedì', 'martedì', 'mercoledì', 'giovedì', 'venerdì', 'sabato'], en: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
   de: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'], fr: ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi']};
@@ -1140,8 +1140,8 @@ function prMail_(b, iso, tipo, cfg) {
   const nome = String(b.nm || '').split(/\s+/)[0];
   const html = '<div style="font:16px/1.5 Arial,sans-serif;color:#1b2430;max-width:520px">' +
     '<p style="font:italic 26px Georgia,serif;color:#0b121c;margin:0 0 12px">' + esc(cfg.nomeLoc) + '</p>' +
-    '<p>' + L.ciao + ' ' + esc(nome) + ', ' + esc(corpo) + '</p>' + (tipo === 'liberata' ? '' : riga) +
-    (tipo === 'annullata' || tipo === 'liberata' ? '' : '<p>' + bottone(link, tipo === 'ritardo' ? L.arr : L.gest) + '</p>') +
+    '<p>' + L.ciao + ' ' + esc(nome) + ', ' + esc(corpo) + '</p>' + (tipo === 'liberata' || tipo === 'recensione' ? '' : riga) +
+    (tipo === 'annullata' || tipo === 'liberata' ? '' : tipo === 'recensione' ? '<p>' + bottone(impostazione_('Link recensioni Google'), '★★★★★ ' + L.rev) + '</p>' : '<p>' + bottone(link, tipo === 'ritardo' ? L.arr : L.gest) + '</p>') +
     (tipo === 'conferma' || tipo === 'modifica' ? '<p style="color:#555">' + esc(L.cambia.replace('{tel}', cfg.telLoc)) + '</p>' : '') +
     (cfg.notaMail ? '<p>' + esc(cfg.notaMail) + '</p>' : '') +
     '<p style="color:#555">' + esc(cfg.nomeLoc) + ' · ' + esc(cfg.indLoc) + ' · ' + esc(cfg.telLoc) + '</p>' +
@@ -1278,7 +1278,8 @@ function prStato_(t) {
   return {ok: true, d: p.iso, h: labPr_(b.m), n: b.n, nm: String(b.nm || '').split(/\s+/)[0], s: b.s, eta: b.eta ? labPr_(b.eta % 1440) : '',
     arrivo: b.s === 'ok' && now.abs >= inizio - 30 && now.abs < prFine_(cfg, inizio), qui: b.s === 'ok' && now.abs >= inizio - 30 && now.abs < prFine_(cfg, inizio),
     annullabile: b.s === 'ok' && now.abs < prFine_(cfg, inizio), lg: b.lg,
-    minuti: [10, 15, 20, 30, 45, 60, 90, 120, 180].filter(x => now.abs + x <= inizio + cfg.etaMax).slice(0, 4), telLoc: cfg.telLoc};
+    minuti: [10, 15, 20, 30, 45, 60, 90, 120, 180].filter(x => now.abs + x <= inizio + cfg.etaMax).slice(0, 4), telLoc: cfg.telLoc,
+    rec: b.s === 'arr' || (b.s === 'ok' && now.abs >= inizio + 60), rev: impostazione_('Link recensioni Google')};   // dopo la visita la pagina invita alla recensione Google
 }
 // fino a quando il cliente può rispondere dal link (dopo, solo al telefono)
 const prFine_ = (cfg, inizio) => inizio + (cfg.libAuto ? cfg.lib : Math.max(cfg.lib, cfg.etaMax) + 60);
@@ -1363,6 +1364,24 @@ function prNotte() {
   });
   // copie delle email di prenotazione nella posta inviata: nel cestino (Gmail le elimina del tutto dopo 30 giorni)
   try { for (let i = 0; i < 5; i++) { const t = GmailApp.search('"OCPREN" older_than:' + (cfgN.conserva + 1) + 'd -in:trash', 0, 100); if (!t.length) break; GmailApp.moveThreadsToTrash(t); } } catch (e) {}
+}
+// dopo la visita: una sola email per chiedere la recensione su Google, solo a chi è stato segnato «Arrivati» e ha lasciato l'email
+function prRecensioni_() {
+  if (!/^https:\/\//.test(impostazione_('Link recensioni Google'))) return;
+  const cfg = prCfg_(), now = adessoPr_();
+  if (now.m < 540 || now.m > 1380) return;                       // mai di notte: dalle 9 alle 23
+  [now.g - 1, now.g].forEach(g => {
+    const iso = isoPr_(g), da = [];
+    prLeggi_(iso).forEach(b => {
+      if (b.s !== 'arr' || !b.em || b.rv) return;
+      const fine = g * 1440 + b.m + cfg.dur[b.k != null ? b.k : (b.m < 960 ? 0 : 1)] + 15;   // fine del tavolo + un quarto d'ora
+      if (now.abs >= fine && now.abs < fine + 720) da.push(b.id);
+    });
+    if (!da.length) return;
+    let inviate = [];
+    conLock_(() => { const l = prLeggi_(iso); l.forEach(b => { if (da.indexOf(b.id) >= 0 && !b.rv) { b.rv = 1; inviate.push(b); } }); prScrivi_(iso, l); });
+    inviate.forEach(b => prAvvisa_(b, iso, 'recensione'));
+  });
 }
 function prStatistiche_() { try { return JSON.parse(PROP.getProperty('PR-STAT') || '{}'); } catch (e) { return {}; } }
 function prStatisticaInc_(iso, k) {
@@ -1811,4 +1830,4 @@ function registroPulisci_() {
 /* =========================== LA PAGINA DEL PANNELLO =========================== */
 function oraRoma(d) { const s = Utilities.formatDate(d, TZ, 'HH:mm'); return {h: +s.slice(0, 2), m: +s.slice(3)}; }
 function oraPulizia() { return prCfg_().oraPul; }
-export { oraRoma, oraPulizia, doGet, doPost, api, promemoria, copiaRiserva, prControlla, prInvia, prNotte, registroScarica_, FOGLI, RISERVA, persone_, salvaPersone_, mandaLink_, chiavi_, proprietario_, aggiornaFogli_, PROP };
+export { prRecensioni_, oraRoma, oraPulizia, doGet, doPost, api, promemoria, copiaRiserva, prControlla, prInvia, prNotte, registroScarica_, FOGLI, RISERVA, persone_, salvaPersone_, mandaLink_, chiavi_, proprietario_, aggiornaFogli_, PROP };

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-a3eWhGa0HCUX48bFkjVcqWApRHlAa7MUomrwQ8XUwh4=' 'sha256-Rxlgow/OBOcf9g3WgRQ5cF9D9Sy61n/eFw8uZt0ADeU='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://tile.openstreetmap.org; font-src 'self'; manifest-src 'self'; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-a3eWhGa0HCUX48bFkjVcqWApRHlAa7MUomrwQ8XUwh4=' 'sha256-XX1ix29fMjJRXDBVXCuRxkiHDeBZT+SBot8H/X18Fqg='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://tile.openstreetmap.org; font-src 'self'; manifest-src 'self'; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <title>La tua prenotazione · Oltreconfini</title>
 <meta name="robots" content="noindex, nofollow">
 <meta name="referrer" content="no-referrer">
@@ -97,10 +97,10 @@ var BK = {
 };
 var IMP = '/dati/d/1v_NRS6B0PGeC2fCGgbp8Myrp45ZGUbUPI9fAbl9Viso?tqx=out:csv&headers=1&sheet=Impostazioni';
 var EXTRA = {
-  it:{ph:'Per qualsiasi cosa chiamaci al', home:'Vai al sito', back:'Indietro', yes:'Sì, annulla', no:'No, la tengo'},
-  en:{ph:'For anything, call us on', home:'Go to the website', back:'Back', yes:'Yes, cancel', no:'No, keep it'},
-  de:{ph:'Bei Fragen rufen Sie uns an:', home:'Zur Website', back:'Zurück', yes:'Ja, stornieren', no:'Nein, behalten'},
-  fr:{ph:'Pour toute question, appelez le', home:'Aller au site', back:'Retour', yes:'Oui, annuler', no:'Non, je la garde'}
+  it:{rev:'Com’è andata? Se ti sei trovato bene, una recensione su Google ci aiuta tantissimo.', revb:'★★★★★ Lascia una recensione su Google', ph:'Per qualsiasi cosa chiamaci al', home:'Vai al sito', back:'Indietro', yes:'Sì, annulla', no:'No, la tengo'},
+  en:{rev:'How was it? If you enjoyed your visit, a Google review helps us a lot.', revb:'★★★★★ Leave a Google review', ph:'For anything, call us on', home:'Go to the website', back:'Back', yes:'Yes, cancel', no:'No, keep it'},
+  de:{rev:'Wie war es? Wenn es Ihnen gefallen hat, hilft uns eine Google-Bewertung sehr.', revb:'★★★★★ Auf Google bewerten', ph:'Bei Fragen rufen Sie uns an:', home:'Zur Website', back:'Zurück', yes:'Ja, stornieren', no:'Nein, behalten'},
+  fr:{rev:'Comment c’était ? Si vous avez aimé, un avis sur Google nous aide beaucoup.', revb:'★★★★★ Laisser un avis sur Google', ph:'Pour toute question, appelez le', home:'Aller au site', back:'Retour', yes:'Oui, annuler', no:'Non, je la garde'}
 };
 var LANGS = ['it','en','de','fr'];
 var lang = (function(){ var n = String(navigator.language || 'it').slice(0, 2).toLowerCase(); return LANGS.indexOf(n) >= 0 ? n : 'it'; })();
@@ -134,6 +134,7 @@ function mostra(d, nota){
   if (d.arrivo) h += '<hr><p>' + esc(T('m_arr')) + '</p><div class="mins">' + ((d.minuti && d.minuti.length) ? d.minuti : [10, 20, 30]).map(function(m){ return '<button type="button" class="s" data-min="' + (+m) + '">' + esc(T('m_min', {m: +m})) + '</button>'; }).join('') + '</div>';
   if (d.qui) h += '<button type="button" class="s full" id="qui">' + esc(T('qui')) + '</button>';
   if (d.annullabile) h += '<hr><button type="button" class="full" id="x">' + esc(T('m_cancel')) + '</button>';
+  if (d.rec && /^https:\/\/(g\.page|www\.google\.|maps\.app\.goo\.gl|search\.google\.com)\//.test(d.rev || '')) h += '<hr><p>' + esc(T('rev')) + '</p><a class="s full" style="display:block;text-align:center;text-decoration:none" href="' + esc(d.rev) + '" target="_blank" rel="noopener noreferrer">' + esc(T('revb')) + '</a>';   // dopo la visita: recensione su Google
   $('#b').innerHTML = h;
   Array.prototype.forEach.call(document.querySelectorAll('[data-min]'), function(x){ x.addEventListener('click', function(){ fai({a:'arrivo', t:TOK, min:+x.dataset.min}); }); });
   if ($('#qui')) $('#qui').addEventListener('click', function(){ fai({a:'qui', t:TOK}); });
