@@ -1094,7 +1094,7 @@ const PR_TXT = {
     b_ritardo: 'ti stiamo aspettando. Se stai arrivando, confermacelo con un tocco: teniamo il tavolo fino all’orario che ci indichi. Senza conferma il tavolo viene liberato {m} minuti dopo l’orario prenotato.',
     b_ritardo_m: 'ti stiamo aspettando. Se stai arrivando dicci tra quanto con un tocco; se sei già da noi tocca «Siamo già qui». Se non riusciamo a sentirti, ti chiameremo al numero che ci hai lasciato.',
     b_liberata: 'non avendo tue notizie abbiamo liberato il tavolo prenotato. Se sei già da noi, ignora questo messaggio.', b_annullata: 'la prenotazione è stata annullata:',
-    gest: 'Annulla la prenotazione', arr: 'Rispondi: arrivo o sono già qui', cambia: 'Per cambiare giorno o orario annulla e prenota di nuovo, oppure chiamaci al {tel}.',
+    gest: 'Gestisci la prenotazione', arr: 'Rispondi: arrivo o sono già qui', cambia: 'Per cambiare giorno o orario annulla e prenota di nuovo, oppure chiamaci al {tel}.',
     priv: 'Usiamo questi dati solo per la tua prenotazione (e, dopo la visita, per chiederti un parere) e li cancelliamo la notte dopo. Informativa:'},
   en: {recensione: 'Thank you for visiting', b_recensione: 'thank you for dining with us! If you enjoyed your visit, a Google review helps us a lot: it only takes a minute and a few stars.', rev: 'Leave a Google review', conferma: 'Booking confirmed', modifica: 'Booking updated', promemoria: 'See you soon', ritardo: 'Are you on your way?', liberata: 'Table released', annullata: 'Booking cancelled',
     ciao: 'Hello', persone: 'people', persona: 'person', alle: 'at',
@@ -1102,7 +1102,7 @@ const PR_TXT = {
     b_ritardo: 'we are waiting for you. If you are on your way, let us know with one tap: we will keep the table until the time you choose. Without a reply the table is released {m} minutes after the booked time.',
     b_ritardo_m: 'we are waiting for you. If you are on your way, tell us when with one tap; if you are already here, tap «We are already here». If we do not hear from you, we will call the number you gave us.',
     b_liberata: 'as we have not heard from you, we have released your table. If you are already here, please ignore this message.', b_annullata: 'the booking has been cancelled:',
-    gest: 'Cancel your booking', arr: 'Reply: on my way or already here', cambia: 'To change day or time, cancel and book again, or call us on {tel}.',
+    gest: 'Manage your booking', arr: 'Reply: on my way or already here', cambia: 'To change day or time, cancel and book again, or call us on {tel}.',
     priv: 'We use these details only for your booking (and, after your visit, to ask for your feedback) and delete them the following night. Privacy notice:'},
   de: {recensione: 'Danke für Ihren Besuch', b_recensione: 'vielen Dank für Ihren Besuch! Wenn es Ihnen gefallen hat, hilft uns eine Google-Bewertung sehr: Es dauert nur eine Minute.', rev: 'Auf Google bewerten', conferma: 'Reservierung bestätigt', modifica: 'Reservierung geändert', promemoria: 'Wir freuen uns auf Sie', ritardo: 'Sind Sie unterwegs?', liberata: 'Tisch freigegeben', annullata: 'Reservierung storniert',
     ciao: 'Guten Tag', persone: 'Personen', persona: 'Person', alle: 'um',
@@ -1110,7 +1110,7 @@ const PR_TXT = {
     b_ritardo: 'wir warten auf Sie. Wenn Sie unterwegs sind, bestätigen Sie es mit einem Tipp: Wir halten den Tisch bis zur angegebenen Zeit frei. Ohne Antwort wird der Tisch {m} Minuten nach der reservierten Zeit freigegeben.',
     b_ritardo_m: 'wir warten auf Sie. Wenn Sie unterwegs sind, sagen Sie uns mit einem Tipp, wann Sie da sind; wenn Sie schon hier sind, tippen Sie auf «Wir sind schon da». Wenn wir nichts hören, rufen wir Sie an.',
     b_liberata: 'da wir nichts von Ihnen gehört haben, haben wir den Tisch freigegeben. Falls Sie schon bei uns sind, ignorieren Sie diese Nachricht.', b_annullata: 'die Reservierung wurde storniert:',
-    gest: 'Reservierung stornieren', arr: 'Antworten: unterwegs oder schon da', cambia: 'Um Tag oder Uhrzeit zu ändern, stornieren und neu reservieren oder anrufen: {tel}.',
+    gest: 'Reservierung verwalten', arr: 'Antworten: unterwegs oder schon da', cambia: 'Um Tag oder Uhrzeit zu ändern, stornieren und neu reservieren oder anrufen: {tel}.',
     priv: 'Wir verwenden diese Daten nur für Ihre Reservierung (und nach dem Besuch für eine kurze Bitte um Ihre Meinung) und löschen sie in der folgenden Nacht. Datenschutz:'},
   fr: {recensione: 'Merci de votre visite', b_recensione: 'merci d’être venus chez nous ! Si vous avez aimé, un avis sur Google nous aide beaucoup : il suffit d’une minute et de quelques étoiles.', rev: 'Laisser un avis sur Google', conferma: 'Réservation confirmée', modifica: 'Réservation modifiée', promemoria: 'À tout à l’heure', ritardo: 'Êtes-vous en route ?', liberata: 'Table libérée', annullata: 'Réservation annulée',
     ciao: 'Bonjour', persone: 'personnes', persona: 'personne', alle: 'à',
@@ -1118,7 +1118,7 @@ const PR_TXT = {
     b_ritardo: 'nous vous attendons. Si vous êtes en route, confirmez-le d’un geste : nous gardons la table jusqu’à l’heure indiquée. Sans réponse, la table est libérée {m} minutes après l’heure réservée.',
     b_ritardo_m: 'nous vous attendons. Si vous êtes en route, dites-nous dans combien de temps d’un geste ; si vous êtes déjà là, touchez «Nous sommes déjà là». Sans nouvelles, nous vous appellerons.',
     b_liberata: 'sans nouvelles de votre part, nous avons libéré la table. Si vous êtes déjà chez nous, ignorez ce message.', b_annullata: 'la réservation a été annulée :',
-    gest: 'Annuler la réservation', arr: 'Répondre : en route ou déjà là', cambia: 'Pour changer de jour ou d’heure, annulez et réservez à nouveau, ou appelez le {tel}.',
+    gest: 'Gérer la réservation', arr: 'Répondre : en route ou déjà là', cambia: 'Pour changer de jour ou d’heure, annulez et réservez à nouveau, ou appelez le {tel}.',
     priv: 'Nous utilisons ces données uniquement pour votre réservation (et, après votre visite, pour vous demander votre avis) et les supprimons la nuit suivante. Confidentialité :'}
 };
 const PR_GG = {it: ['domenica', 'lunedì', 'martedì', 'mercoledì', 'giovedì', 'venerdì', 'sabato'], en: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
@@ -1129,23 +1129,52 @@ const PR_MESI = {it: ['gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugn
   fr: ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre']};
 function dataPr_(g, lg) { lg = PR_GG[lg] ? lg : 'it'; const d = new Date(g * 864e5), w = PR_GG[lg][d.getUTCDay()], n = d.getUTCDate(), mo = PR_MESI[lg][d.getUTCMonth()];
   return lg === 'de' ? w + ', ' + n + '. ' + mo : lg === 'en' ? w + ' ' + n + ' ' + mo : w + ' ' + n + ' ' + mo; }
+// impaginazione delle email ai clienti: tabelle e stili in linea (funziona in Gmail, Outlook, Apple Mail, anche con le immagini bloccate)
+function mailLayout_(cfg, o) {
+  const sito = sito_(), dom = sito.replace(/^https?:\/\//, '').replace(/\/$/, ''), F = 'Helvetica,Arial,sans-serif', S = "Georgia,'Times New Roman',serif";
+  const tel = String(cfg.telLoc || ''), telH = tel.replace(/[^\d+]/g, '');
+  const btn = (u, t) => '<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:26px auto 8px"><tr><td bgcolor="#c9ae7c" style="border-radius:3px">' +
+    '<a href="' + esc(u) + '" target="_blank" style="display:inline-block;padding:15px 30px;font:600 15px/1.45 ' + F + ';letter-spacing:.06em;color:#0b121c;text-decoration:none;text-align:center;border-radius:3px">' + esc(t) + '</a></td></tr></table>';
+  return '<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>' + esc(o.titolo) + '</title></head>' +
+    '<body style="margin:0;padding:0;background:#f4efe6">' +
+    '<div style="display:none;max-height:0;overflow:hidden;opacity:0">' + esc(o.anteprima || '') + '</div>' +
+    '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#f4efe6"><tr><td align="center" style="padding:24px 12px">' +
+    '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;background:#ffffff;border:1px solid #e4dccb">' +
+    // testata blu notte con il logo
+    '<tr><td align="center" bgcolor="#0b121c" style="padding:30px 24px 24px">' +
+      '<img src="' + sito + 'media/logo-hero.png" width="210" alt="Oltreconfini · Ristorante Pizzeria" style="display:block;width:210px;max-width:70%;height:auto;border:0;color:#efe6d2;font:italic 26px ' + S + '">' +
+    '</td></tr><tr><td height="3" bgcolor="#c9ae7c" style="font-size:0;line-height:0">&nbsp;</td></tr>' +
+    // contenuto
+    '<tr><td style="padding:34px 34px 10px;font:16px/1.6 ' + F + ';color:#2a3442">' +
+      '<p style="margin:0 0 6px;font:600 11px ' + F + ';letter-spacing:.28em;text-transform:uppercase;color:#9a7b45">' + esc(cfg.nomeLoc) + '</p>' +
+      '<h1 style="margin:0 0 18px;font:italic 400 30px/1.2 ' + S + ';color:#0b121c">' + esc(o.titolo) + '</h1>' +
+      '<p style="margin:0 0 6px">' + o.testo + '</p>' +
+      (o.box ? '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:22px 0 6px"><tr><td bgcolor="#f7f2e8" style="border-left:3px solid #c9ae7c;padding:18px 20px">' +
+        '<p style="margin:0;font:400 22px/1.3 ' + S + ';color:#0b121c">' + esc(o.box[0]) + '</p>' +
+        '<p style="margin:6px 0 0;font:15px ' + F + ';color:#55606e;letter-spacing:.02em">' + esc(o.box[1]) + '</p></td></tr></table>' : '') +
+      (o.bottone ? btn(o.bottone[0], o.bottone[1]) : '') +
+      (o.dopo ? '<p style="margin:18px 0 0;font:14px/1.6 ' + F + ';color:#6b7280;text-align:' + (o.bottone ? 'center' : 'left') + '">' + esc(o.dopo) + '</p>' : '') +
+      (cfg.notaMail ? '<p style="margin:18px 0 0">' + esc(cfg.notaMail) + '</p>' : '') +
+    '</td></tr>' +
+    // piè di pagina: indirizzo, telefono, sito
+    '<tr><td style="padding:26px 34px 30px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="border-top:1px solid #e4dccb;padding-top:20px;font:13px/1.7 ' + F + ';color:#6b7280;text-align:center">' +
+      '<span style="font:italic 17px ' + S + ';color:#0b121c">' + esc(cfg.nomeLoc) + '</span><br>' + esc(cfg.indLoc) + '<br>' +
+      '<a href="tel:' + esc(telH) + '" style="color:#9a7b45;text-decoration:none">' + esc(tel) + '</a> · <a href="' + sito + '" style="color:#9a7b45;text-decoration:none">' + esc(dom) + '</a>' +
+    '</td></tr></table></td></tr></table>' +
+    '<p style="max-width:520px;margin:16px auto 0;font:11px/1.6 ' + F + ';color:#9aa1ab;text-align:center">' + esc(o.priv) + ' <a href="' + sito + '#privacy" style="color:#9aa1ab">' + esc(dom) + '</a><br>' + PR_MARCA + '</p>' +
+    '</td></tr></table></body></html>';
+}
 function prMail_(b, iso, tipo, cfg) {
   if (!b.em) return true;
   cfg = cfg || prCfg_();
   try { if (MailApp.getRemainingDailyQuota && MailApp.getRemainingDailyQuota() < 1) return false; } catch (e) {}
   const L = PR_TXT[b.lg] || PR_TXT.it, sito = sito_(), link = sito + 'prenotazione/?t=' + prToken_(iso, b.id);
-  const data = dataPr_(giornoPr_(iso), b.lg);
-  const riga = '<p style="font:600 18px Georgia,serif;margin:14px 0">' + esc(data) + ' ' + L.alle + ' ' + labPr_(b.m) + ' · ' + b.n + ' ' + (b.n === 1 ? L.persona : L.persone) + '</p>';
+  const data = dataPr_(giornoPr_(iso), b.lg), nome = String(b.nm || '').split(/\s+/)[0];
   const corpo = tipo === 'ritardo' ? (cfg.libAuto ? L.b_ritardo.replace('{m}', cfg.lib) : L.b_ritardo_m) : L['b_' + tipo];
-  const nome = String(b.nm || '').split(/\s+/)[0];
-  const html = '<div style="font:16px/1.5 Arial,sans-serif;color:#1b2430;max-width:520px">' +
-    '<p style="font:italic 26px Georgia,serif;color:#0b121c;margin:0 0 12px">' + esc(cfg.nomeLoc) + '</p>' +
-    '<p>' + L.ciao + ' ' + esc(nome) + ', ' + esc(corpo) + '</p>' + (tipo === 'liberata' || tipo === 'recensione' ? '' : riga) +
-    (tipo === 'annullata' || tipo === 'liberata' ? '' : tipo === 'recensione' ? '<p>' + bottone(impostazione_('Link recensioni Google'), '★★★★★ ' + L.rev) + '</p>' : '<p>' + bottone(link, tipo === 'ritardo' ? L.arr : L.gest) + '</p>') +
-    (tipo === 'conferma' || tipo === 'modifica' ? '<p style="color:#555">' + esc(L.cambia.replace('{tel}', cfg.telLoc)) + '</p>' : '') +
-    (cfg.notaMail ? '<p>' + esc(cfg.notaMail) + '</p>' : '') +
-    '<p style="color:#555">' + esc(cfg.nomeLoc) + ' · ' + esc(cfg.indLoc) + ' · ' + esc(cfg.telLoc) + '</p>' +
-    '<p style="color:#888;font-size:12px">' + esc(L.priv) + ' <a href="' + sito + '#privacy">' + sito.replace(/^https?:\/\//, '').replace(/\/$/, '') + '</a><br>' + PR_MARCA + '</p></div>';
+  const box = tipo === 'liberata' || tipo === 'recensione' ? null : [data.charAt(0).toUpperCase() + data.slice(1), L.alle + ' ' + labPr_(b.m) + ' · ' + b.n + ' ' + (b.n === 1 ? L.persona : L.persone)];
+  const bottone = tipo === 'annullata' || tipo === 'liberata' ? null : tipo === 'recensione' ? [impostazione_('Link recensioni Google') || sito, '★★★★★  ' + L.rev] : [link, tipo === 'ritardo' ? L.arr : L.gest];
+  const html = mailLayout_(cfg, {titolo: L[tipo], anteprima: (box ? box.join(' · ') + ' — ' : '') + cfg.nomeLoc, testo: esc(L.ciao + ' ' + nome + ', ' + corpo), box, bottone,
+    dopo: tipo === 'conferma' || tipo === 'modifica' ? L.cambia.replace('{tel}', cfg.telLoc) : '', priv: L.priv});
   const o = {to: b.em, subject: cfg.nomeLoc + ' · ' + L[tipo], htmlBody: html, name: cfg.nomeLoc}; if (cfg.mailLoc) o.replyTo = cfg.mailLoc;
   try { MailApp.sendEmail(o); return true; } catch (e) { return false; }
 }
