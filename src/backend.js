@@ -1796,11 +1796,33 @@ function registra_(azione, sezione, dettaglio, chi) {
   } catch (e) {}
 }
 // scrive nel foglio del registro le righe in coda (ogni minuto, e prima di mostrarlo)
+// registro in una tabella dedicata (una riga per azione, nessun limite di dimensione)
+function registroTab_() {
+  AMB.sql.exec('CREATE TABLE IF NOT EXISTS registro (id INTEGER PRIMARY KEY AUTOINCREMENT, ts INTEGER NOT NULL, data TEXT, ora TEXT, persona TEXT, ruolo TEXT, sezione TEXT, azione TEXT, dettaglio TEXT)');
+  const vecchio = PROP.getProperty('REGISTRO');
+  if (vecchio) {                                   // una volta sola: le righe del vecchio foglio passano nella tabella
+    try { const sh = SpreadsheetApp.openById(vecchio).getSheets()[0], n = sh.getLastRow();
+      if (n > 1) sh.getRange(2, 1, n - 1, 7).getDisplayValues().forEach(r => registroIns_(r)); } catch (e) {}
+    try { AMB.sql.exec('DELETE FROM fogli WHERE ss=?', vecchio); } catch (e) {}
+    PROP.deleteProperty('REGISTRO');
+  }
+}
+function registroIns_(r) {
+  const m = String(r[0]).match(/(\d{2})\/(\d{2})\/(\d{4})/), h = String(r[1]).match(/(\d{2}):(\d{2})(?::(\d{2}))?/);
+  const ts = m ? Date.UTC(+m[3], +m[2] - 1, +m[1], h ? +h[1] : 0, h ? +h[2] : 0, h && h[3] ? +h[3] : 0) : Date.now();
+  AMB.sql.exec('INSERT INTO registro (ts, data, ora, persona, ruolo, sezione, azione, dettaglio) VALUES (?,?,?,?,?,?,?,?)', ts, ...[0, 1, 2, 3, 4, 5, 6].map(i => String(r[i] == null ? '' : r[i]).slice(0, 500)));
+}
+// le ultime righe, dalla più vecchia alla più recente: [data, ora, persona, ruolo, sezione, azione, dettaglio]
+function registroUltime_(n, cod) {
+  registroTab_();
+  const rows = cod ? AMB.sql.exec('SELECT * FROM registro WHERE dettaglio LIKE ? ORDER BY id DESC LIMIT ?', cod + '%', n).toArray() : AMB.sql.exec('SELECT * FROM registro ORDER BY id DESC LIMIT ?', n).toArray();
+  return rows.reverse().map(x => [x.data, x.ora, x.persona, x.ruolo, x.sezione, x.azione, x.dettaglio]);
+}
 function registroScarica_() {
   let q = [];
   try { conLock_(() => { try { q = JSON.parse(PROP.getProperty('REG-CODA') || '[]'); } catch (e) {} if (q.length) PROP.deleteProperty('REG-CODA'); }); } catch (e) { return; }
   if (!q.length) return;
-  try { const sh = registroSh_(); sh.getRange(sh.getLastRow() + 1, 1, q.length, 7).setNumberFormat('@').setValues(q); }
+  try { registroTab_(); q.forEach(r => registroIns_(r)); }
   catch (e) { try { conLock_(() => { let r = []; try { r = JSON.parse(PROP.getProperty('REG-CODA') || '[]'); } catch (x) {} PROP.setProperty('REG-CODA', JSON.stringify(q.concat(r).slice(-200))); }); } catch (x) {} }
 }
 const titoloVoce_ = o => { o = o || {}; const k = Object.keys(o).find(x => /^(piatto|vino|bevanda|evento|domanda|testo|formula|giorno|categoria)/i.test(x) && String(o[x]).trim()); return k ? String(o[k]).trim() : String(Object.keys(o).map(x => o[x]).find(v => String(v).trim()) || '').slice(0, 60); };
@@ -1812,7 +1834,7 @@ function apiPrenStoria_(id) {
   soloGestore_();
   const cod = codPr_(id), out = [];
   const usa = r => { if (String(r[6] || '').indexOf(cod) === 0) out.push({d: String(r[0]).slice(0, 5), h: String(r[1]).slice(0, 5), chi: String(r[2] || ''), ruolo: String(r[3] || ''), az: String(r[5] || ''), det: String(r[6] || '').slice(cod.length + 3)}); };
-  try { const sh = registroSh_(), n = sh.getLastRow(); if (n > 1) { const da = Math.max(2, n - 3000); sh.getRange(da, 1, n - da + 1, 7).getDisplayValues().forEach(usa); } } catch (e) {}
+  try { registroUltime_(200, cod).forEach(usa); } catch (e) {}
   try { JSON.parse(PROP.getProperty('REG-CODA') || '[]').forEach(usa); } catch (e) {}       // le righe appena fatte, non ancora nel foglio
   return out.slice(-40);
 }
@@ -1839,22 +1861,18 @@ const REG_DOPO = {
 };
 function apiRegistro_(f) {
   soloGestore_(); f = f || {}; registroScarica_();
-  const sh = registroSh_(), n = sh.getLastRow(); if (n < 2) return {righe: [], giorni: +(PROP.getProperty('REG-GIORNI') || 365), url: registroUrl_()};
-  const da = Math.max(2, n - 1999), v = sh.getRange(da, 1, n - da + 1, 7).getDisplayValues().reverse();
+  const v = registroUltime_(2000).reverse(); if (!v.length) return {righe: [], giorni: +(PROP.getProperty('REG-GIORNI') || 365), url: ''};
   const q = String(f.testo || '').toLowerCase();
   const righe = v.filter(r => (!f.persona || r[2].toLowerCase().indexOf(String(f.persona).toLowerCase()) >= 0) && (!f.sezione || r[4] === f.sezione) && (!q || r.join(' ').toLowerCase().indexOf(q) >= 0)).slice(0, 300);
   return {righe, persone: Array.from(new Set(v.map(r => r[2]))).sort(), sezioni: Array.from(new Set(v.map(r => r[4]))).sort(), giorni: +(PROP.getProperty('REG-GIORNI') || 365), url: registroUrl_()};
 }
-function registroUrl_() { try { return CHI && CHI.ruolo === 'admin' ? SpreadsheetApp.openById(PROP.getProperty('REGISTRO')).getUrl() : ''; } catch (e) { return ''; } }
+function registroUrl_() { return ''; }
 function apiRegistroGiorni_(g) { soloGestore_(); g = Math.round(+g); if (!(g >= 30 && g <= 730)) throw new Error('Scegli tra 30 e 730 giorni.'); PROP.setProperty('REG-GIORNI', String(g)); return apiRegistro_({}); }
 // ogni notte: si tolgono le righe più vecchie della conservazione scelta
 function registroPulisci_() {
   try {
-    const sh = registroSh_(), n = sh.getLastRow(); if (n < 3) return;
-    const g = +(PROP.getProperty('REG-GIORNI') || 365), lim = new Date(Date.now() - g * 864e5);
-    const date = sh.getRange(2, 1, n - 1, 1).getDisplayValues().map(r => { const m = String(r[0]).match(/(\d{2})\/(\d{2})\/(\d{4})/); return m ? new Date(+m[3], +m[2] - 1, +m[1]) : new Date(); });
-    let k = 0; while (k < date.length && date[k] < lim) k++;
-    if (k > 0) sh.deleteRows(2, k);
+    registroTab_(); const g = +(PROP.getProperty('REG-GIORNI') || 365);
+    AMB.sql.exec('DELETE FROM registro WHERE ts < ?', Date.now() - g * 864e5);
   } catch (e) {}
 }
 
