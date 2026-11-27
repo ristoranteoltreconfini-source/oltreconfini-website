@@ -1029,6 +1029,8 @@ function scheda(i,pre,dopoCopia,forza){var iaFatto=false,iaRis=null,iaTok=0,dupO
       d.rows.forEach(function(x,n){if(n!==i&&j<0&&sig(x)===me)j=n});
       if(j>=0&&!forza&&!dupOk){chiedi({t:'«'+(o[kT]||'')+'» esiste già'+(s.gruppo&&d.rows[j][key(H,s.gruppo)]?' in '+d.rows[j][key(H,s.gruppo)]:''),d:'Vuoi aprire quella che c’è già, oppure salvarla lo stesso come voce nuova?',ok:'Apri quella che c’è',alt:'Salva come nuova'},function(v){if(v==='ok')scheda(j);else if(v==='alt'){dupOk=true;$('#ok').click()}});return}}
     if(cur==='avvisi'){var kd=key(H,'dal'),kp=key(H,'pizza'),kty=key(H,'tipo');if(!o[kd]){toast('Manca la data');return}if(o[kty]==='Pizza della settimana'&&!o[kp]){toast('Scegli la pizza');return}if(o[kty]==='Promozione'&&!o[key(H,'testo')]){toast('Manca il titolo');return}if(o[kty]==='Tema del sito'&&!o[key(H,'al')]){toast('Scegli anche fino a quando');return}}
+    // è cambiata solo la foto: niente controlli né avvisi, si salva subito
+    if(i!==null&&i!==undefined&&!forza){var kF=key(H,'foto'),old=d.rows[i]||{};if(kF&&String(o[kF]||'')!==String(old[kF]||'')&&Object.keys(o).every(function(k){return k===kF||String(o[k]==null?'':o[k]).trim()===String(old[k]==null?'':old[k]).trim()}))forza=true}
     // un errore nei controlli non deve mai impedire di salvare
     DUBBIE=[];var ck;try{ck=controlla(cur,o,H,i)}catch(err){ck={err:[],warn:[]}}var dubbie=DUBBIE.slice();var box=$('#ck');if(box)box.remove();
     // seconda opinione dell'IA (se attiva): prima dei controlli locali, una volta per ogni versione della scheda
