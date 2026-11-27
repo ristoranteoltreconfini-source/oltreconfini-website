@@ -1,7 +1,7 @@
 # oltreconfini
 Sito del Ristorante Pizzeria Oltreconfini — https://oltreconfini.it
 
-Versione di prova (nuovo sistema): https://oltreconfini-website.ristorante-oltreconfini.workers.dev
+Sito: https://oltreconfini.it · versione di prova: https://oltreconfini-website.ristorante-oltreconfini.workers.dev
 
 Tutto gira su Cloudflare, senza fogli Google né Apps Script: sito, dati del menù, pannello, prenotazioni, opinioni, email.
 I dati stanno in un Durable Object con database SQLite, creato nella giurisdizione UE.

@@ -161,6 +161,7 @@ const ammin = (req, env) => env.ADMIN_TOKEN && req.headers.get('authorization') 
 export default {
   async fetch(req, env) {
     const url = new URL(req.url), p = url.pathname;
+    if (url.hostname === 'www.oltreconfini.it') { url.hostname = 'oltreconfini.it'; return Response.redirect(url.toString(), 301); }   // un solo indirizzo per Google
     if (/^\/(dati\/d\/|foto\/|api$|pannello(\/[a-z]+)?$)/.test(p)) return stub(env).fetch(req);
     if (p === '/_importa' && req.method === 'POST') { if (!ammin(req, env)) return new Response('No', { status: 403 }); return json(await stub(env).importa(await req.json())); }
     if (p === '/_stato') { if (!ammin(req, env)) return new Response('No', { status: 403 }); const s = k => !!(env[k] && String(env[k]).trim()); return json({ worker: { google: s('GOOGLE_CLIENT_ID') && s('GOOGLE_CLIENT_SECRET'), gemini: s('GEMINI_API_KEY') }, sistema: await stub(env).stato() }); }

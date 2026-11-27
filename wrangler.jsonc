@@ -19,15 +19,16 @@
   // ogni minuto: email in coda, ritardi delle prenotazioni, promemoria, pulizia notturna, copie di riserva
   "triggers": { "crons": ["* * * * *"] },
   "vars": {
-    "SITO": "https://oltreconfini-website.ristorante-oltreconfini.workers.dev/",
+    "SITO": "https://oltreconfini.it/",
     "EMAIL_MITTENTE": "Oltreconfini <prenotazioni@oltreconfini.it>"
   },
-  "observability": { "enabled": true }
+  "observability": { "enabled": true },
+  // il sito risponde su oltreconfini.it (www rimanda lì)
+  "routes": [{ "pattern": "oltreconfini.it", "custom_domain": true }, { "pattern": "www.oltreconfini.it", "custom_domain": true }]
   // Segreti (wrangler secret put …, mai nel repository):
   //   OWNER_EMAIL     email del titolare (accesso completo al pannello)
   //   ADMIN_TOKEN     chiave per l'importazione iniziale e per ottenere il link del titolare
   //   GEMINI_API_KEY  IA del pannello (controlli e traduzioni)
   //   RESEND_API_KEY  invio delle email
-  // Quando il dominio oltreconfini.it sarà su Cloudflare:
-  // "routes": [{ "pattern": "oltreconfini.it", "custom_domain": true }, { "pattern": "www.oltreconfini.it", "custom_domain": true }]
+
 }
