@@ -5,6 +5,7 @@ import { AMB, preparaDb, CAMBIATI, DA_TRADURRE, importaFoglio, leggiFoglio, legg
 import * as B from './backend.js';
 import { ricalcolaAuto, traduciInCoda } from './auto.js';
 import { inviaPosta } from './posta.js';
+import { googleAttivo, vaiAGoogle, daGoogle, esci, utente, pagina } from './google.js';
 
 const SHIM = `<script>var google={script:{run:(function(){function R(ok,ko){this._ok=ok;this._ko=ko}
 R.prototype.withSuccessHandler=function(f){return new R(f,this._ko)};R.prototype.withFailureHandler=function(f){return new R(this._ok,f)};
@@ -55,9 +56,16 @@ export class Oltreconfini extends DurableObject {
         this._dopo();
         return risposta(out, { 'access-control-allow-origin': '*' });
       }
+      // accesso con Google
+      const ammesso = e => B.persone_().some(x => x.email === e);
+      if (p === '/pannello/accedi') return googleAttivo(this.env) ? vaiAGoogle(req, this.env) : pagina('Accesso con Google non ancora configurato: usa il link personale ricevuto per email.', true);
+      if (p === '/pannello/google') return await daGoogle(req, this.env, ammesso);
+      if (p === '/pannello/esci') return esci(req);
       if (p === '/pannello') {
-        const k = url.searchParams.get('k') || '';
-        const out = B.doGet({ parameter: Object.fromEntries(url.searchParams) });
+        let k = url.searchParams.get('k') || '';
+        if (!k) { const e = utente(req); if (e && ammesso(e)) k = this.chiaveDi(e); }
+        if (!k) return pagina(googleAttivo(this.env) ? '' : 'Usa il link personale ricevuto per email.', !googleAttivo(this.env));
+        const out = B.doGet({ parameter: Object.assign(Object.fromEntries(url.searchParams), { k }) });
         this._dopo();
         if (/html/.test(out.tipo)) out.testo = out.testo.replace('<head>', '<head><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="referrer" content="no-referrer"><title>Oltreconfini · Pannello</title>' + SHIM);
         return risposta(out, { 'cache-control': 'no-store', 'x-robots-tag': 'noindex', 'referrer-policy': 'no-referrer' }, k ? 200 : 403);
@@ -116,6 +124,12 @@ export class Oltreconfini extends DurableObject {
     this._dopo();
     return { ok: true, fogli: (dati.fogli || []).length, daTradurre: DA_TRADURRE.size };
   }
+  // la chiave del pannello di una persona (creata se manca): con l'accesso Google la pagina la usa senza mostrarla
+  chiaveDi(email) {
+    const ch = B.chiavi_();
+    if (!ch[email]) { ch[email] = (crypto.randomUUID() + crypto.randomUUID()).replace(/-/g, ''); PropertiesService.getScriptProperties().setProperty('CHIAVI', JSON.stringify(ch)); }
+    return ch[email];
+  }
   linkDi(email) {
     this._pronto();
     email = String(email || this.env.OWNER_EMAIL || '').toLowerCase();
@@ -145,7 +159,7 @@ const ammin = (req, env) => env.ADMIN_TOKEN && req.headers.get('authorization') 
 export default {
   async fetch(req, env) {
     const url = new URL(req.url), p = url.pathname;
-    if (/^\/(dati\/d\/|foto\/|api$|pannello(\/api)?$)/.test(p)) return stub(env).fetch(req);
+    if (/^\/(dati\/d\/|foto\/|api$|pannello(\/[a-z]+)?$)/.test(p)) return stub(env).fetch(req);
     if (p === '/_importa' && req.method === 'POST') { if (!ammin(req, env)) return new Response('No', { status: 403 }); return json(await stub(env).importa(await req.json())); }
     if (p === '/_link') { if (!ammin(req, env)) return new Response('No', { status: 403 }); return json({ link: await stub(env).linkDi(url.searchParams.get('email')) }); }
     return env.ASSETS.fetch(req);
