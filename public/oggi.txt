@@ -1,0 +1,9 @@
+# OGGI IN CUCINA - Oltreconfini
+# Come si usa: la prima riga (senza #) e' la data di oggi nel formato gg/mm/aaaa,
+# poi un piatto per riga (massimo 12). Il riquadro compare sul sito solo nel giorno indicato,
+# quindi il giorno dopo sparisce da solo. Le righe che iniziano con # non vengono mostrate.
+#
+# Esempio:
+# 05/11/2026
+# Risotto alla zucca
+# Branzino al forno con patate

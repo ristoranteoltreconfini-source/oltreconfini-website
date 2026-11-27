@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // Sito statico servito da Cloudflare Workers (static assets).
+  "name": "oltreconfini",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./public",
+    "not_found_handling": "404-page"
+  }
+  // Quando il dominio oltreconfini.it sarà su Cloudflare, aggiungere:
+  // "routes": [
+  //   { "pattern": "oltreconfini.it", "custom_domain": true },
+  //   { "pattern": "www.oltreconfini.it", "custom_domain": true }
+  // ]
+}

@@ -1,0 +1,15 @@
+/*
+  Strict-Transport-Security: max-age=31536000
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(self), payment=(), usb=()
+  Cross-Origin-Opener-Policy: same-origin
+/oggi.txt
+  Cache-Control: no-store
+/media/*
+  Cache-Control: public, max-age=604800
+/media/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+/media/js/*
+  Cache-Control: public, max-age=2592000

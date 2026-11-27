@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://oltreconfini.it/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://oltreconfini.it/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oltreconfini.it/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://oltreconfini.it/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://oltreconfini.it/fr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://oltreconfini.it/"/>
+    <image:image><image:loc>https://oltreconfini.it/media/foto/sala-archi.jpg</image:loc></image:image>
+    <image:image><image:loc>https://oltreconfini.it/media/foto/pizze-forno.jpg</image:loc></image:image>
+    <image:image><image:loc>https://oltreconfini.it/media/foto/fritto-misto.jpg</image:loc></image:image>
+    <image:image><image:loc>https://oltreconfini.it/media/foto/forno.jpg</image:loc></image:image>
+    <image:image><image:loc>https://oltreconfini.it/media/foto/gnocchi-zucca.jpg</image:loc></image:image>
+    <image:image><image:loc>https://oltreconfini.it/media/foto/pappardelle.jpg</image:loc></image:image>
+    <image:image><image:loc>https://oltreconfini.it/media/foto/dolce.jpg</image:loc></image:image>
+    <image:image><image:loc>https://oltreconfini.it/media/foto/salumi-formaggi.jpg</image:loc></image:image>
+    <image:image><image:loc>https://oltreconfini.it/media/foto/parete-vini.jpg</image:loc></image:image>
+    <image:image><image:loc>https://oltreconfini.it/media/foto/ingresso.jpg</image:loc></image:image>
+    <image:image><image:loc>https://oltreconfini.it/media/foto/sala-tavoli.jpg</image:loc></image:image>
+    <image:image><image:loc>https://oltreconfini.it/media/foto/pizze-cottura.jpg</image:loc></image:image>
+    <image:image><image:loc>https://oltreconfini.it/media/foto/seconda-sala.jpg</image:loc></image:image>
+    <image:image><image:loc>https://oltreconfini.it/media/foto/calici.jpg</image:loc></image:image>
+    <image:image><image:loc>https://oltreconfini.it/media/foto/bar-amari.jpg</image:loc></image:image>
+    <image:image><image:loc>https://oltreconfini.it/media/foto/bar-aperitivo.jpg</image:loc></image:image>
+    <image:image><image:loc>https://oltreconfini.it/media/foto/sala-verde.jpg</image:loc></image:image>
+    <image:image><image:loc>https://oltreconfini.it/media/foto/piante.jpg</image:loc></image:image>
+    <image:image><image:loc>https://oltreconfini.it/media/foto/dettaglio-verde.jpg</image:loc></image:image>
+    <image:image><image:loc>https://oltreconfini.it/media/foto/benvenuto.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://oltreconfini.it/en/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://oltreconfini.it/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oltreconfini.it/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://oltreconfini.it/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://oltreconfini.it/fr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://oltreconfini.it/"/>
+  </url>
+  <url>
+    <loc>https://oltreconfini.it/de/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://oltreconfini.it/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oltreconfini.it/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://oltreconfini.it/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://oltreconfini.it/fr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://oltreconfini.it/"/>
+  </url>
+  <url>
+    <loc>https://oltreconfini.it/fr/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://oltreconfini.it/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oltreconfini.it/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://oltreconfini.it/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://oltreconfini.it/fr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://oltreconfini.it/"/>
+  </url>
+</urlset>
