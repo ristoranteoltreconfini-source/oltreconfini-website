@@ -102,6 +102,7 @@ export class Oltreconfini extends DurableObject {
     this._pronto();
     const d = new Date(quando), min = d.getUTCMinutes(), ora = B.oraRoma(d);
     const fai = (n, f) => { try { f(); } catch (e) { console.log(n, e.message); } };
+    PropertiesService.getScriptProperties().setProperty('ULTIMO-CONTROLLO', String(Date.now()));   // per «Controllo del sistema»
     fai('prInvia', () => B.prInvia());
     if (min % 5 === 0) fai('prControlla', () => B.prControlla());
     if (min % 30 === 0) fai('promemoria', () => B.promemoria());

@@ -1503,7 +1503,7 @@ const URL_PERCHE = {
   vecchio: 'Risponde, ma con il codice vecchio: Gestisci deployment → matita → Versione «Nuova versione» → Esegui il deployment.',
   rete: 'Google non ha risposto alla prova: riprova tra un minuto.'};
 // Configurazione → Controllo del sistema: incolla l'URL dell'App web, si prova e si salva solo se funziona
-function apiImpostaUrl_(u) {
+function apiImpostaUrl_(u) { throw new Error('Non serve più: il sistema gira su Cloudflare.');
   soloGestore_();
   u = String(u || '').trim().replace(/\?.*$/, '');
   const r = provaUrl_(u); if (!r.ok) return {ok: false, msg: URL_PERCHE[r.perche] || 'Non risponde.'};
@@ -1692,22 +1692,19 @@ function festivita_() {
 // controllo del sistema (Configurazione): cosa funziona e cosa no, in parole semplici
 function apiStato_() {
   soloGestore_();
-  const out = [], url = ScriptApp.getService().getUrl(), ok = (b, t, aiuto) => out.push({ok: !!b, t, aiuto: b ? '' : aiuto || ''});
-  let riga = urlSito_(), pr = riga ? provaUrl_(riga) : {ok: false, perche: 'formato'}, sistemato = false;
-  if (!pr.ok && url && url !== riga && provaUrl_(url).ok) { scriviUrl_(url); riga = url; pr = {ok: true}; sistemato = true; cache_().remove('url-ok'); }
-  let prova = null;
-  if (pr.ok) try { prova = prDisp_(isoPr_(adessoPr_().g), 2); } catch (e) {}
-  ok(pr.ok && prova && prova.ok, (sistemato ? 'Sistemato adesso: ' : '') + 'Il sito raggiunge il sistema delle prenotazioni', riga ? URL_PERCHE[pr.perche] || 'Il sistema risponde, ma non alle prenotazioni: riprova tra un minuto.' : 'Manca l’indirizzo del sistema: incollalo qui sotto.');
-  out.push({url: riga, ok: pr.ok, campo: true});
-  const tr = ScriptApp.getProjectTriggers().map(t => t.getHandlerFunction());
-  ok(['prControlla', 'prInvia', 'prNotte'].every(x => tr.indexOf(x) >= 0), 'Controlli automatici attivi (ritardi, invio email, pulizia notturna)', 'Apri la sezione Prenotazioni: si attivano da soli. Oppure esegui «installa».');
-  ok(tr.indexOf('promemoria') >= 0, 'Promemoria del menù della settimana attivo', 'Esegui «installa» dall’editor.');
-  let q = null; try { q = MailApp.getRemainingDailyQuota(); } catch (e) {}
-  ok(q === null || q > 20, 'Email disponibili oggi: ' + (q === null ? '?' : q), 'Il limite giornaliero di Google è quasi finito: le email ai clienti riprendono domani.');
-  let coda = []; try { coda = JSON.parse(PROP.getProperty('PR-CODA') || '[]'); } catch (e) {}
-  ok(coda.length < 20, 'Email in attesa di invio: ' + coda.length, 'Le email non stanno partendo: controlla i controlli automatici qui sopra.');
-  const sito = sito_(); let sitoOk = false; try { sitoOk = true; } catch (e) {}
-  ok(sitoOk, 'Indirizzo del sito raggiungibile: ' + sito, 'Correggi «Indirizzo del sito» qui in Configurazione: i link nelle email ai clienti portano lì.');
+  const out = [], ok = (b, t, aiuto) => out.push({ok: !!b, t, aiuto: b ? '' : aiuto || ''});
+  const env = AMB.env || {}, c = k => !!String(env[k] || '').trim();
+  let prova = null; try { prova = prDisp_(isoPr_(adessoPr_().g + 1), 2); } catch (e) {}
+  ok(prova && prova.ok, 'Il sito risponde e le prenotazioni online funzionano' + (prova && prova.on === false ? ' (prenotazioni online spente nelle impostazioni)' : ''), 'Il sistema delle prenotazioni non risponde: avvisa l’amministratore del sito.');
+  const u = +(PROP.getProperty('ULTIMO-CONTROLLO') || 0), min = u ? Math.round((Date.now() - u) / 60000) : null;
+  ok(u && Date.now() - u < 10 * 60000, 'Controlli automatici attivi (ritardi, promemoria, invio email, pulizia notturna)' + (min !== null ? ' · ultimo ' + (min < 1 ? 'meno di un minuto fa' : min + ' min fa') : ''), 'I controlli automatici non girano da più di 10 minuti: avvisa l’amministratore del sito.');
+  ok(c('RESEND_API_KEY'), 'Email ai clienti e al personale attive', 'Manca la chiave del servizio email: le conferme di prenotazione non partono.');
+  let coda = 0; try { coda = AMB.sql.exec('SELECT COUNT(*) n FROM posta').toArray()[0].n; } catch (e) {}
+  let pc = []; try { pc = JSON.parse(PROP.getProperty('PR-CODA') || '[]'); } catch (e) {}
+  ok(coda + pc.length < 20, 'Email in attesa di invio: ' + (coda + pc.length), 'Le email non stanno partendo: avvisa l’amministratore del sito.');
+  ok(c('GEMINI_API_KEY'), 'IA attiva: traduzioni in inglese, tedesco e francese e controllo dei testi', 'Manca la chiave dell’IA: i piatti nuovi non vengono tradotti.');
+  ok(c('GOOGLE_CLIENT_ID') && c('GOOGLE_CLIENT_SECRET'), 'Accesso al pannello con Google attivo', 'Accesso con Google non configurato: si entra solo con il link personale.');
+  ok(/^https:\/\//.test(sito_()), 'Indirizzo del sito: ' + sito_(), 'Correggi «Indirizzo del sito» qui sotto: i link nelle email ai clienti portano lì.');
   return out;
 }
 // prenotazioni di un periodo (vista settimana / mese): solo i totali per giorno

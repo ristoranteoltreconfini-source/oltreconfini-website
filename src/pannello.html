@@ -219,7 +219,7 @@ window.addEventListener('error',function(ev){erroreUI(ev.error||ev.message)});wi
 function key(headers,h){for(var i=0;i<headers.length;i++)if(headers[i].toLowerCase().indexOf(h)===0)return headers[i];return null}
 var SFONDI={'Calici':'calici','Sala':'sala-tavoli','Sala con archi':'sala-archi','Seconda sala':'seconda-sala','Pizze nel forno':'pizze-forno','Parete dei vini':'parete-vini','Bar':'bar-aperitivo','Ingresso':'ingresso'};
 function fotoUrl(v){return /^[a-z0-9-]+$/.test(v)&&v.length<40?SITO+'media/foto/'+v+'-480.webp':'https://lh3.googleusercontent.com/d/'+v+'=w400'}
-// rimpicciolisce la foto nel telefono (max 1400 px) e la manda a Drive
+// rimpicciolisce la foto nel telefono (max 1400 px) e la salva nel sistema
 function caricaFoto(inp){var box=inp.closest('.foto,.sf'),file=inp.files[0],url=URL.createObjectURL(file),im=new Image();
   im.onload=function(){var r=Math.min(1,1400/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*r);c.height=Math.round(im.height*r);
     c.getContext('2d').drawImage(im,0,0,c.width,c.height);URL.revokeObjectURL(url);var b64=c.toDataURL('image/jpeg',.85).split(',')[1];
@@ -241,7 +241,7 @@ var GIORNI=['Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato','Do
 function orari(){if(DATA.orari&&DATA.regole){mostraOrari(DATA.orari,DATA.regole);rinfresca('orari');rinfresca('regole');return}call('apiLeggi',['orari'],function(o){DATA.orari=o;memo('orari');call('apiLeggi',['regole'],function(rg){DATA.regole=rg;memo('regole');mostraOrari(o,rg)})})}
 function mostraOrari(o,rg){(function(){var H=o.headers,k=function(h){return key(H,h)};
   var h='<h2>Orari di apertura</h2><p class="hint">Lascia vuoto per «chiuso». Il sito mostra questi orari, il modulo di prenotazione e l’asporto propongono solo gli orari possibili. Per un giorno diverso dal solito (festività, eventi) usa «Eventi in arrivo e avvisi» → Chiusura o Orario speciale.</p><div class="card" id="orf">';
-  if(!o.rows.length||!k('pranzo dal')){h+='<p class="hint">La scheda «Orari» non c’è ancora: nello script esegui «installa».</p></div>';$('#main').innerHTML=h;return}
+  if(!o.rows.length||!k('pranzo dal')){h+='<p class="hint">La scheda «Orari» non c’è ancora: avvisa l’amministratore del sito.</p></div>';$('#main').innerHTML=h;return}
   o.rows.forEach(function(r,i){h+='<div class="orr" data-i="'+i+'"><b>'+e(r[k('giorno')])+'</b><div class="orc"><span>Pranzo</span><input type="time" step="900" data-k="'+e(k('pranzo dal'))+'" value="'+e(r[k('pranzo dal')])+'"><span>–</span><input type="time" step="900" data-k="'+e(k('pranzo al'))+'" value="'+e(r[k('pranzo al')])+'"><button class="btn light x" data-x="p">chiuso</button></div>'+
     '<div class="orc"><span>Cena</span><input type="time" step="900" data-k="'+e(k('cena dal'))+'" value="'+e(r[k('cena dal')])+'"><span>–</span><input type="time" step="900" data-k="'+e(k('cena al'))+'" value="'+e(r[k('cena al')])+'"><button class="btn light x" data-x="c">chiuso</button></div></div>'});
   h+='<div class="row"><button class="btn gold" id="orsave">Salva gli orari</button></div></div><p class="hint">Le regole (ultima prenotazione, preavviso, asporto) sono in Configurazione.</p>';$('#main').innerHTML=h;
@@ -309,9 +309,7 @@ function impost(){if(!DATA.regole){call('apiLeggi',['regole'],function(d){DATA.r
   var sez=function(id,titolo,corpo,aperto){return '<details class="cfg"'+(aperto?' open':'')+' id="'+id+'"><summary>'+titolo+'</summary><div class="card">'+corpo+'</div></details>'};
   var temiAuto=/^s/i.test(impVal('Temi automatici')||'no');
   var h='<h2>Configurazione</h2><p class="hint">Tutte le impostazioni del sito e del pannello. Tocca un titolo per aprirlo.</p>'+
-   sez('c-st','Controllo del sistema','<p class="hint">Versione del pannello: <b>13 novembre 2026 · 18</b>. Verifica che sito, prenotazioni ed email funzionino.</p>'+
-     '<div class="card" style="padding:14px;margin:0 0 14px"><b>Indirizzo del sistema (App web)</b><p class="hint" style="margin:6px 0 10px">È l’indirizzo a cui il sito manda prenotazioni e opinioni. In Apps Script: <b>Esegui il deployment → Gestisci deployment</b> → copia l’<b>URL</b> dell’App web (finisce con <b>/exec</b>) e incollalo qui. Si salva solo se la prova riesce.</p>'+
-     '<input type="url" id="st-url" placeholder="https://script.google.com/macros/s/…/exec" autocomplete="off" spellcheck="false"><div class="row"><button class="btn gold" id="st-url-ok">Prova e salva</button></div><p class="hint" id="st-url-m" style="margin-top:8px"></p></div>'+
+   sez('c-st','Controllo del sistema','<p class="hint">Verifica che sito, prenotazioni, email, IA e accesso con Google funzionino. Il sistema gira su Cloudflare: non c’è niente da configurare qui.</p>'+
      '<div id="st-box"></div><div class="row"><button class="btn gold" id="st-ok">Controlla ora</button></div>',true)+
    sez('c-sito','Sito','<label>Indirizzo del sito</label><input type="url" id="im-sito" placeholder="https://oltreconfini.it" value="'+e(impVal('Indirizzo del sito'))+'"><p class="hint">I link nelle email ai clienti («La tua prenotazione») portano qui. Quando il sito cambia indirizzo, scrivi quello nuovo.</p>'+
      '<label>Link per lasciare una recensione su Google</label><input type="url" id="im-rec" placeholder="https://g.page/r/…/review" value="'+e(impVal('Link recensioni Google'))+'"><p class="hint">Dalla scheda Google dell’attività: «Chiedi recensioni» → copia il link.</p>'+
@@ -330,14 +328,11 @@ function impost(){if(!DATA.regole){call('apiLeggi',['regole'],function(d){DATA.r
   $('#main').innerHTML=h;impPrenAttiva();
   var crg=$('#c-rg');if(crg)crg.addEventListener('toggle',function(){if(crg.open&&!crg.dataset.ok){crg.dataset.ok='1';mostraRegistro({})}});
   // il controllo completo dura qualche secondo: si rifà da solo al massimo ogni 10 minuti (o con «Controlla ora»)
-  var mostraSt=function(L){if(!$('#st-box'))return;var U=L.filter(function(x){return x.campo})[0]||{};if(U.url&&!$('#st-url').value)$('#st-url').value=U.url;
+  var mostraSt=function(L){if(!$('#st-box'))return;
       $('#st-box').innerHTML=L.filter(function(x){return !x.campo}).map(function(x){return '<div class="stx '+(x.ok?'ok':'no')+'"><b>'+(x.ok?'✓':'✕')+'</b> '+e(x.t)+(x.aiuto?'<small>'+e(x.aiuto)+'</small>':'')+'</div>'}).join('')};
   var stato=function(forza){if(!forza&&STC.L&&Date.now()-STC.t<600000)return mostraSt(STC.L);$('#st-box').innerHTML='<p class="hint">Controllo…</p>';
     callPiano('apiStato',[],function(L){STC={t:Date.now(),L:L};mostraSt(L)},
-      function(err){$('#st-box').innerHTML='<div class="stx no"><b>✕</b> Il controllo non è riuscito<small>'+e((err&&err.message)||'Errore sconosciuto')+' — esegui «installa» dall’editor e accetta tutti i permessi.</small></div>'})};
-  $('#st-url-ok').onclick=function(){var b=this,m=$('#st-url-m'),u=$('#st-url').value.trim();if(!u){m.textContent='Incolla prima l’indirizzo.';return}b.disabled=true;m.textContent='Provo l’indirizzo come lo usa il sito…';
-    callPiano('apiImpostaUrl',[u],function(r){b.disabled=false;if(r&&r.ok){m.textContent='✓ Salvato: il sito ora usa questo indirizzo.';toast('Indirizzo salvato');stato(true)}else m.textContent='✕ '+((r&&r.msg)||'Non risponde.')},
-      function(err){b.disabled=false;m.textContent='✕ '+((err&&err.message)||'Non riuscito')+' — esegui «installa» dall’editor e accetta tutti i permessi.'})};
+      function(err){$('#st-box').innerHTML='<div class="stx no"><b>✕</b> Il controllo non è riuscito<small>'+e((err&&err.message)||'Errore sconosciuto')+' — riprova tra un minuto.</small></div>'})};
   $('#st-ok').onclick=function(){stato(true)};stato();
   $('#im-temi').onclick=function(){var on=!this.classList.contains('on');this.classList.toggle('on',on);impSet('Temi automatici',on?'sì':'no');toast(on?'Temi automatici accesi':'Temi solo dal pannello')};
   $('#pr-ok').onclick=function(){var da=$('#pr-da').value,a=$('#pr-a').value,g=[].map.call(document.querySelectorAll('#pr-gg input:checked'),function(x){return x.value}).join(',');
@@ -1057,7 +1052,7 @@ function precarica(){google.script.run.withSuccessHandler(function(t){if(!t)retu
 var DEMO='';
 // striscia rossa in cima finché la demo è in corso: così non ci si dimentica di finirla
 function demoStriscia(){var b=$('#demo-x');if(!DEMO){if(b)b.remove();return}if(!b){b=document.createElement('div');b.id='demo-x';b.style.cssText='background:#b23a2e;color:#fff;padding:8px 14px;font:600 14px sans-serif;text-align:center;cursor:pointer';document.body.insertBefore(b,document.body.firstChild)}
-  b.textContent='DEMO DEL SITO IN CORSO dal '+DEMO+' · si finisce dall’editor con «fineDemoSito»';b.onclick=function(){toast('Apri Apps Script, scegli «fineDemoSito» in alto e premi Esegui')}}
+  b.textContent='DEMO DEL SITO IN CORSO dal '+DEMO+' · si finisce dall’editor con «fineDemoSito»';b.onclick=function(){toast('Per terminare la demo avvisa l’amministratore del sito')}}
 var OGGI=null;try{PIZZE=JSON.parse(localStorage.getItem('pn1-pizze')||'[]')}catch(e){}memoLeggi();
 (function(){var G=PERM.ruolo==='admin'||PERM.ruolo==='vice';
   if(!G){Object.keys(SEZ).forEach(function(k){var base=k==='categorie'?'piatti':k;if(k==='impost'||PERM.sezioni.indexOf(base)<0)delete SEZ[k]})}
