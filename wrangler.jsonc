@@ -9,7 +9,7 @@
     "directory": "./public",
     "binding": "ASSETS",
     "not_found_handling": "404-page",
-    "run_worker_first": ["/api", "/dati/*", "/foto/*", "/pannello", "/pannello/*", "/_importa", "/_link"]
+    "run_worker_first": ["/api", "/dati/*", "/foto/*", "/pannello", "/pannello/*", "/_importa", "/_link", "/_stato"]
   },
   // pagina del pannello importata come testo
   "rules": [{ "type": "Text", "globs": ["**/*.html"], "fallthrough": true }],

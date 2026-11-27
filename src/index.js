@@ -130,6 +130,8 @@ export class Oltreconfini extends DurableObject {
     if (!ch[email]) { ch[email] = (crypto.randomUUID() + crypto.randomUUID()).replace(/-/g, ''); PropertiesService.getScriptProperties().setProperty('CHIAVI', JSON.stringify(ch)); }
     return ch[email];
   }
+  // controllo per l'amministratore: quali configurazioni vede il sistema (solo sì/no, mai i valori)
+  stato() { const e = this.env, s = k => !!(e[k] && String(e[k]).trim()); return { google: s('GOOGLE_CLIENT_ID') && s('GOOGLE_CLIENT_SECRET'), gemini: s('GEMINI_API_KEY'), email: s('RESEND_API_KEY'), titolare: s('OWNER_EMAIL'), sito: e.SITO || '' }; }
   linkDi(email) {
     this._pronto();
     email = String(email || this.env.OWNER_EMAIL || '').toLowerCase();
@@ -161,6 +163,7 @@ export default {
     const url = new URL(req.url), p = url.pathname;
     if (/^\/(dati\/d\/|foto\/|api$|pannello(\/[a-z]+)?$)/.test(p)) return stub(env).fetch(req);
     if (p === '/_importa' && req.method === 'POST') { if (!ammin(req, env)) return new Response('No', { status: 403 }); return json(await stub(env).importa(await req.json())); }
+    if (p === '/_stato') { if (!ammin(req, env)) return new Response('No', { status: 403 }); const s = k => !!(env[k] && String(env[k]).trim()); return json({ worker: { google: s('GOOGLE_CLIENT_ID') && s('GOOGLE_CLIENT_SECRET'), gemini: s('GEMINI_API_KEY') }, sistema: await stub(env).stato() }); }
     if (p === '/_link') { if (!ammin(req, env)) return new Response('No', { status: 403 }); return json({ link: await stub(env).linkDi(url.searchParams.get('email')) }); }
     return env.ASSETS.fetch(req);
   },
