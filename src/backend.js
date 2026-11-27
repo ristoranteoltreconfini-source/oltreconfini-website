@@ -35,7 +35,7 @@ const PR_RIGHE = {
   etaMax: ['Ritardo massimo concesso al cliente', '60', [5, 180]], etaMarg: ['Ritardo, margine dopo l’orario confermato', '15', [0, 60]],
   emObbl: ['Email obbligatoria anche al telefono', 'no', 's'], doppia: ['Ore per riconoscere un doppione', '4', [0, 24]],
   oraMax: ['Prenotazioni online massime all’ora', '30', [1, 500]], conserva: ['Giorni di conservazione dei dati', '0', [0, 30]],
-  oraPul: ['Ora di cancellazione dei dati', '3', [0, 6]], avvisa: ['Avvisami delle prenotazioni per oggi', 'sì', 's'],
+  oraPul: ['Ora di cancellazione dei dati', '3', [0, 6]], copiaResp: ['Copia delle prenotazioni a titolare e vice', 'sì', 's'], avvisa: ['Avvisami delle prenotazioni per oggi', 'sì', 's'],
   nomeLoc: ['Nome del locale', 'Oltreconfini', 't'], indLoc: ['Indirizzo del locale', 'Via G. Mazzini 82, 21050 Bisuschio (VA)', 't'],
   telLoc: ['Telefono del locale', '+39 0332 475287', 't'], mailLoc: ['Email del locale', 'info@oltreconfini.it', 'e'], notaMail: ['Nota in fondo alle email', '', 't']
 };
@@ -1178,6 +1178,19 @@ function prMail_(b, iso, tipo, cfg) {
   const o = {to: b.em, subject: cfg.nomeLoc + ' · ' + L[tipo], htmlBody: html, name: cfg.nomeLoc}; if (cfg.mailLoc) o.replyTo = cfg.mailLoc;
   try { MailApp.sendEmail(o); return true; } catch (e) { return false; }
 }
+// copia di ogni nuova prenotazione dal sito a chi ha il ruolo Titolare o Vice (con i dati per poter richiamare il cliente)
+function prRespOra_(iso, b, cfg) {
+  try {
+    const a = persone_().filter(x => x.ruolo === 'admin' || x.ruolo === 'vice').map(x => x.email), o = proprietario_(); if (o && a.indexOf(o) < 0) a.push(o);
+    if (!a.length) return;
+    const data = dataPr_(giornoPr_(iso), 'it'), D = data.charAt(0).toUpperCase() + data.slice(1), ora = labPr_(b.m), pers = b.n + (b.n === 1 ? ' persona' : ' persone');
+    const righe = ['<b>' + esc(b.nm || '') + '</b>', b.tel ? '<a href="tel:' + esc(String(b.tel).replace(/[^\d+]/g, '')) + '" style="color:#9a7b45">' + esc(b.tel) + '</a>' : '', b.em ? esc(b.em) : '', b.no ? 'Note: ' + esc(b.no) : ''].filter(Boolean);
+    const html = mailLayout_(cfg, {titolo: 'Nuova prenotazione dal sito', anteprima: D + ' · ' + ora + ' · ' + pers + ' · ' + (b.nm || ''), testo: righe.join('<br>'),
+      box: [D, 'alle ' + ora + ' · ' + pers], bottone: [sito_() + 'pannello', 'Apri le prenotazioni'],
+      priv: 'Email interna per titolare e vice, con i dati del cliente: non inoltrarla. Si spegne dal pannello: Configurazione → Prenotazioni → Avvisi al locale.'});
+    MailApp.sendEmail({to: a.join(','), subject: 'Nuova prenotazione · ' + D + ' ' + ora + ' · ' + pers, htmlBody: html, name: cfg.nomeLoc});
+  } catch (e) {}
+}
 // avviso al locale (senza dati personali: solo giorno, ora e numero di persone)
 function prAvvisaLocale_(iso, b, cosa) { prCoda_({c: 'loc', iso, id: b.id, t: cosa}); }
 function prAvvisaLocaleOra_(iso, b, cosa) {
@@ -1230,6 +1243,7 @@ function prInvia() {
       if (v.c === 'cli') { if (!prMail_(b, v.iso, v.t, cfg) && !b.mf) prSegna_(v.iso, b.id, {mf: 1}); }
       else if (v.c === 'pers') prPersonaleOra_(v.iso, b, v.t);
       else if (v.c === 'loc') prAvvisaLocaleOra_(v.iso, b, v.t);
+      else if (v.c === 'resp') prRespOra_(v.iso, b, cfg);
     } catch (e) {}
   });
 }
@@ -1293,6 +1307,7 @@ async function prPrenota_(d) {
   try { cache_().put(ora, String(quante + 1), 3700); } catch (e) {}
   if (em) prAvvisa_(b, iso, 'conferma'); const inviata = em ? true : 'no';
   if (g === now.g && cfg.avvisa) prAvvisaLocale_(iso, b, 'Nuova prenotazione dal sito');
+  if (cfg.copiaResp) prCoda_({c: 'resp', iso, id: b.id, t: 'nuova'});              // copia a titolare e vice (si spegne dal pannello)
   prStatisticaInc_(iso, 'sito');
   registra_('Nuova prenotazione dal sito', 'Prenotazioni', codPr_(b.id) + ' · ' + iso.split('-').reverse().join('/') + ' ' + labPr_(b.m) + ' · ' + n + ' persone', ['Cliente (sito)', '']);
   return {ok: true, d: iso, h: labPr_(b.m), n, code: b.id.slice(0, 6).toUpperCase(), mail: inviata};
