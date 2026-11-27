@@ -124,12 +124,14 @@ export const GmailApp = { search: () => [], moveThreadsToTrash() {} };
 export const Utilities = {
   formatDate: (d, tz, p) => fmtData(d, p),
   getUuid: () => uuid(),
-  base64Encode: s => typeof s === 'string' ? btoa(unescape(encodeURIComponent(s))) : btoa(String.fromCharCode(...s)),
+  base64Encode: s => typeof s === 'string' ? btoa(unescape(encodeURIComponent(s))) : b64(s),
   base64Decode: s => { const b = atob(String(s).replace(/^data:[^,]*,/, '')), u = new Uint8Array(b.length); for (let i = 0; i < b.length; i++) u[i] = b.charCodeAt(i); return u; },
   computeDigest: (alg, s) => { let h = 2166136261; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return String(h >>> 0) + ':' + s.length; },
   DigestAlgorithm: { MD5: 'md5' },
-  newBlob: (dati, tipo, nome) => typeof dati === 'string' ? { testo: dati, tipo, nome } : { bytes: dati, tipo, nome, b64: Utilities.base64Encode(dati) }
+  newBlob: (dati, tipo, nome) => typeof dati === 'string' ? { testo: dati, tipo, nome } : { bytes: dati, tipo, nome, get b64() { return b64(dati); } }
 };
+// da byte a base64 a pezzi: con le foto grandi, convertire tutto in una volta supera i limiti di JavaScript
+function b64(u) { let s = ''; for (let i = 0; i < u.length; i += 8192) s += String.fromCharCode.apply(null, u.subarray(i, i + 8192)); return btoa(s); }
 export const DriveApp = {
   Access: {}, Permission: {},
   getFolderById: id => ({ createFile: b => fileNuovo(b), getId: () => id }),
