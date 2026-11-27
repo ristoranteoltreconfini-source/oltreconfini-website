@@ -5,6 +5,7 @@ import { AMB, preparaDb, CAMBIATI, DA_TRADURRE, importaFoglio, leggiFoglio, legg
 import * as B from './backend.js';
 import { ricalcolaAuto, traduciInCoda } from './auto.js';
 import { inviaPosta } from './posta.js';
+import { leggiRecensione } from './email-recensioni.js';
 import { googleAttivo, vaiAGoogle, vaiAGoogleRecensioni, daGoogle, esci, utente, pagina } from './google.js';
 
 const SHIM = `<script>var google={script:{run:(function(){function R(ok,ko){this._ok=ok;this._ko=ko}
@@ -139,6 +140,20 @@ export class Oltreconfini extends DurableObject {
     if (!ch[email]) { ch[email] = (crypto.randomUUID() + crypto.randomUUID()).replace(/-/g, ''); PropertiesService.getScriptProperties().setProperty('CHIAVI', JSON.stringify(ch)); }
     return ch[email];
   }
+  // email arrivata a recensioni@: se è una notifica di Google «nuova recensione», va nella dashboard Opinioni
+  emailRecensione(raw, oggetto, da) {
+    this._pronto();
+    this.sql.exec('CREATE TABLE IF NOT EXISTS mail_in (id INTEGER PRIMARY KEY AUTOINCREMENT, ts INTEGER, da TEXT, oggetto TEXT, raw TEXT, esito TEXT)');
+    let r = { nome: '', stelle: 0, commento: '' };
+    if (/google\.com$/i.test(da) && !/forwarding-noreply/i.test(da)) { try { r = leggiRecensione(raw, oggetto); } catch (e) {} }
+    const ok = r.stelle >= 1 && r.stelle <= 5;
+    this.sql.exec('INSERT INTO mail_in (ts, da, oggetto, raw, esito) VALUES (?,?,?,?,?)', Date.now(), da, oggetto, raw.slice(0, 200000), ok ? 'recensione' : 'altro');
+    this.sql.exec('DELETE FROM mail_in WHERE id NOT IN (SELECT id FROM mail_in ORDER BY id DESC LIMIT 30)');      // si tengono solo le ultime, per controllo
+    if (!ok) return { recensione: false };
+    let h = 0; const k = r.nome + '|' + r.commento + '|' + new Date().toISOString().slice(0, 10); for (let i = 0; i < k.length; i++) h = (h * 31 + k.charCodeAt(i)) >>> 0;
+    B.gbpScrivi_([{ reviewId: 'mail-' + h.toString(36), starRating: ['', 'ONE', 'TWO', 'THREE', 'FOUR', 'FIVE'][r.stelle], comment: r.commento, createTime: new Date().toISOString() }]);
+    return { recensione: true };
+  }
   // controllo per l'amministratore: quali configurazioni vede il sistema (solo sì/no, mai i valori)
   stato() { const e = this.env, s = k => !!(e[k] && String(e[k]).trim()); return { google: s('GOOGLE_CLIENT_ID') && s('GOOGLE_CLIENT_SECRET'), gemini: s('GEMINI_API_KEY'), email: s('RESEND_API_KEY'), titolare: s('OWNER_EMAIL'), sito: e.SITO || '' }; }
   linkDi(email) {
@@ -176,6 +191,10 @@ export default {
     if (p === '/_stato') { if (!ammin(req, env)) return new Response('No', { status: 403 }); const s = k => !!(env[k] && String(env[k]).trim()); return json({ worker: { google: s('GOOGLE_CLIENT_ID') && s('GOOGLE_CLIENT_SECRET'), gemini: s('GEMINI_API_KEY') }, sistema: await stub(env).stato() }); }
     if (p === '/_link') { if (!ammin(req, env)) return new Response('No', { status: 403 }); return json({ link: await stub(env).linkDi(url.searchParams.get('email')) }); }
     return env.ASSETS.fetch(req);
+  },
+  async email(msg, env) {
+    const raw = await new Response(msg.raw).text(), r = await stub(env).emailRecensione(raw.slice(0, 1000000), msg.headers.get('subject') || '', msg.from || '');
+    if (!r || !r.recensione) { if (env.OWNER_EMAIL) await msg.forward(env.OWNER_EMAIL); }      // tutto il resto (es. conferma dell'inoltro di Gmail) arriva in Gmail
   },
   async scheduled(ev, env, ctx) { ctx.waitUntil(stub(env).programmati(ev.scheduledTime)); }
 };

@@ -1964,4 +1964,4 @@ async function apiRispondiGoogle_(riga, testo) {
   return {ok: true};
 }
 function gbpStato_() { let s = null; try { s = JSON.parse(PROP.getProperty('GBP-STATO') || 'null'); } catch (e) {} return {collegato: !!PROP.getProperty('GBP-RT'), stato: s}; }
-export { gbpSincronizza_, gbpStato_ };
+export { gbpSincronizza_, gbpStato_, gbpScrivi_ };
