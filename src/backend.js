@@ -578,7 +578,7 @@ const API = {
   apiLeggi: (...a) => apiLeggi_(...a), apiSalva: (...a) => apiSalva_(...a), apiElimina: (...a) => apiElimina_(...a), apiSposta: (...a) => apiSposta_(...a),
   apiPizze: (...a) => apiPizze_(...a), apiSettLeggi: (...a) => apiSettLeggi_(...a), apiSettPubblica: (...a) => apiSettPubblica_(...a),
   apiCaricaFoto: (...a) => apiCaricaFoto_(...a), apiImpostazione: (...a) => apiImpostazione_(...a), apiPersone: (...a) => apiPersone_(...a), apiPersonaSalva: (...a) => apiPersonaSalva_(...a), apiPersonaTogli: (...a) => apiPersonaTogli_(...a), apiPersonaLink: (...a) => apiPersonaLink_(...a), apiTutto: (...a) => apiTutto_(...a), apiControllaIA: (...a) => apiControllaIA_(...a), apiOpinioni: (...a) => apiOpinioni_(...a), apiOpinioneStato: (...a) => apiOpinioneStato_(...a),
-  apiEsporta: (...a) => apiEsporta_(...a), apiPren: (...a) => apiPren_(...a), apiPrenSalva: (...a) => apiPrenSalva_(...a), apiPrenStato: (...a) => apiPrenStato_(...a), apiPrenAvvisi: (...a) => apiPrenAvvisi_(...a), apiRegistro: (...a) => apiRegistro_(...a), apiRegistroGiorni: (...a) => apiRegistroGiorni_(...a), apiStato: (...a) => apiStato_(...a), apiControllaSettIA: (...a) => apiControllaSettIA_(...a), apiParoleOk: (...a) => apiParoleOk_(...a), apiPrenStoria: (...a) => apiPrenStoria_(...a), apiImpostaUrl: (...a) => apiImpostaUrl_(...a), apiPrenPeriodo: (...a) => apiPrenPeriodo_(...a)
+  apiEsporta: (...a) => apiEsporta_(...a), apiPren: (...a) => apiPren_(...a), apiPrenSalva: (...a) => apiPrenSalva_(...a), apiPrenStato: (...a) => apiPrenStato_(...a), apiPrenAvvisi: (...a) => apiPrenAvvisi_(...a), apiRegistro: (...a) => apiRegistro_(...a), apiRegistroGiorni: (...a) => apiRegistroGiorni_(...a), apiStato: (...a) => apiStato_(...a), apiControllaSettIA: (...a) => apiControllaSettIA_(...a), apiParoleOk: (...a) => apiParoleOk_(...a), apiPrenStoria: (...a) => apiPrenStoria_(...a), apiImpostaUrl: (...a) => apiImpostaUrl_(...a), apiPrenPeriodo: (...a) => apiPrenPeriodo_(...a), apiRispondiGoogle: (...a) => apiRispondiGoogle_(...a), apiSincronizzaGoogle: () => gbpSincronizza_()
 };
 // quale sezione serve per ogni operazione (null = basta essere nel pannello, 'G' = solo titolare o vice)
 const SEZ_DI = {piatti: 'piatti', categorie: 'piatti', eventi: 'eventi', avvisi: 'avvisi', vini: 'vini', bevande: 'bevande', faq: 'faq', prezzi: 'oggi', orari: 'orari', regole: 'orari'};
@@ -592,7 +592,7 @@ function permessoPer_(fn, a) {
     case 'apiPizze': return puo_('piatti') ? 'piatti' : puo_('avvisi') ? 'avvisi' : 'oggi';
     case 'apiCaricaFoto': return puo_('piatti') ? 'piatti' : 'avvisi';
     case 'apiImpostazione': return a[0] === 'Promemoria menù del giorno' ? 'oggi' : 'G';
-    case 'apiOpinioni': case 'apiOpinioneStato': case 'apiEsporta': return 'opinioni';
+    case 'apiOpinioni': case 'apiOpinioneStato': case 'apiEsporta': case 'apiRispondiGoogle': case 'apiSincronizzaGoogle': return 'opinioni';
     case 'apiPren': case 'apiPrenSalva': case 'apiPrenStato': case 'apiPrenPeriodo': return 'pren';
     case 'apiTutto': return null;
     default: return 'G';            // persone, WhatsApp, avvisi, registro: solo titolare e vice
@@ -655,8 +655,8 @@ function traduci_(t, da) { t = String(t || '').trim(); if (!t) return ''; try { 
 function apiOpinioni_() {
   const r = ruolo_() ? 'editor' : '';           // chi arriva qui ha il permesso «Opinioni»: può anche cambiarne lo stato
   const sh = foglioOpinioni_();
-  const n = sh.getLastRow(); if (n < 2) return {ruolo: r, righe: []};
-  const v = sh.getRange(2, 1, n - 1, 19).getDisplayValues();
+  const n = sh.getLastRow(); if (n < 2) return {ruolo: r, righe: [], google: gbpStato_()};
+  const v = sh.getRange(2, 1, n - 1, 21).getDisplayValues();
   // opinioni straniere ancora senza traduzione (arrivate prima di questa funzione): se ne traducono fino a 40 per volta
   let fatte = 0;
   v.forEach((x, i) => {
@@ -667,7 +667,7 @@ function apiOpinioni_() {
     x[16] = t[0]; x[17] = t[1]; x[18] = t[2]; fatte++;
   });
   if (!String(sh.getRange(1, 17).getDisplayValue())) try { sh.getRange(1, 17, 1, 3).setValues([['Piaciuto (italiano)', 'Da migliorare (italiano)', 'Vorrebbe (italiano)']]); } catch (e) {}
-  return {ruolo: r, righe: v.map((x, i) => [i + 2].concat(x)).filter(x => x[1])};
+  return {ruolo: r, righe: v.map((x, i) => [i + 2].concat(x)).filter(x => x[1]), google: gbpStato_()};
 }
 // stato di lavorazione e nota interna di un'opinione (colonne O e P)
 function apiOpinioneStato_(riga, stato, nota) {
@@ -1723,6 +1723,8 @@ function apiStato_() {
   ok(coda + pc.length < 20, 'Email in attesa di invio: ' + (coda + pc.length), 'Le email non stanno partendo: avvisa l’amministratore del sito.');
   ok(c('GEMINI_API_KEY'), 'IA attiva: traduzioni in inglese, tedesco e francese e controllo dei testi', 'Manca la chiave dell’IA: i piatti nuovi non vengono tradotti.');
   ok(c('GOOGLE_CLIENT_ID') && c('GOOGLE_CLIENT_SECRET'), 'Accesso al pannello con Google attivo', 'Accesso con Google non configurato: si entra solo con il link personale.');
+  const G = gbpStato_(), gs = G.stato || {};
+  ok(G.collegato && gs.ok, 'Recensioni Google nella dashboard Opinioni' + (gs.ok ? ' · ' + gs.n + ' recensioni' : ''), !G.collegato ? 'Non ancora collegate: in Opinioni tocca «Collega le recensioni Google» (serve l’approvazione di Google).' : (gs.err || 'In attesa del primo aggiornamento.'));
   ok(/^https:\/\//.test(sito_()), 'Indirizzo del sito: ' + sito_(), 'Correggi «Indirizzo del sito» qui sotto: i link nelle email ai clienti portano lì.');
   return out;
 }
@@ -1831,3 +1833,88 @@ function registroPulisci_() {
 function oraRoma(d) { const s = Utilities.formatDate(d, TZ, 'HH:mm'); return {h: +s.slice(0, 2), m: +s.slice(3)}; }
 function oraPulizia() { return prCfg_().oraPul; }
 export { prRecensioni_, oraRoma, oraPulizia, doGet, doPost, api, promemoria, copiaRiserva, prControlla, prInvia, prNotte, registroScarica_, FOGLI, RISERVA, persone_, salvaPersone_, mandaLink_, chiavi_, proprietario_, aggiornaFogli_, PROP };
+
+/* =========================== RECENSIONI GOOGLE → DASHBOARD OPINIONI =========================== */
+// Il titolare collega una volta la scheda Google (Configurazione o Opinioni → «Collega le recensioni Google»).
+// Ogni ora le recensioni vengono copiate nel foglio delle opinioni: la dashboard le mostra con voti, temi e stato.
+// Colonne in più: 20 = ID della recensione Google, 21 = risposta pubblicata su Google.
+const GBP_STELLE = {ONE: 1, TWO: 2, THREE: 3, FOUR: 4, FIVE: 5};
+async function gbpToken_() {
+  const rt = PROP.getProperty('GBP-RT'), env = AMB.env || {};
+  if (!rt) throw new Error('Recensioni Google non ancora collegate.');
+  const r = await fetch('https://oauth2.googleapis.com/token', {method: 'POST', headers: {'content-type': 'application/x-www-form-urlencoded'},
+    body: new URLSearchParams({client_id: env.GOOGLE_CLIENT_ID, client_secret: env.GOOGLE_CLIENT_SECRET, refresh_token: rt, grant_type: 'refresh_token'})});
+  const j = await r.json();
+  if (!r.ok || !j.access_token) throw new Error(j.error === 'invalid_grant' ? 'Il collegamento con Google è scaduto o è stato revocato: ricollega le recensioni.' : 'Google non ha dato l’accesso (' + (j.error || r.status) + ').');
+  return j.access_token;
+}
+async function gbpGet_(tok, url) {
+  const r = await fetch(url, {headers: {authorization: 'Bearer ' + tok}}), t = await r.text();
+  if (!r.ok) {
+    if (r.status === 429 || /quota|has not been used|disabled/i.test(t)) throw new Error('Google non ha ancora abilitato l’accesso alle recensioni per questo progetto (richiesta in attesa di approvazione).');
+    throw new Error('Google ha risposto con un errore (' + r.status + ').');
+  }
+  return JSON.parse(t || '{}');
+}
+async function gbpSincronizza_() {
+  if (!PROP.getProperty('GBP-RT')) return {ok: false, err: 'non collegato'};
+  const stato = x => { PROP.setProperty('GBP-STATO', JSON.stringify(Object.assign({quando: Date.now()}, x))); return x; };
+  try {
+    const tok = await gbpToken_();
+    let loc = PROP.getProperty('GBP-LOC');
+    if (!loc) {
+      const acc = ((await gbpGet_(tok, 'https://mybusinessaccountmanagement.googleapis.com/v1/accounts')).accounts || [])[0];
+      if (!acc) throw new Error('Questo account Google non gestisce nessuna scheda.');
+      const L = (await gbpGet_(tok, 'https://mybusinessbusinessinformation.googleapis.com/v1/' + acc.name + '/locations?readMask=name,title&pageSize=100')).locations || [];
+      const l = L.find(x => /oltreconfini/i.test(x.title || '')) || L[0];
+      if (!l) throw new Error('Nessuna scheda trovata in questo account Google.');
+      loc = acc.name + '/' + l.name; PROP.setProperty('GBP-LOC', loc);           // es. accounts/123/locations/456
+    }
+    const tutte = []; let pt = '';
+    for (let i = 0; i < 20; i++) {
+      const j = await gbpGet_(tok, 'https://mybusiness.googleapis.com/v4/' + loc + '/reviews?pageSize=50&orderBy=updateTime%20desc' + (pt ? '&pageToken=' + encodeURIComponent(pt) : ''));
+      (j.reviews || []).forEach(x => tutte.push(x)); pt = j.nextPageToken; if (!pt) break;
+    }
+    const n = conLock_(() => gbpScrivi_(tutte));
+    return stato({ok: true, n: tutte.length, nuove: n});
+  } catch (e) { return stato({ok: false, err: String(e.message || e).slice(0, 200)}); }
+}
+// aggiorna le righe già presenti (stesso ID) e aggiunge in fondo le nuove: le righe non cambiano posto
+function gbpScrivi_(rev) {
+  const sh = foglioOpinioni_();
+  if (String(sh.getRange(1, 20).getValue()) !== 'ID Google') sh.getRange(1, 20, 1, 2).setValues([['ID Google', 'Risposta su Google']]);
+  const n = sh.getLastRow(), v = n > 1 ? sh.getRange(2, 1, n - 1, 21).getValues() : [], pos = {};
+  v.forEach((r, i) => { if (r[19]) pos[r[19]] = i; });
+  const pulito = x => String(x || '').replace(/[\r\n]+/g, ' ').replace(/^[=+\-@]/, "'").trim().slice(0, 1500);
+  const nuove = [];
+  rev.slice().sort((a, b) => String(a.createTime).localeCompare(String(b.createTime))).forEach(x => {
+    const s = GBP_STELLE[x.starRating] || '', d = new Date(x.createTime || Date.now());
+    // Google a volte aggiunge la traduzione: «(Translated by Google) … (Original) …» → si tiene la parte in italiano se c'è
+    let c = String(x.comment || ''), orig = '';
+    const m = c.match(/\(Translated by Google\)\s*([\s\S]*?)\s*\(Original\)\s*([\s\S]*)$/); if (m) { c = m[1]; orig = m[2]; }
+    const riga = [Utilities.formatDate(d, TZ, 'dd/MM/yyyy'), Utilities.formatDate(d, TZ, 'HH:mm'), 'Google',
+      '', '', '', '', '', '', s, '', '', '', '', null, null, '', '', '', x.reviewId, pulito(x.reviewReply && x.reviewReply.comment)];
+    const testo = orig || c, col = s && s < 4 ? 1 : 0;                       // 4-5 stelle → «piaciuto», 1-3 → «da migliorare»
+    riga[10 + col] = pulito(testo); if (orig) riga[16 + col] = pulito(c);       // originale + traduzione italiana di Google
+    const i = pos[x.reviewId];
+    if (i === undefined) { riga[14] = x.reviewReply ? 'Risolta' : 'Nuova'; riga[15] = ''; nuove.push(riga); }
+    else { const vec = v[i]; riga[14] = vec[14] || 'Nuova'; riga[15] = vec[15] || ''; sh.getRange(i + 2, 1, 1, 21).setValues([riga]); }
+  });
+  if (nuove.length) sh.getRange(sh.getLastRow() + 1, 1, nuove.length, 21).setValues(nuove);
+  return nuove.length;
+}
+// risposta pubblica su Google, scritta dal pannello (testo vuoto = cancella la risposta)
+async function apiRispondiGoogle_(riga, testo) {
+  ammesso_();
+  const sh = foglioOpinioni_(), id = String(sh.getRange(+riga, 20).getValue() || '');
+  if (!id) throw new Error('Questa non è una recensione Google.');
+  testo = String(testo || '').trim().slice(0, 4000);
+  const tok = await gbpToken_(), url = 'https://mybusiness.googleapis.com/v4/' + PROP.getProperty('GBP-LOC') + '/reviews/' + encodeURIComponent(id) + '/reply';
+  const r = await fetch(url, {method: testo ? 'PUT' : 'DELETE', headers: {authorization: 'Bearer ' + tok, 'content-type': 'application/json'}, body: testo ? JSON.stringify({comment: testo}) : undefined});
+  if (!r.ok) throw new Error('Google non ha accettato la risposta (' + r.status + '): riprova tra poco.');
+  sh.getRange(+riga, 21).setValue(testo);
+  if (testo && String(sh.getRange(+riga, 15).getValue() || 'Nuova') === 'Nuova') sh.getRange(+riga, 15).setValue('Risolta');
+  return {ok: true};
+}
+function gbpStato_() { let s = null; try { s = JSON.parse(PROP.getProperty('GBP-STATO') || 'null'); } catch (e) {} return {collegato: !!PROP.getProperty('GBP-RT'), stato: s}; }
+export { gbpSincronizza_, gbpStato_ };

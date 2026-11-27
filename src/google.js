@@ -31,6 +31,14 @@ export function vaiAGoogle(req, env) {
   return new Response(null, { status: 302, headers: { location: 'https://accounts.google.com/o/oauth2/v2/auth?' + q, 'set-cookie': biscotto(STATO, stato, 600) } });
 }
 
+// recensioni: il titolare (o il vice) autorizza una volta il pannello a leggere e rispondere alle recensioni della scheda
+export function vaiAGoogleRecensioni(req, env) {
+  const url = new URL(req.url), stato = 'gbp' + casuale();
+  const q = new URLSearchParams({ client_id: env.GOOGLE_CLIENT_ID, redirect_uri: ritorno(url), response_type: 'code', scope: 'openid email https://www.googleapis.com/auth/business.manage',
+    state: stato, prompt: 'consent select_account', access_type: 'offline', include_granted_scopes: 'true' });
+  if (env.OWNER_EMAIL) q.set('login_hint', env.OWNER_EMAIL);
+  return new Response(null, { status: 302, headers: { location: 'https://accounts.google.com/o/oauth2/v2/auth?' + q, 'set-cookie': biscotto(STATO, stato, 600) } });
+}
 // 2. Google rimanda qui: si verifica chi è e si apre la sessione
 export async function daGoogle(req, env, ammesso) {
   const url = new URL(req.url), code = url.searchParams.get('code'), stato = url.searchParams.get('state');
@@ -39,6 +47,13 @@ export async function daGoogle(req, env, ammesso) {
     body: new URLSearchParams({ code, client_id: env.GOOGLE_CLIENT_ID, client_secret: env.GOOGLE_CLIENT_SECRET, redirect_uri: ritorno(url), grant_type: 'authorization_code' }) });
   if (!r.ok) return pagina('Google non ha confermato l’accesso: riprova.', true);
   const j = await r.json();
+  if (stato.startsWith('gbp')) {                     // collegamento delle recensioni: si conserva il permesso «a lungo termine»
+    if (!j.refresh_token) return pagina('Google non ha concesso l’accesso alle recensioni: riprova e accetta tutte le autorizzazioni.', true);
+    tabella(); AMB.sql.exec('INSERT OR REPLACE INTO prop (k, v) VALUES (?,?)', 'GBP-RT', j.refresh_token);
+    AMB.sql.exec('DELETE FROM prop WHERE k IN (?,?)', 'GBP-LOC', 'GBP-STATO');
+    const h = new Headers({ location: '/pannello?recensioni=collegate' }); h.append('set-cookie', biscotto(STATO, '', 0));
+    return new Response(null, { status: 302, headers: h });
+  }
   // il token arriva direttamente da Google su connessione sicura: basta controllarne i campi
   let d = {}; try { d = JSON.parse(atob(String(j.id_token).split('.')[1].replace(/-/g, '+').replace(/_/g, '/'))); } catch (e) {}
   const email = String(d.email || '').toLowerCase();

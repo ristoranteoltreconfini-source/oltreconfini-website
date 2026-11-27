@@ -5,7 +5,7 @@ import { AMB, preparaDb, CAMBIATI, DA_TRADURRE, importaFoglio, leggiFoglio, legg
 import * as B from './backend.js';
 import { ricalcolaAuto, traduciInCoda } from './auto.js';
 import { inviaPosta } from './posta.js';
-import { googleAttivo, vaiAGoogle, daGoogle, esci, utente, pagina } from './google.js';
+import { googleAttivo, vaiAGoogle, vaiAGoogleRecensioni, daGoogle, esci, utente, pagina } from './google.js';
 
 const SHIM = `<script>var google={script:{run:(function(){function R(ok,ko){this._ok=ok;this._ko=ko}
 R.prototype.withSuccessHandler=function(f){return new R(f,this._ko)};R.prototype.withFailureHandler=function(f){return new R(this._ok,f)};
@@ -59,7 +59,13 @@ export class Oltreconfini extends DurableObject {
       // accesso con Google
       const ammesso = e => B.persone_().some(x => x.email === e);
       if (p === '/pannello/accedi') return googleAttivo(this.env) ? vaiAGoogle(req, this.env) : pagina('Accesso con Google non ancora configurato: usa il link personale ricevuto per email.', true);
-      if (p === '/pannello/google') return await daGoogle(req, this.env, ammesso);
+      if (p === '/pannello/google') { const r = await daGoogle(req, this.env, ammesso); if (r.status === 302 && /recensioni=collegate/.test(r.headers.get('location') || '')) this.ctx.waitUntil(B.gbpSincronizza_()); return r; }
+      if (p === '/pannello/google-recensioni') {          // solo titolare o vice, già entrati nel pannello
+        const e = utente(req), k = url.searchParams.get('k') || '', ch = B.chiavi_(), em = e || Object.keys(ch).find(m => ch[m] === k), x = em ? B.persone_().find(y => y.email === em) : null;
+        if (!x || (x.ruolo !== 'admin' && x.ruolo !== 'vice')) return pagina('Solo il titolare o il vice possono collegare le recensioni Google: entra prima nel pannello.', true);
+        if (!googleAttivo(this.env)) return pagina('Accesso Google non configurato.', true);
+        return vaiAGoogleRecensioni(req, this.env);
+      }
       if (p === '/pannello/esci') return esci(req);
       if (p === '/pannello') {
         let k = url.searchParams.get('k') || '';
@@ -112,6 +118,7 @@ export class Oltreconfini extends DurableObject {
       if (ora.h === oraPul) { fai('prNotte', () => B.prNotte()); fai('cache', () => CacheService.getScriptCache().pulisci()); }
       if (ora.h === 3) fai('copiaRiserva', () => B.copiaRiserva());
     }
+    if (min === 7) { try { await B.gbpSincronizza_(); this._pronto(); } catch (e) { console.log('recensioni', e.message); } }   // recensioni Google, ogni ora
     fai('registro', () => B.registroScarica_());
     this._dopo();
   }
@@ -164,7 +171,7 @@ export default {
   async fetch(req, env) {
     const url = new URL(req.url), p = url.pathname;
     if (url.hostname === 'www.oltreconfini.it') { url.hostname = 'oltreconfini.it'; return Response.redirect(url.toString(), 301); }   // un solo indirizzo per Google
-    if (/^\/(dati\/d\/|foto\/|api$|pannello(\/[a-z]+)?$)/.test(p)) return stub(env).fetch(req);
+    if (/^\/(dati\/d\/|foto\/|api$|pannello(\/[a-z-]+)?$)/.test(p)) return stub(env).fetch(req);
     if (p === '/_importa' && req.method === 'POST') { if (!ammin(req, env)) return new Response('No', { status: 403 }); return json(await stub(env).importa(await req.json())); }
     if (p === '/_stato') { if (!ammin(req, env)) return new Response('No', { status: 403 }); const s = k => !!(env[k] && String(env[k]).trim()); return json({ worker: { google: s('GOOGLE_CLIENT_ID') && s('GOOGLE_CLIENT_SECRET'), gemini: s('GEMINI_API_KEY') }, sistema: await stub(env).stato() }); }
     if (p === '/_link') { if (!ammin(req, env)) return new Response('No', { status: 403 }); return json({ link: await stub(env).linkDi(url.searchParams.get('email')) }); }
