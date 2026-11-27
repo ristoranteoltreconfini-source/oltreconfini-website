@@ -1,8 +1,8 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   // Versione nuova (senza fogli Google). Nome diverso dal sito attuale «oltreconfini»,
-  // così si prova su oltreconfini-nuovo.<account>.workers.dev senza toccare quello pubblicato.
-  "name": "oltreconfini-nuovo",
+  // così si prova su oltreconfini-v2.<account>.workers.dev senza toccare quello pubblicato.
+  "name": "oltreconfini-v2",
   "main": "src/index.js",
   "compatibility_date": "2026-11-01",
   "assets": {
@@ -19,7 +19,7 @@
   // ogni minuto: email in coda, ritardi delle prenotazioni, promemoria, pulizia notturna, copie di riserva
   "triggers": { "crons": ["* * * * *"] },
   "vars": {
-    "SITO": "https://oltreconfini-nuovo.mannarino.workers.dev/",
+    "SITO": "https://oltreconfini-v2.mannarino.workers.dev/",
     "EMAIL_MITTENTE": "Oltreconfini <prenotazioni@oltreconfini.it>"
   },
   "observability": { "enabled": true }
