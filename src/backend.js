@@ -1313,7 +1313,8 @@ async function prPrenota_(d) {
   try { cache_().put(ora, String(quante + 1), 3700); } catch (e) {}
   if (em) prAvvisa_(b, iso, 'conferma'); const inviata = em ? true : 'no';
   if (g === now.g && cfg.avvisa) prAvvisaLocale_(iso, b, 'Nuova prenotazione dal sito');
-  if (cfg.copiaResp) prCoda_({c: 'resp', iso, id: b.id, t: 'nuova'});              // copia a titolare e vice (si spegne dal pannello)
+  if (cfg.copiaResp) prCoda_({c: 'resp', iso, id: b.id, t: 'nuova'});
+  (AMB.pushCoda = AMB.pushCoda || []).push({iso, h: labPr_(b.m), n, nm: String(nm).split(/\s+/)[0] + (String(nm).split(/\s+/)[1] ? ' ' + String(nm).split(/\s+/)[1][0] + '.' : '')});   // notifica sul telefono              // copia a titolare e vice (si spegne dal pannello)
   prStatisticaInc_(iso, 'sito');
   registra_('Nuova prenotazione dal sito', 'Prenotazioni', codPr_(b.id) + ' · ' + iso.split('-').reverse().join('/') + ' ' + labPr_(b.m) + ' · ' + n + ' persone', ['Cliente (sito)', '']);
   return {ok: true, d: iso, h: labPr_(b.m), n, code: b.id.slice(0, 6).toUpperCase(), mail: inviata};
@@ -1985,4 +1986,4 @@ async function apiRispondiGoogle_(riga, testo) {
   return {ok: true};
 }
 function gbpStato_() { let s = null; try { s = JSON.parse(PROP.getProperty('GBP-STATO') || 'null'); } catch (e) {} return {collegato: !!PROP.getProperty('GBP-RT'), stato: s}; }
-export { gbpSincronizza_, gbpStato_, gbpScrivi_ };
+export { gbpSincronizza_, gbpStato_, gbpScrivi_, puoP_, dataPr_, giornoPr_ };

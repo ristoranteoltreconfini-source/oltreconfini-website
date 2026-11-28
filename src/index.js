@@ -6,8 +6,21 @@ import * as B from './backend.js';
 import { ricalcolaAuto, traduciInCoda } from './auto.js';
 import { inviaPosta } from './posta.js';
 import { leggiRecensione } from './email-recensioni.js';
+import { chiaviVapid, iscrivi, invia } from './push.js';
 import { googleAttivo, vaiAGoogle, vaiAGoogleRecensioni, daGoogle, esci, utente, pagina } from './google.js';
 
+const PUSH = `<link rel="manifest" href="/manifest-pannello.json"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="theme-color" content="#0b121c"><script>
+(function(){if(!('serviceWorker' in navigator)||!('PushManager' in window)||!('Notification' in window))return;
+var b64=function(s){s=s.replace(/-/g,'+').replace(/_/g,'/');var r=atob(s+'==='.slice((s.length+3)%4)),u=new Uint8Array(r.length);for(var i=0;i<r.length;i++)u[i]=r.charCodeAt(i);return u};
+function bottone(){if(document.getElementById('pn-push'))return;var b=document.createElement('button');b.id='pn-push';b.type='button';b.textContent='🔔 Attiva le notifiche delle prenotazioni';
+ b.style.cssText='position:fixed;left:12px;right:12px;bottom:12px;z-index:9999;padding:14px;border:0;border-radius:10px;background:#c9ae7c;color:#0b121c;font:600 15px system-ui,sans-serif;box-shadow:0 6px 20px rgba(0,0,0,.3)';
+ b.onclick=function(){b.disabled=true;b.textContent='Un attimo…';Notification.requestPermission().then(function(p){if(p!=='granted')throw new Error('no');
+   return navigator.serviceWorker.register('/pannello-sw.js',{scope:'/'}).then(function(){return navigator.serviceWorker.ready}).then(function(r){return fetch('/pannello/push-chiave').then(function(x){return x.json()}).then(function(k){return r.pushManager.subscribe({userVisibleOnly:true,applicationServerKey:b64(k.pub)})})})
+  }).then(function(sub){return fetch('/pannello/push-iscrivi',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({k:window.CHIAVE,sub:sub.toJSON()})})}).then(function(){b.textContent='✓ Notifiche attive su questo telefono';setTimeout(function(){b.remove()},2500)})
+  .catch(function(){b.disabled=false;b.textContent=Notification.permission==='denied'?'Notifiche bloccate: attivale nelle impostazioni del telefono':'Non riuscito: riprova';setTimeout(function(){b.remove()},4000)})};
+ document.body.appendChild(b)}
+window.addEventListener('load',function(){if(Notification.permission==='denied')return;navigator.serviceWorker.getRegistration('/').then(function(r){return r?r.pushManager.getSubscription():null}).then(function(s){if(s){fetch('/pannello/push-iscrivi',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({k:window.CHIAVE,sub:s.toJSON()})});return}bottone()}).catch(function(){})});
+})();</script>`;
 const SHIM = `<script>var google={script:{run:(function(){function R(ok,ko){this._ok=ok;this._ko=ko}
 R.prototype.withSuccessHandler=function(f){return new R(f,this._ko)};R.prototype.withFailureHandler=function(f){return new R(this._ok,f)};
 R.prototype.api=function(k,fn,args){var s=this;fetch('/pannello/api',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({k:k,fn:fn,args:args||[]})})
@@ -29,6 +42,12 @@ export class Oltreconfini extends DurableObject {
     const fogli = [...CAMBIATI]; CAMBIATI.clear();
     if (fogli.length) ricalcolaAuto(fogli);
     CAMBIATI.clear();
+    const pc = AMB.pushCoda || []; AMB.pushCoda = [];
+    if (pc.length) this.ctx.waitUntil((async () => { try { this._pronto();
+      const em = B.persone_().filter(x => B.puoP_(x, 'pren')).map(x => x.email);
+      for (const p of pc) { const d = B.dataPr_(B.giornoPr_(p.iso), 'it');
+        await invia(em, { titolo: '🍽 Nuova prenotazione', testo: d.charAt(0).toUpperCase() + d.slice(1) + ' · ' + p.h + ' · ' + p.n + (p.n === 1 ? ' persona' : ' persone') + ' · ' + p.nm, url: '/pannello?t=pren', tag: 'pren-' + p.iso + p.h }, this.env.OWNER_EMAIL || 'info@oltreconfini.it'); }
+    } catch (e) { console.log('push', e.message); } })());
     const lavoro = (async () => {
       try { if (DA_TRADURRE.size) { await traduciInCoda(this.env); this._pronto(); if (fogli.length) { ricalcolaAuto(fogli); CAMBIATI.clear(); } } } catch (e) { console.log('traduzioni', e.message); }
       try { this._pronto(); await inviaPosta(this.env); } catch (e) { console.log('posta', e.message); }
@@ -74,8 +93,16 @@ export class Oltreconfini extends DurableObject {
         if (!k) return pagina(googleAttivo(this.env) ? '' : 'Usa il link personale ricevuto per email.', !googleAttivo(this.env));
         const out = B.doGet({ parameter: Object.assign(Object.fromEntries(url.searchParams), { k }) });
         this._dopo();
-        if (/html/.test(out.tipo)) out.testo = out.testo.replace('<head>', '<head><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="referrer" content="no-referrer"><title>Oltreconfini · Pannello</title>' + SHIM);
+        if (/html/.test(out.tipo)) out.testo = out.testo.replace('<head>', '<head><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="referrer" content="no-referrer"><title>Oltreconfini · Pannello</title>' + PUSH + SHIM);
         return risposta(out, { 'cache-control': 'no-store', 'x-robots-tag': 'noindex', 'referrer-policy': 'no-referrer' }, k ? 200 : 403);
+      }
+      // notifiche sul telefono: chiave pubblica e iscrizione del dispositivo (solo chi è nel pannello)
+      if (p === '/pannello/push-chiave') return json({ pub: (await chiaviVapid()).pub });
+      if (p === '/pannello/push-iscrivi' && req.method === 'POST') {
+        let j = {}; try { j = JSON.parse(await req.text()); } catch (e) {}
+        this._pronto(); const ch = B.chiavi_(), em = Object.keys(ch).find(m => ch[m] === j.k);
+        if (!em || !j.sub || !/^https:\/\//.test(j.sub.endpoint || '') || !j.sub.keys) return json({ ok: false }, 403);
+        iscrivi(em, j.sub); return json({ ok: true });
       }
       if (p === '/pannello/api' && req.method === 'POST') {
         let j; try { j = JSON.parse(await req.text()); } catch (e) { return json({ ok: false, err: 'Richiesta non valida.' }, 400); }
