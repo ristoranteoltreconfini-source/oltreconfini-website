@@ -1197,9 +1197,15 @@ function prAvvisaLocaleOra_(iso, b, cosa) {
   try {
     let a = []; try { a = JSON.parse(PROP.getProperty('PR-AVVISI') || '[]'); } catch (e) {}
     if (!a.length) a = editori_().filter(x => x.promemoria).map(x => x.email);      // nessun indirizzo scelto: chi ha il promemoria
+    const cfg = prCfg_();
+    // niente doppione: titolare e vice ricevono già la copia completa di ogni nuova prenotazione dal sito
+    if (cfg.copiaResp && /^nuova prenotazione dal sito/i.test(cosa)) { const R = persone_().filter(x => x.ruolo === 'admin' || x.ruolo === 'vice').map(x => x.email).concat([proprietario_()]); a = a.filter(m => R.indexOf(String(m).toLowerCase()) < 0); }
     if (!a.length) return;
-    MailApp.sendEmail({to: a.join(','), subject: 'Prenotazioni · ' + cosa + ' per oggi alle ' + labPr_(b.m),
-      htmlBody: '<p>' + esc(cosa) + ': oggi alle <b>' + labPr_(b.m) + '</b>, ' + b.n + ' persone.</p><p>I dettagli sono nel pannello, sezione Prenotazioni.</p><p style="color:#888;font-size:12px">' + PR_MARCA + '</p>'});
+    const ora = labPr_(b.m), pers = b.n + (b.n === 1 ? ' persona' : ' persone');
+    const html = mailLayout_(cfg, {titolo: cosa + ' per oggi', anteprima: 'Oggi alle ' + ora + ' · ' + pers, testo: 'I dettagli (nome, telefono, note) sono nel pannello, sezione Prenotazioni.',
+      box: ['Oggi', 'alle ' + ora + ' · ' + pers], bottone: [sito_() + 'pannello', 'Apri le prenotazioni'],
+      priv: 'Avviso interno per il personale, senza dati del cliente. Si spegne dal pannello: Configurazione → Prenotazioni → Avvisi al locale.'});
+    MailApp.sendEmail({to: a.join(','), subject: 'Prenotazioni · ' + cosa + ' per oggi alle ' + ora, htmlBody: html, name: cfg.nomeLoc});
   } catch (e) {}
 }
 
